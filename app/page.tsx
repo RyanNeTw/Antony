@@ -1,101 +1,151 @@
-import Image from "next/image";
+// pages/index.js
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+    <div className="flex justify-center items-center min-h-screen bg-gray-100">
+      <div className="max-w-4xl w-full bg-white shadow-md rounded-lg p-6">
+        <h1 className="text-2xl font-semibold text-gray-700 mb-2">
+          Formulaire de signalement
+        </h1>
+        <p className="text-sm text-gray-500 mb-6">
+          Dernière modification le 28/11/2024
+        </p>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
+        <form id="feedbackForm" className="space-y-6">
+          {/* Section Prénom et Nom */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div>
+              <label htmlFor="prenom" className="block text-gray-700 font-medium mb-1">
+                Prénom
+              </label>
+              <input
+                type="text"
+                id="prenom"
+                name="prenom"
+                placeholder="Amélia"
+                className="w-full px-4 py-2 border rounded-md focus:ring-2 focus:ring-indigo-500 focus:outline-none"
+              />
+            </div>
+            <div>
+              <label htmlFor="nom" className="block text-gray-700 font-medium mb-1">
+                Nom
+              </label>
+              <input
+                type="text"
+                id="nom"
+                name="nom"
+                placeholder="Dupont"
+                className="w-full px-4 py-2 border rounded-md focus:ring-2 focus:ring-indigo-500 focus:outline-none"
+              />
+            </div>
+          </div>
+
+          {/* Section E-mail */}
+          <div>
+            <label htmlFor="email" className="block text-gray-700 font-medium mb-1">
+              Adresse E-mail
+            </label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="amelia.dupont@yahoo.com"
+              className="w-full px-4 py-2 border rounded-md focus:ring-2 focus:ring-indigo-500 focus:outline-none"
             />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+          </div>
+
+          {/* Section Habitant */}
+          <div className="flex items-center space-x-3">
+            <input
+              type="checkbox"
+              id="habitant"
+              name="habitant"
+              className="w-5 h-5 text-indigo-500 border-gray-300 rounded focus:ring-indigo-500"
+            />
+            <label htmlFor="habitant" className="text-gray-700 font-medium">
+              Habitant
+            </label>
+          </div>
+
+          {/* Section Signalement */}
+          <div>
+            <label htmlFor="signalement" className="block text-gray-700 font-medium mb-1">
+              Signalement
+            </label>
+            <textarea
+              id="signalement"
+              name="signalement"
+              placeholder="Écrivez votre signalement ici..."
+              className="w-full px-4 py-2 border rounded-md focus:ring-2 focus:ring-indigo-500 focus:outline-none"
+            ></textarea>
+          </div>
+
+          {/* Section Pièces Jointes */}
+          <div className="file-upload">
+            <label className="block text-gray-700 font-medium mb-2">
+              Pièces Jointes
+            </label>
+            <label
+              htmlFor="file"
+              className="cursor-pointer bg-indigo-600 text-white px-4 py-2 rounded-md hover:bg-indigo-500"
+            >
+              Sélectionner
+            </label>
+            <input type="file" id="file" name="file" className="hidden" />
+          </div>
+
+          {/* Section Adresse */}
+          <div className="space-y-4">
+            <label className="block text-gray-700 font-medium">Emplacement</label>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <input
+                type="text"
+                placeholder="N°"
+                className="w-full px-4 py-2 border rounded-md focus:ring-2 focus:ring-indigo-500 focus:outline-none"
+              />
+              <input
+                type="text"
+                placeholder="Rue"
+                className="w-full px-4 py-2 border rounded-md focus:ring-2 focus:ring-indigo-500 focus:outline-none"
+              />
+            </div>
+            <input
+              type="text"
+              placeholder="Complément d'adresse 1"
+              className="w-full px-4 py-2 border rounded-md focus:ring-2 focus:ring-indigo-500 focus:outline-none"
+            />
+            <input
+              type="text"
+              placeholder="Complément d'adresse 2"
+              className="w-full px-4 py-2 border rounded-md focus:ring-2 focus:ring-indigo-500 focus:outline-none"
+            />
+            <input
+              type="text"
+              value="92160 Antony"
+              disabled
+              className="w-full px-4 py-2 border bg-gray-100 rounded-md"
+            />
+          </div>
+
+          {/* Section Carte */}
+          <div className="map-container border rounded-md overflow-hidden">
+            <iframe
+              src="https://www.google.com/maps?q=Antony&output=embed"
+              className="w-full h-40"
+            ></iframe>
+          </div>
+
+          {/* Bouton de soumission */}
+          <div>
+            <button
+              type="submit"
+              className="w-full bg-green-600 text-white py-3 rounded-md text-lg font-medium hover:bg-green-500 focus:ring-4 focus:ring-green-300"
+            >
+              Soumettre
+            </button>
+          </div>
+        </form>
+      </div>
     </div>
   );
 }
