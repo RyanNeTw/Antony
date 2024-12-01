@@ -15,8 +15,7 @@ create table users (
     firstname text not null,
     lastname text not null,
     email text not null,
-    is_habitant boolean not null default false,
-    report_id uuid references reports_ai (id) on delete cascade not null 
+    is_habitant boolean not null default false
 )
 
 
@@ -32,7 +31,8 @@ create table reports (
     street_2 text,
     report text not null,
     user_id uuid references users (id) on delete cascade not null,
-    report_ai_id uuid references reports_ai (id) on delete cascade not null
+    report_ai_id uuid references reports_ai (id) on delete cascade not null,
+    date date not null (now())
 )
 
 /* Create Reports_Ai Table */
