@@ -1,7 +1,11 @@
 import type { NextConfig } from 'next'
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  reactStrictMode: true,
+  swcMinify: true,
+  experimental: {
+    scrollRestoration: true, // Optionnel, améliore le comportement pour le rechargement
+  },
 }
 
-export default nextConfig
+module.exports = nextConfig;
