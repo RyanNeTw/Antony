@@ -1,9 +1,9 @@
-"use client";
+"use client"
 
-import { useRouter } from 'next/navigation';
+import { useRouter } from "next/navigation"
 
 export default async function Page() {
-  const router = useRouter();
+  const router = useRouter()
 
-  return router.replace('/main');
+  return router.replace("/main")
 }
