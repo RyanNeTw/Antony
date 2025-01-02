@@ -1,5 +1,4 @@
 import supabase from "../supabase"
-import { UserType } from "../types"
 
 type IProps = {
   street: string

@@ -30,7 +30,7 @@ export type OpenAiType = {
   status: ReportStatus
 }
 
-interface ValidationResult {
+export type ValidationResult = {
   isValid: boolean
   errors: string[]
   data?: ReportType

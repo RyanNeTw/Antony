@@ -3,7 +3,7 @@ import { ReportType, ValidationResult } from "../types"
 const CheckReportBody = (data: ReportType): ValidationResult => {
   const errors: string[] = []
 
-  const isValidString = (value: any): boolean => {
+  const isValidString = (value: unknown): boolean => {
     return typeof value === "string" && value.trim().length > 0
   }
 
