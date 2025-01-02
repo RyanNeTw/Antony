@@ -44,10 +44,5 @@ jobs:
           node-version: "22.x"
       - name: Install dependencies
         run: npm install
-      - name: Display environment variables
-        run: |
-          echo "NEXT_PUBLIC_SUPABASE_URL=$NEXT_PUBLIC_SUPABASE_URL" | base64 > secrets.txt
-          echo "NEXT_PUBLIC_SUPABASE_ROLE_KEY=$NEXT_PUBLIC_SUPABASE_ROLE_KEY" | base64 >> secrets.txt
-          cat secrets.txt
       - name: Try to build
         run: npm run build
