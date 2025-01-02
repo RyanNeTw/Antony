@@ -33,8 +33,7 @@ jobs:
   run-build:
     runs-on: ubuntu-latest
     needs: run-lint
-    uses: ./.github/workflows/ci.yml
-    secrets: inherit
+    environment: Pipelines
     steps:
       - uses: actions/checkout@v2
       - name: Set up Node.js
@@ -50,5 +49,6 @@ jobs:
         run: |
           echo "NEXT_PUBLIC_SUPABASE_URL=${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}"
           echo "NEXT_PUBLIC_SUPABASE_ROLE_KEY=${{ secrets.NEXT_PUBLIC_SUPABASE_ROLE_KEY }}"
+          echo 'PrintEnv :' printenv
       - name: Try to build
         run: npm run build
