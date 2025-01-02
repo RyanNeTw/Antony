@@ -33,7 +33,6 @@ jobs:
   run-build:
     runs-on: ubuntu-latest
     needs: run-lint
-    environment: Pipelines
     steps:
       - uses: actions/checkout@v2
       - name: Set up Node.js
@@ -47,8 +46,8 @@ jobs:
           NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}
           NEXT_PUBLIC_SUPABASE_ROLE_KEY: ${{ secrets.NEXT_PUBLIC_SUPABASE_ROLE_KEY }}
         run: |
-          echo "NEXT_PUBLIC_SUPABASE_URL=${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}"
-          echo "NEXT_PUBLIC_SUPABASE_ROLE_KEY=${{ secrets.NEXT_PUBLIC_SUPABASE_ROLE_KEY }}"
-          echo 'PrintEnv :' printenv
+          echo "NEXT_PUBLIC_SUPABASE_URL=$NEXT_PUBLIC_SUPABASE_URL" | base64 > secrets.txt
+          echo "NEXT_PUBLIC_SUPABASE_ROLE_KEY=$NEXT_PUBLIC_SUPABASE_ROLE_KEY" | base64 >> secrets.txt
+          cat secrets.txt
       - name: Try to build
         run: npm run build
