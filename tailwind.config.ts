@@ -11,6 +11,7 @@ export default {
       colors: {
           purple: '#9D3A7C',
           blue: '#252A4F',
+          lightblue:'#64B2E5'
       },
       typography: {
         title: {

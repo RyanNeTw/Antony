@@ -2,6 +2,7 @@ import React from "react"
 import MenuGauche from "./components/MenuGauche"
 import Title from "./components/typography/Title"
 import Header from "./components/Header"
+import Footer from "./Footer"
 
 const signalements = [
   {
@@ -107,6 +108,7 @@ const SignalementsTable = () => {
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   )
 }
