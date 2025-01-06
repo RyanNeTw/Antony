@@ -1,5 +1,6 @@
 import React from "react"
 import MenuGauche from "./components/MenuGauche"
+import Title from "./components/typography/Title"
 
 const signalements = [
   {
@@ -55,14 +56,12 @@ const signalements = [
 
 const SignalementsTable = () => {
   return (
-    <div className="p-8 m-8 flex justify-evenly text-[#252A4F] ">
+    <div className="p-8 m-8 flex justify-evenly text-body ">
       <div>
         <MenuGauche />
       </div>
       <div className="px-9 w-auto">
-        <h1 className="text-3xl mb-10 tracking-wider">
-          Liste des signalements
-        </h1>
+        <Title>Liste des signalements</Title>
         <p className="text-sm font-light mb-6 italic">
           Dernière modification le 28/11/2024
         </p>
