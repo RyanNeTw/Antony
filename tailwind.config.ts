@@ -33,6 +33,17 @@ export default {
           DEFAULT: "text-base text-gray-600",
         },
       },
+      typography: {
+        title: {
+          DEFAULT: 'text-4xl mb-10 tracking-wider',
+        },
+        subtitle: {
+          DEFAULT: 'text-purple mb-4 text-3xl',
+        },
+        body: {
+          DEFAULT: 'text-base text-gray-600',
+        },
+      }
     },
   },
   plugins: [],
