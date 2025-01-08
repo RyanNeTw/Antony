@@ -1,9 +1,10 @@
 "use client"
 
-import MainPage from "./(web-pages)/main/page"
+// import MainPage from "./(web-pages)/main/page"
+import SignalementPage from "./(web-pages)/signalements/page"
 
 const Page = () => {
-  return <MainPage />
+  return <SignalementPage />
 }
 
 export default Page
