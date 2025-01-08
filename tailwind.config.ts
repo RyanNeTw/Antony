@@ -13,6 +13,9 @@ export default {
         blue: "#252A4F",
         lightblue: "#64B2E5",
       },
+      padding: {
+        page: "8rem",
+      },
       typography: {
         title: {
           DEFAULT: "text-4xl mb-10 tracking-wider",

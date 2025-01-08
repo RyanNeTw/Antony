@@ -10,6 +10,41 @@ const links = [
   "Offres d'emploi",
 ]
 
+const headerLinks = [
+  {
+    color: "#9FBD3C",
+    text: "Découvrir Antony",
+  },
+  {
+    color: "#6AB657",
+    text: "Signalement",
+  },
+  {
+    color: "#76B0E0",
+    text: "Cadre de vie",
+  },
+  {
+    color: "#513887",
+    text: "Solidarité et Santé",
+  },
+  {
+    color: "#AA2F7F",
+    text: "Culture, sport et loisir",
+  },
+  {
+    color: "#AB2347",
+    text: "Famille",
+  },
+  {
+    color: "#AB2347",
+    text: "Agenda",
+  },
+  {
+    color: "#AB2347",
+    text: "suivez-nous",
+  },
+]
+
 const Header = () => {
   return (
     <header className="bg-white shadow">
@@ -82,135 +117,16 @@ const Header = () => {
               </div>
             </a>
 
-            <div className="flex items-center justify-center">
-              <Image
-                src="/pipe.png"
-                alt="pipe"
-                width={2}
-                height={2}
-                style={{}}
-                className="h-auto"
-              />
-            </div>
-
-            <a
-              href="#"
-              className="flex items-center justify-center px-4 py-2 text-gray-700 hover:text-white hover:bg-[#9FBD3C] font-bold  border-b-4 border-[#9FBD3C]"
-            >
-              Découvrir Antony
-            </a>
-            <div className="flex items-center justify-center">
-              <Image
-                src="/pipe.png"
-                alt="pipe"
-                width={2}
-                height={2}
-                style={{}}
-                className="h-auto"
-              />
-            </div>
-            <a
-              href="#"
-              className="flex items-center justify-center px-4 py-2  text-gray-700 hover:text-white hover:bg-[#6AB657] font-bold border-b-4  border-[#6AB657]"
-            >
-              Signalement
-            </a>
-            <div className="flex items-center justify-center">
-              <Image
-                src="/pipe.png"
-                alt="pipe"
-                width={2}
-                height={2}
-                style={{}}
-                className="h-auto"
-              />
-            </div>
-            <a
-              href="#"
-              className="flex items-center justify-center px-4 py-2 text-gray-700 hover:text-white hover:bg-[#76B0E0] font-bold  border-b-4  border-[#76B0E0]"
-            >
-              Cadre de vie
-            </a>
-            <div className="flex items-center justify-center">
-              <Image
-                src="/pipe.png"
-                alt="pipe"
-                width={2}
-                height={2}
-                style={{}}
-                className="h-auto"
-              />
-            </div>
-            <a
-              href="#"
-              className="flex items-center justify-center px-4 py-2 text-gray-700 hover:text-white hover:bg-[#513887] font-bold border-b-4  border-[#513887]"
-            >
-              Solidarité et Santé
-            </a>
-            <div className="flex items-center justify-center">
-              <Image
-                src="/pipe.png"
-                alt="pipe"
-                width={2}
-                height={2}
-                style={{}}
-                className="h-auto"
-              />
-            </div>
-            <a
-              href="#"
-              className="flex items-center justify-center px-4 py-2 text-gray-700 hover:text-white hover:bg-[#AA2F7F] font-bold border-b-4 border-[#AA2F7F]"
-            >
-              Culture, sport et loisir
-            </a>
-            <div className="flex items-center justify-center">
-              <Image
-                src="/pipe.png"
-                alt="pipe"
-                width={2}
-                height={2}
-                style={{}}
-                className="h-auto"
-              />
-            </div>
-            <a
-              href="#"
-              className="flex items-center justify-center px-4 py-2 text-gray-700 hover:text-white hover:bg-[#AB2347] font-bold border-b-4 border-[#AB2347]"
-            >
-              Famille
-            </a>
-            <div className="flex items-center justify-center">
-              <Image
-                src="/pipe.png"
-                alt="pipe"
-                width={2}
-                height={2}
-                style={{}}
-                className="h-auto"
-              />
-            </div>
-            <a
-              href="#"
-              className="flex items-center justify-center px-4 py-2 text-gray-700 hover:text-white hover:bg-orange-500 font-bold border-b-2 border-gray-200 hover:border-orange-500"
-            >
-              Agenda
-            </a>
-            <div className="flex items-center justify-center">
-              <Image
-                src="/pipe.png"
-                alt="pipe"
-                width={2}
-                height={2}
-                style={{}}
-                className="h-auto"
-              />
-            </div>
-            <a
-              href="#"
-              className="flex items-center justify-center px-4 py-2 text-gray-700 hover:text-white hover:bg-teal-500 font-bold border-b-2 border-gray-200 hover:border-teal-500"
-            >
-              Suivez-nous
-            </a>
+            {headerLinks.map((i, index) => (
+              <a
+                key={index}
+                href="#"
+                className={`relative flex items-center justify-center px-4 py-2 text-gray-700 hover:text-white hover:bg-[${i.color}] font-bold  border-b-4 border-[${i.color}]`}
+              >
+                {i.text}
+                <div className="absolute top-1/2 left-0 -translate-x-1/2 -translate-y-1/2 bg-gray-300 w-0.5 h-1/2 rounded-md"></div>
+              </a>
+            ))}
           </nav>
         </div>
       </div>

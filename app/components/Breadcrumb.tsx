@@ -24,20 +24,18 @@ const Breadcrumb = () => {
   }
 
   return (
-    <>
-      <ul className="flex flex-row gap-1">
-        {paths?.map((path, index) => (
-          <li key={index} className="hover:underline">
-            <Link href={getLink(index)}>
-              <Paragraph
-                text={"> " + getCleanPath(path)}
-                addStyle={`${index === paths?.length && "font-bold"}`}
-              />
-            </Link>
-          </li>
-        ))}
-      </ul>
-    </>
+    <ul className="flex flex-row gap-1 px-page py-4">
+      {paths?.map((path, index) => (
+        <li key={index} className="hover:underline">
+          <Link href={getLink(index)}>
+            <Paragraph
+              text={"> " + getCleanPath(path)}
+              addStyle={`${index === paths?.length - 1 && "font-bold"} capitalize`}
+            />
+          </Link>
+        </li>
+      ))}
+    </ul>
   )
 }
 
