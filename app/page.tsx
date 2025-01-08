@@ -1,11 +1,9 @@
 "use client"
 
-import { useRouter } from "next/navigation"
+import MainPage from "./(web-pages)/main/page"
 
 const Page = () => {
-  const router = useRouter()
-
-  return router.replace("/main")
+  return <MainPage />
 }
 
 export default Page
