@@ -9,21 +9,21 @@ export default {
   theme: {
     extend: {
       colors: {
-          purple: '#9D3A7C',
-          blue: '#252A4F',
-          lightblue:'#64B2E5'
+        purple: "#9D3A7C",
+        blue: "#252A4F",
+        lightblue: "#64B2E5",
       },
       typography: {
         title: {
-          DEFAULT: 'text-4xl mb-10 tracking-wider',
+          DEFAULT: "text-4xl mb-10 tracking-wider",
         },
         subtitle: {
-          DEFAULT: 'text-purple mb-4 text-3xl',
+          DEFAULT: "text-purple mb-4 text-3xl",
         },
         body: {
-          DEFAULT: 'text-base text-gray-600',
+          DEFAULT: "text-base text-gray-600",
         },
-      }
+      },
     },
   },
   plugins: [],

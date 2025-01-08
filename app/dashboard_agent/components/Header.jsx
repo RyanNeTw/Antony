@@ -43,9 +43,8 @@ const Header = () => {
                     {link}
                   </a>
                   <div className="mx-5">
-                      <Image src="/pipe.png" alt="pipe" width={2} height={2} />
-                    </div>
-
+                    <Image src="/pipe.png" alt="pipe" width={2} height={2} />
+                  </div>
                 </li>
               ))}
             </ul>
@@ -67,20 +66,20 @@ const Header = () => {
         <div className="flex items-center justify-center px-4 align-middle">
           {/* Menu inférieur */}
           <nav className="flex justify-center h-20 align-bottom font-extrabold">
-          <a
+            <a
               href="#"
               className="flex items-center justify-center px-4 py-2 text-gray-700 hover:text-white bg-white font-medium border-t-4 border-[#242B52]"
             >
-            <div className="flex items-center justify-center z-20">
-              <Image
-                src="/icone-maison.png"
-                alt="home"
-                width={24}
-                height={24}
-                style={{}}
-                className="h-auto"
-              />
-            </div>
+              <div className="flex items-center justify-center z-20">
+                <Image
+                  src="/icone-maison.png"
+                  alt="home"
+                  width={24}
+                  height={24}
+                  style={{}}
+                  className="h-auto"
+                />
+              </div>
             </a>
 
             <div className="flex items-center justify-center">

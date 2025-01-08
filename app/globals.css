@@ -20,7 +20,6 @@ body {
   font-family: Inter, Helvetica, sans-serif;
 } */
 
-
 /* global.css */
 .title {
   @apply text-4xl mb-10 tracking-wider;
@@ -34,12 +33,11 @@ body {
   @apply text-base text-gray-600;
 }
 
-.custom-marker::before{
-  content: '🌟';
+.custom-marker::before {
+  content: "🌟";
   display: inline-block;
   position: absolute;
   margin-right: 0.5rem;
   top: 0;
   left: 0;
-
 }
