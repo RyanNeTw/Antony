@@ -43,8 +43,8 @@ function Form() {
                 <input className="w-full h-[35px] py-[10px] px-[14px] text-xs bg-[#F2F2F2] italic" type="text" id="prenom" placeholder="Complément d'adresse 1"/>
                 <input className="w-full h-[35px] py-[10px] px-[14px] text-xs bg-[#F2F2F2] italic" type="text" id="prenom" placeholder="Complément d'adresse 2"/>
                 <div className='flex justify-between'>
-                <input className="w-[65px] h-[35px] py-[10px] px-[14px] text-xs bg-[#F2F2F2] italic" type="text" id="prenom" placeholder="dezdez"/>
-                <input className="w-[209px] h-[35px] py-[10px] px-[14px] text-xs bg-[#F2F2F2] italic" type="text" id="prenom" placeholder="dezdez"/>
+                <input className="w-[65px] h-[35px] py-[10px] px-[14px] text-xs bg-[#F2F2F2] italic" type="text" id="prenom" placeholder="92160"/>
+                <input className="w-[209px] h-[35px] py-[10px] px-[14px] text-xs bg-[#F2F2F2] italic" type="text" id="prenom" placeholder="Antony"/>
                 </div>
               </div>
               <div className='border w-[310px] h-[170px]'>
