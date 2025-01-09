@@ -1,8 +1,7 @@
 import React from "react"
-import UrgentForm from "@/app/ui/signalements/urgentForm"
 
 function MainPage() {
-  return <div><UrgentForm/></div>
+  return <div>page</div>
 }
 
 export default MainPage
