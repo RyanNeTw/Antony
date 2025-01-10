@@ -123,7 +123,9 @@ function Form() {
                   />
                 </div>
               </div>
-              <div className="flex justify-center items-center w-[310px] h-[170px] text-blue font-extralight text-xs">intégrer la map</div>
+              <div className="flex justify-center items-center w-[310px] h-[170px] text-blue font-extralight text-xs">
+                intégrer la map
+              </div>
             </div>
           </div>
         </form>
