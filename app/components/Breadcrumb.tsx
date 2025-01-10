@@ -20,17 +20,17 @@ const Breadcrumb = () => {
 
   const getCleanPath = (path: string): string => {
     if (!path) return "Acceuil"
-    return path.replaceAll("-", " ")
+    return path.replaceAll("-", " ").replaceAll("_", " ")
   }
 
   return (
     <ul className="flex flex-row gap-1 px-page py-4">
       {paths?.map((path, index) => (
-        <li key={index} className="hover:underline">
+        <li key={index}>
           <Link href={getLink(index)}>
             <Paragraph
               text={"> " + getCleanPath(path)}
-              addStyle={`${index === paths?.length - 1 && "font-bold"} capitalize`}
+              addStyle={`${index === paths?.length - 1 && "font-bold"} capitalize hover:underline`}
             />
           </Link>
         </li>
