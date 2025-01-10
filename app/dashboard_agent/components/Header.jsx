@@ -10,16 +10,56 @@ const links = [
   "Offres d'emploi",
 ]
 
+const headerLinks = [
+  {
+    color: "hover:bg-lightblue border-lightblue",
+    text: "Découvrir Antony",
+  },
+  {
+    color: "hover:bg-burgundy border-burgundy",
+    text: "Signalement",
+  },
+  {
+    color: "hover:bg-green border-green",
+    text: "Cadre de vie",
+  },
+  {
+    color: "hover:bg-burgundy border-burgundy",
+    text: "Solidarité et Santé",
+  },
+  {
+    color: "hover:bg-primary border-primary",
+    text: "Culture, sport et loisir",
+  },
+  {
+    color: "hover:bg-warning border-warning",
+    text: "Famille",
+  },
+  {
+    color: "hover:bg-burgundy border-burgundy",
+    text: "Agenda",
+  },
+  {
+    color: "hover:bg-green border-green",
+    text: "suivez-nous",
+  },
+]
+
+const getLinkClasses = (color) => {
+  return `relative flex items-center justify-center px-4 py-2 text-gray-700 
+  hover:text-white transition-colors duration-200 
+  font-bold border-b-4 ${color}`
+}
+
 const Header = () => {
   return (
     <header className="bg-white shadow">
-      {/* Section supérieure */}
       <div className="flex items-center justify-between px-4 py-2">
         {/* Logo et texte */}
         {/* <div className="relative"> */}
         <div
-          className="absolute"
-          style={{ left: "400px", top: "0px", zIndex: 10 }}
+          className="absolute max-xl:hidden"
+          style={{ left: "10%", top: "0px", zIndex: 10 }}
         >
           <Image
             src="/logo-banner.png"
@@ -29,42 +69,36 @@ const Header = () => {
             className="h-auto"
           />
         </div>
-        {/* </div> */}
-        {/* Menu supérieur */}
         <div className="flex justify-end w-full text-[#252B4F]">
           <nav className="py-4">
-            <ul className="flex items-center space-x-4 text-blue-900">
+            <div className="flex items-center space-x-4 text-blue-900">
               {links.map((link, index) => (
-                <li
+                <a
+                  href="#"
+                  className="relative hover:text-sky-500 font-normal px-4 py-2"
                   key={index}
-                  className="relative flex items-center thin font-normal text-sm"
                 >
-                  <a href="#" className=" hover:text-sky-500 font-normal">
-                    {link}
-                  </a>
-                  <div className="mx-5">
-                    <Image src="/pipe.png" alt="pipe" width={2} height={2} />
-                  </div>
-                </li>
+                  {link}
+                  {index != 0 && (
+                    <div className="absolute top-1/2 left-0 -translate-x-1/2 -translate-y-1/2 bg-gray-300 w-0.5 h-1/2 rounded-md"></div>
+                  )}
+                </a>
               ))}
-            </ul>
+            </div>
           </nav>
         </div>
       </div>
 
       <div className="relative w-full h-56">
         <Image
-          src="/banniere.png"
+          src="/banner.png"
           alt="Logo Ville Antony"
-          layout="fill" // Remplit toute la zone parent
-          objectFit="cover" // S'adapte en couvrant toute la zone
+          layout="fill"
+          objectFit="cover"
         />
       </div>
-
-      {/* Section inférieure */}
       <div className="bg-gray-100 border-t">
         <div className="flex items-center justify-center px-4 align-middle">
-          {/* Menu inférieur */}
           <nav className="flex justify-center h-20 align-bottom font-extrabold">
             <a
               href="#"
@@ -72,7 +106,7 @@ const Header = () => {
             >
               <div className="flex items-center justify-center z-20">
                 <Image
-                  src="/icone-maison.png"
+                  src="/house-icon.svg"
                   alt="home"
                   width={24}
                   height={24}
@@ -82,135 +116,12 @@ const Header = () => {
               </div>
             </a>
 
-            <div className="flex items-center justify-center">
-              <Image
-                src="/pipe.png"
-                alt="pipe"
-                width={2}
-                height={2}
-                style={{}}
-                className="h-auto"
-              />
-            </div>
-
-            <a
-              href="#"
-              className="flex items-center justify-center px-4 py-2 text-gray-700 hover:text-white hover:bg-[#9FBD3C] font-bold  border-b-4 border-[#9FBD3C]"
-            >
-              Découvrir Antony
-            </a>
-            <div className="flex items-center justify-center">
-              <Image
-                src="/pipe.png"
-                alt="pipe"
-                width={2}
-                height={2}
-                style={{}}
-                className="h-auto"
-              />
-            </div>
-            <a
-              href="#"
-              className="flex items-center justify-center px-4 py-2  text-gray-700 hover:text-white hover:bg-[#6AB657] font-bold border-b-4  border-[#6AB657]"
-            >
-              Signalement
-            </a>
-            <div className="flex items-center justify-center">
-              <Image
-                src="/pipe.png"
-                alt="pipe"
-                width={2}
-                height={2}
-                style={{}}
-                className="h-auto"
-              />
-            </div>
-            <a
-              href="#"
-              className="flex items-center justify-center px-4 py-2 text-gray-700 hover:text-white hover:bg-[#76B0E0] font-bold  border-b-4  border-[#76B0E0]"
-            >
-              Cadre de vie
-            </a>
-            <div className="flex items-center justify-center">
-              <Image
-                src="/pipe.png"
-                alt="pipe"
-                width={2}
-                height={2}
-                style={{}}
-                className="h-auto"
-              />
-            </div>
-            <a
-              href="#"
-              className="flex items-center justify-center px-4 py-2 text-gray-700 hover:text-white hover:bg-[#513887] font-bold border-b-4  border-[#513887]"
-            >
-              Solidarité et Santé
-            </a>
-            <div className="flex items-center justify-center">
-              <Image
-                src="/pipe.png"
-                alt="pipe"
-                width={2}
-                height={2}
-                style={{}}
-                className="h-auto"
-              />
-            </div>
-            <a
-              href="#"
-              className="flex items-center justify-center px-4 py-2 text-gray-700 hover:text-white hover:bg-[#AA2F7F] font-bold border-b-4 border-[#AA2F7F]"
-            >
-              Culture, sport et loisir
-            </a>
-            <div className="flex items-center justify-center">
-              <Image
-                src="/pipe.png"
-                alt="pipe"
-                width={2}
-                height={2}
-                style={{}}
-                className="h-auto"
-              />
-            </div>
-            <a
-              href="#"
-              className="flex items-center justify-center px-4 py-2 text-gray-700 hover:text-white hover:bg-[#AB2347] font-bold border-b-4 border-[#AB2347]"
-            >
-              Famille
-            </a>
-            <div className="flex items-center justify-center">
-              <Image
-                src="/pipe.png"
-                alt="pipe"
-                width={2}
-                height={2}
-                style={{}}
-                className="h-auto"
-              />
-            </div>
-            <a
-              href="#"
-              className="flex items-center justify-center px-4 py-2 text-gray-700 hover:text-white hover:bg-orange-500 font-bold border-b-2 border-gray-200 hover:border-orange-500"
-            >
-              Agenda
-            </a>
-            <div className="flex items-center justify-center">
-              <Image
-                src="/pipe.png"
-                alt="pipe"
-                width={2}
-                height={2}
-                style={{}}
-                className="h-auto"
-              />
-            </div>
-            <a
-              href="#"
-              className="flex items-center justify-center px-4 py-2 text-gray-700 hover:text-white hover:bg-teal-500 font-bold border-b-2 border-gray-200 hover:border-teal-500"
-            >
-              Suivez-nous
-            </a>
+            {headerLinks.map((i, index) => (
+              <a key={index} href="#" className={getLinkClasses(i.color)}>
+                {i.text}
+                <div className="absolute top-1/2 left-0 -translate-x-1/2 -translate-y-1/2 bg-gray-300 w-0.5 h-1/2 rounded-md"></div>
+              </a>
+            ))}
           </nav>
         </div>
       </div>

@@ -1,7 +1,17 @@
-import React from "react"
+"use client"
 
-function page() {
-  return <div>page</div>
+import React from "react"
+import Form from "@/app/ui/signalements/form"
+
+const SignalementPage = () => {
+  console.log("This is a page")
+  return (
+    <>
+      <div className="h-full w-full">
+        <Form />
+      </div>
+    </>
+  )
 }
 
-export default page
+export default SignalementPage
