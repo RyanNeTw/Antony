@@ -18,7 +18,7 @@ function UrgentForm() {
   )
   const { control, watch } = useForm<FormValues>({
     defaultValues: {
-      status: true,
+      status: false,
       issueDetails: "",
       additionalInfo: "",
     },

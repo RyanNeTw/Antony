@@ -1,4 +1,4 @@
-import UrgentForm from "@/app/ui/signalements/urgentForm"
+import UrgentForm from "@/app/ui/signalements/form"
 import React from "react"
 
 function MainPage() {
