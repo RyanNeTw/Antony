@@ -25,20 +25,16 @@ function UrgentForm() {
   })
 
   useEffect(() => {
-    setName(name);
-    setPriority(priority);
-    setIssueName(issueName);
-    setLocation(location);
-  }, [name, priority, issueName, location]);
-
+    setName(name)
+    setPriority(priority)
+    setIssueName(issueName)
+    setLocation(location)
+  }, [name, priority, issueName, location])
 
   const status = watch("status")
 
-
   return (
-    <form
-      className="flex items-center justify-center"
-    >
+    <form className="flex items-center justify-center">
       <div className="flex flex-col space-y-4">
         <h1 className="h-[41px] w-[623px] text-[34px] font-light text-burgundy">
           Signalements Urgent de {name}
@@ -86,7 +82,8 @@ function UrgentForm() {
           />
 
           <div className="absolute bottom-0 w-full flex justify-between">
-            <button className={`px-[14px] py-[10px] gap-[10px] w-[87px] h-[36px] text-white text-xs font-normal ${
+            <button
+              className={`px-[14px] py-[10px] gap-[10px] w-[87px] h-[36px] text-white text-xs font-normal ${
                 status ? "bg-burgundy" : "bg-green"
               }`}
             >
