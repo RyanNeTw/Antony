@@ -3,6 +3,7 @@ import { OpenAiType } from "../types"
 const GetTitleAndReportStatusFromOpenAI = async (
   content: string
 ): Promise<OpenAiType | null> => {
+  //https://platform.openai.com/docs/guides/structured-outputs?lang=javascript
   try {
     const response = await fetch("https://api.openai.com/v1/chat/completions", {
       method: "POST",
