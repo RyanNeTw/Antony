@@ -66,7 +66,7 @@ const SignalementsTable = () => {
         </div>
         <div className="px-9 w-auto">
           <Title>Liste des signalements</Title>
-          <p className="text-sm font-light mb-6 italic">
+          <p className="text-sm font-extralight mb-6 italic">
             Dernière modification le 28/11/2024
           </p>
           <div className="overflow-x-auto">
