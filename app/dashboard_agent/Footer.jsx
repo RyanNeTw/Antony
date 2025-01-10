@@ -2,7 +2,7 @@ import SousMenuFooter from "./SousMenuFooter"
 
 export default function Footer() {
   return (
-    <div className="p-4">
+    <div className="pt-4">
       <div className="bg-[#E2E3E9] flex justify-center p-4">
         <div className="mt-5 ml-2">
           <h2 className="text-blue font-normal text-2xl">

@@ -1,8 +1,11 @@
+"use client"
+
 import React from "react"
-import MenuGauche from "./components/MenuGauche"
 import Title from "./components/typography/Title"
 import Header from "./components/Header"
 import Footer from "./Footer"
+import Breadcrumb from "../components/Breadcrumb"
+import LeftMenu from "./components/LeftMenu"
 
 const signalements = [
   {
@@ -60,10 +63,31 @@ const SignalementsTable = () => {
   return (
     <div>
       <Header />
-      <div className="p-8 m-8 flex justify-evenly text-body ">
-        <div>
-          <MenuGauche />
-        </div>
+      <Breadcrumb />
+      <div className="px-page flex justify-evenly text-body ">
+        <LeftMenu
+          title="Signalements"
+          links={[
+            { title: "Récemment Consultés", link: "/" },
+            {
+              title: "Liste des signalements",
+              link: "/",
+              links: [
+                { link: "Tous", text: "Tous" },
+                { link: "Non-Consultés", text: "Non-Consultés" },
+                { link: "Consultés", text: "Consultés" },
+              ],
+            },
+            {
+              title: "Status",
+              link: "/",
+            },
+            {
+              title: "Supprimés",
+              link: "/",
+            },
+          ]}
+        />
         <div className="px-9 w-auto">
           <Title>Liste des signalements</Title>
           <p className="text-sm font-extralight mb-6 italic">

@@ -12,6 +12,15 @@ export default {
         purple: "#9D3A7C",
         blue: "#252A4F",
         lightblue: "#64B2E5",
+        burgundy: "#9D3030",
+        green: "#7C9D30",
+        primary: "#252A4F",
+        warning: "#9D3048",
+        backgroundInput: "#F2F2F2",
+        darkGray: "#747474",
+      },
+      padding: {
+        page: "8rem",
       },
       typography: {
         title: {
