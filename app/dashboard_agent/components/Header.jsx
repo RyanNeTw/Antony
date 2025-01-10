@@ -55,16 +55,12 @@ const Header = () => {
   return (
     <header className="bg-white shadow">
       <div className="flex items-center justify-between px-4 py-2">
-<<<<<<< HEAD
-        <div className="absolute left-1/4 top-0 z-50">
-=======
         {/* Logo et texte */}
         {/* <div className="relative"> */}
         <div
           className="absolute max-xl:hidden"
           style={{ left: "10%", top: "0px", zIndex: 10 }}
         >
->>>>>>> 070d8a0 (add: footer)
           <Image
             src="/logo-banner.png"
             alt="Logo Ville Antony"
