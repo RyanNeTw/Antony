@@ -18,8 +18,6 @@ export default {
         warning: "#9D3048",
         backgroundInput: "#F2F2F2",
         darkGray: "#747474",
-      padding: {
-        page: "8rem",
       },
       typography: {
         title: {
