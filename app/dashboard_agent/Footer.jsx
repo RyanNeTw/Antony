@@ -48,7 +48,7 @@ export default function Footer() {
 
         <div className="grid grid-cols-3 md:grid-cols-2 gap-x-40 gap-y-10 p-4">
           <SousMenuFooter
-            title={"Signalements"}
+            title={"Découvrir Antony"}
             items={[
               "Tout savoir sur Antony",
               "Nouveaux arrivants",

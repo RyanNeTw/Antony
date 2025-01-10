@@ -7,7 +7,7 @@ function Form() {
         <h1 className="text-[34px] font-light text-[#252B4F] mb-4">
           Formulaire de signalements
         </h1>
-        <p className="font-extralight text-xs italic">
+        <p className="text-xs font-extralight italic">
           Dernière modification le 28/11/2024
         </p>
         <form action="" className="mt-4">

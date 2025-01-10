@@ -1,4 +1,3 @@
-import React from "react"
 import Image from "next/image"
 
 const links = [
@@ -12,36 +11,36 @@ const links = [
 
 const headerLinks = [
   {
-    color: "hover:bg-lightblue border-lightblue",
+    color: "text-xs font-bold hover:bg-lightblue border-lightblue",
     text: "Découvrir Antony",
   },
   {
-    color: "hover:bg-burgundy border-burgundy",
+    color: "text-xs font-bold hover:bg-burgundy border-burgundy",
     text: "Signalement",
   },
   {
-    color: "hover:bg-green border-green",
+    color: "text-xs font-bold hover:bg-green border-green",
     text: "Cadre de vie",
   },
   {
-    color: "hover:bg-burgundy border-burgundy",
+    color: "text-xs font-bold hover:bg-burgundy border-burgundy",
     text: "Solidarité et Santé",
   },
   {
-    color: "hover:bg-primary border-primary",
+    color: "text-xs font-bold hover:bg-primary border-primary",
     text: "Culture, sport et loisir",
   },
   {
-    color: "hover:bg-warning border-warning",
+    color: "text-xs font-bold hover:bg-warning border-warning",
     text: "Famille",
   },
   {
-    color: "hover:bg-burgundy border-burgundy",
+    color: "text-xs font-bold hover:bg-burgundy border-burgundy",
     text: "Agenda",
   },
   {
-    color: "hover:bg-green border-green",
-    text: "suivez-nous",
+    color: "text-xs font-bold hover:bg-green border-green",
+    text: "Suivez-nous",
   },
 ]
 
@@ -54,13 +53,8 @@ const getLinkClasses = (color) => {
 const Header = () => {
   return (
     <header className="bg-white shadow">
-      <div className="flex items-center justify-between px-4 py-2">
-        {/* Logo et texte */}
-        {/* <div className="relative"> */}
-        <div
-          className="absolute max-xl:hidden"
-          style={{ left: "10%", top: "0px", zIndex: 10 }}
-        >
+      <div className="flex items-center justify-between py-2">
+        <div className="absolute left-1/4 top-0 z-50">
           <Image
             src="/logo-banner.png"
             alt="Logo Ville Antony"
@@ -75,7 +69,7 @@ const Header = () => {
               {links.map((link, index) => (
                 <a
                   href="#"
-                  className="relative hover:text-sky-500 font-normal px-4 py-2"
+                  className="relative hover:text-sky-500 text-s font-normal px-4 py-2"
                   key={index}
                 >
                   {link}
@@ -97,32 +91,33 @@ const Header = () => {
           objectFit="cover"
         />
       </div>
-      <div className="bg-gray-100 border-t">
-        <div className="flex items-center justify-center px-4 align-middle">
-          <nav className="flex justify-center h-20 align-bottom font-extrabold">
-            <a
-              href="#"
-              className="flex items-center justify-center px-4 py-2 text-gray-700 hover:text-white bg-white font-medium border-t-4 border-[#242B52]"
-            >
-              <div className="flex items-center justify-center z-20">
-                <Image
-                  src="/house-icon.svg"
-                  alt="home"
-                  width={24}
-                  height={24}
-                  style={{}}
-                  className="h-auto"
-                />
-              </div>
-            </a>
-
-            {headerLinks.map((i, index) => (
-              <a key={index} href="#" className={getLinkClasses(i.color)}>
-                {i.text}
-                <div className="absolute top-1/2 left-0 -translate-x-1/2 -translate-y-1/2 bg-gray-300 w-0.5 h-1/2 rounded-md"></div>
+      <div className="bg-gray-200 border-t">
+        <div className="max-w-5xl mx-auto">
+          <div className="flex items-center align-middle">
+            <nav className="flex justify-center h-20 align-bottom font-extrabold">
+              <a
+                href="#"
+                className="flex items-center justify-center px-4 py-2 text-gray-700 hover:text-white bg-white font-medium border-t-4 border-[#242B52]"
+              >
+                <div className="flex items-center justify-center z-20">
+                  <Image
+                    src="/house-icon.svg"
+                    alt="home"
+                    width={24}
+                    height={24}
+                    style={{}}
+                    className="h-auto"
+                  />
+                </div>
               </a>
-            ))}
-          </nav>
+              {headerLinks.map((i, index) => (
+                <a key={index} href="#" className={getLinkClasses(i.color)}>
+                  {i.text}
+                  <div className="absolute top-1/2 left-0 -translate-x-1/2 -translate-y-1/2 bg-gray-300 w-0.5 h-1/2 rounded-md"></div>
+                </a>
+              ))}
+            </nav>
+          </div>
         </div>
       </div>
     </header>

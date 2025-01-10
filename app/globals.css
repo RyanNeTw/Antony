@@ -22,11 +22,11 @@ body {
 
 /* global.css */
 .title {
-  @apply text-4xl mb-10 tracking-wider font-light;
+  @apply text-4xl mb-10 tracking-wider font-extralight;
 }
 
 .subtitle {
-  @apply text-purple mb-4 text-3xl font-normal;
+  @apply text-purple mb-4 text-2xl font-normal;
 }
 
 .body {
