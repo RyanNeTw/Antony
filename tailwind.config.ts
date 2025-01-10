@@ -19,9 +19,6 @@ export default {
         backgroundInput: "#F2F2F2",
         darkGray: "#747474",
       },
-      padding: {
-        page: "8rem",
-      },
       typography: {
         title: {
           DEFAULT: "text-4xl mb-10 tracking-wider",
