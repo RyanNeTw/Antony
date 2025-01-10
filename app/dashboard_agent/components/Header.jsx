@@ -1,6 +1,7 @@
 import Image from "next/image"
 
 const links = [
+  "LES + DEMANDES",
   "Budget participatif",
   "Démarches et services",
   "Signalements",
@@ -64,12 +65,12 @@ const Header = () => {
           />
         </div>
         <div className="flex justify-end w-full text-[#252B4F]">
-          <nav className="py-4">
+          <nav className="">
             <div className="flex items-center space-x-4 text-blue-900">
               {links.map((link, index) => (
                 <a
                   href="#"
-                  className="relative hover:text-sky-500 text-s font-normal px-4 py-2"
+                  className="relative hover:text-sky-500 text-xs font-normal px-4 py-2"
                   key={index}
                 >
                   {link}
