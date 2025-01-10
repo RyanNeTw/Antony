@@ -2,8 +2,8 @@ import React from "react"
 
 function Form() {
   return (
-    <div className="w-full flex items-center justify-center">
-      <div className="relative w-[604px] h-[900px] border">
+    <div className="w-full">
+      <div className="relative w-[604px] h-[900px]">
         <h1 className="text-[34px] font-light text-[#252B4F] mb-4">
           Formulaire de signalements
         </h1>
@@ -81,7 +81,7 @@ function Form() {
               Emplacement
             </label>
             <div className="flex gap-2 w-full">
-              <div className="flex flex-col w-[284px] h-[170px] border space-y-2">
+              <div className="flex flex-col w-[284px] h-[170px] space-y-2">
                 <div className="flex justify-between">
                   <input
                     className="w-[43px] h-[35px] py-[10px] px-[14px] text-xs bg-[#F2F2F2]"
@@ -123,7 +123,7 @@ function Form() {
                   />
                 </div>
               </div>
-              <div className="border w-[310px] h-[170px]"></div>
+              <div className="flex justify-center items-center w-[310px] h-[170px] text-blue font-extralight text-xs">intégrer la map</div>
             </div>
           </div>
         </form>

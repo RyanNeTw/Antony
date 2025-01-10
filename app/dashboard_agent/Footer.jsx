@@ -12,7 +12,7 @@ const linksFooter = [
 
 export default function Footer() {
   return (
-    <footer className="checker p-0">
+    <footer className="checker p-0 mt-32">
       <div className="bg-[#E2E3E9] flex justify-center p-4">
         <div className="flex flex-col justify-between ">
           <div className="mt-5 ml-2 mr-48">
