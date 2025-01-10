@@ -1,4 +1,14 @@
 import SousMenuFooter from "./SousMenuFooter"
+import Image from 'next/image'
+
+const linksFooter = [
+  "Accessibilité",
+  "Mentions légales",
+  "Liens",
+  "Escape presse",
+  "Contact",
+  "Gestion des cookies",
+]
 
 export default function Footer() {
   return (
@@ -101,6 +111,6 @@ export default function Footer() {
           />
         </div>
       </div>
-    </div>
+      </div>
   )
 }

@@ -3,6 +3,7 @@ export default function SousMenuFooter({ title, items }) {
     <div className="max-w-[300px]">
       <div>
         <h2 className="text-blue font-normal text-2xl">{title}</h2>
+        <br />
       </div>
       <ul
         className="list-disc px-4"

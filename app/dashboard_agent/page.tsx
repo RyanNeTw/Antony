@@ -63,6 +63,7 @@ const SignalementsTable = () => {
   return (
     <div>
       <Header />
+<<<<<<< HEAD
       <Breadcrumb />
       <div className="px-page flex justify-evenly text-body ">
         <LeftMenu
@@ -133,6 +134,11 @@ const SignalementsTable = () => {
         </div>
       </div>
       <Footer />
+=======
+    <div className="p-8 m-8 flex justify-evenly text-body flex-wrap">
+      <div className='max-xl:hidden'>
+      <MenuGauche/>
+>>>>>>> 070d8a0 (add: footer)
     </div>
   )
 }
