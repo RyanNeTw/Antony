@@ -29,6 +29,10 @@ body {
   @apply text-purple mb-4 text-3xl;
 }
 
+.list {
+  @apply list-disc list-inside text-["#587caf"];
+}
+
 .body {
   @apply text-base text-gray-600;
 }
