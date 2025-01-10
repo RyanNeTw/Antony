@@ -12,16 +12,14 @@ export default {
         purple: "#9D3A7C",
         blue: "#252A4F",
         lightblue: "#64B2E5",
-      },
-      buttons: {
+        burgundy:"#9D3030",
+        green:"#7C9D30",
+        primary:"#252A4F",
         warning: "#9D3048",
-        primary: "#7C9D30",
-        secondary: "#252B4F",
+        backgroundInput: "#F2F2F2",
+        darkGray:"#747474",
       },
       typography: {
-        color: {
-          primary: "#252A4F",
-        },
         title: {
           DEFAULT: "text-4xl mb-10 tracking-wider",
         },
