@@ -16,7 +16,7 @@ type IProps = {
 
 const LeftMenu = ({ title, links }: IProps) => {
   return (
-    <div className="bg-[#E2E3E8] p-4 w-64 text-xs font-normal h-fit mr-auto">
+    <div className="bg-[#E2E3E8] p-4 text-xs font-normal h-fit mr-auto">
       <Subtitle>{title}</Subtitle>
       <ul className="space-y-2 p-4">
         {links.map((l, index) => (

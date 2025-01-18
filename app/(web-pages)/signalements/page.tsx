@@ -1,14 +1,25 @@
 "use client"
 
 import React from "react"
-import Form from "@/app/ui/signalements/form"
+import Form from "../../ui/signalements/form"
+import Header from "@/app/dashboard_agent/components/Header"
+import Breadcrumb from "@/app/components/Breadcrumb"
+import Footer from "@/app/dashboard_agent/Footer"
+import Signalements from "@/app/components/Signalements"
 
 const SignalementPage = () => {
-  console.log("This is a page")
   return (
     <>
-      <div className="h-full w-full">
-        <Form />
+      <div>
+        <Header />
+        <div className="mx-auto max-w-5xl">
+          <Breadcrumb />
+          <div className="flex">
+            <Signalements />
+            <Form />
+          </div>
+        </div>
+        <Footer />
       </div>
     </>
   )

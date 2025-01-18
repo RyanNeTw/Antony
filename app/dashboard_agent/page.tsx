@@ -1,8 +1,8 @@
 "use client"
 
 import Breadcrumb from "../components/Breadcrumb"
+import Signalements from "../components/Signalements"
 import Header from "./components/Header"
-import LeftMenu from "./components/LeftMenu"
 import Title from "./components/typography/Title"
 import Footer from "./Footer"
 
@@ -65,32 +65,7 @@ const SignalementsTable = () => {
       <div className="mx-auto max-w-5xl">
         <Breadcrumb />
         <div className="flex">
-          <LeftMenu
-            title="Signalements"
-            links={[
-              {
-                title: "Récemment Consultés",
-                link: "?filter=consulted_recently",
-              },
-              {
-                title: "Liste des signalements",
-                link: "dashboard_agent",
-                links: [
-                  { link: "?filter=Tous", text: "Tous" },
-                  { link: "?filter=Non-Consultés", text: "Non-Consultés" },
-                  { link: "?filter=Consultés", text: "Consultés" },
-                ],
-              },
-              {
-                title: "Status",
-                link: "?filter=status",
-              },
-              {
-                title: "Supprimés",
-                link: "?filter=deleted",
-              },
-            ]}
-          />
+          <Signalements />
 
           <div className="w-auto">
             <Title>Liste des signalements</Title>
