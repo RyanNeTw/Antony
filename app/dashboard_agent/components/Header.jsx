@@ -12,35 +12,35 @@ const links = [
 
 const headerLinks = [
   {
-    color: "text-xs font-bold hover:bg-lightblue border-lightblue",
+    color: "hover:bg-lightblue border-lightblue",
     text: "Découvrir Antony",
   },
   {
-    color: "text-xs font-bold hover:bg-burgundy border-burgundy",
+    color: "hover:bg-burgundy border-burgundy",
     text: "Signalement",
   },
   {
-    color: "text-xs font-bold hover:bg-green border-green",
+    color: "hover:bg-green border-green",
     text: "Cadre de vie",
   },
   {
-    color: "text-xs font-bold hover:bg-burgundy border-burgundy",
+    color: "hover:bg-burgundy border-burgundy",
     text: "Solidarité et Santé",
   },
   {
-    color: "text-xs font-bold hover:bg-primary border-primary",
+    color: "hover:bg-primary border-primary",
     text: "Culture, sport et loisir",
   },
   {
-    color: "text-xs font-bold hover:bg-warning border-warning",
+    color: "hover:bg-warning border-warning",
     text: "Famille",
   },
   {
-    color: "text-xs font-bold hover:bg-burgundy border-burgundy",
+    color: "hover:bg-burgundy border-burgundy",
     text: "Agenda",
   },
   {
-    color: "text-xs font-bold hover:bg-green border-green",
+    color: "hover:bg-green border-green",
     text: "Suivez-nous",
   },
 ]
@@ -65,7 +65,7 @@ const Header = () => {
           />
         </div>
         <div className="flex justify-end w-full text-[#252B4F]">
-          <nav className="">
+          <nav>
             <div className="flex items-center space-x-4 text-blue-900">
               {links.map((link, index) => (
                 <a
@@ -112,7 +112,11 @@ const Header = () => {
                 </div>
               </a>
               {headerLinks.map((i, index) => (
-                <a key={index} href="#" className={getLinkClasses(i.color)}>
+                <a
+                  key={index}
+                  href="#"
+                  className={`${getLinkClasses(i.color)} text-xs font-bold`}
+                >
                   {i.text}
                   <div className="absolute top-1/2 left-0 -translate-x-1/2 -translate-y-1/2 bg-gray-300 w-0.5 h-1/2 rounded-md"></div>
                 </a>

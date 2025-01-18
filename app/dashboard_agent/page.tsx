@@ -68,23 +68,26 @@ const SignalementsTable = () => {
           <LeftMenu
             title="Signalements"
             links={[
-              { title: "Récemment Consultés", link: "/" },
+              {
+                title: "Récemment Consultés",
+                link: "?filter=consulted_recently",
+              },
               {
                 title: "Liste des signalements",
-                link: "/",
+                link: "dashboard_agent",
                 links: [
-                  { link: "Tous", text: "Tous" },
-                  { link: "Non-Consultés", text: "Non-Consultés" },
-                  { link: "Consultés", text: "Consultés" },
+                  { link: "?filter=Tous", text: "Tous" },
+                  { link: "?filter=Non-Consultés", text: "Non-Consultés" },
+                  { link: "?filter=Consultés", text: "Consultés" },
                 ],
               },
               {
                 title: "Status",
-                link: "/",
+                link: "?filter=status",
               },
               {
                 title: "Supprimés",
-                link: "/",
+                link: "?filter=deleted",
               },
             ]}
           />
