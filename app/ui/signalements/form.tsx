@@ -1,3 +1,5 @@
+"use client"
+
 import InputFile from "@/app/components/UI/InputFile"
 import Inputs from "@/app/components/UI/Inputs"
 import Paragraph from "@/app/components/UI/Paragraph"
