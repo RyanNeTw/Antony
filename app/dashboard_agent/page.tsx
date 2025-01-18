@@ -1,11 +1,10 @@
 "use client"
 
-import React from "react"
-import Title from "./components/typography/Title"
-import Header from "./components/Header"
-import Footer from "./Footer"
 import Breadcrumb from "../components/Breadcrumb"
+import Header from "./components/Header"
 import LeftMenu from "./components/LeftMenu"
+import Title from "./components/typography/Title"
+import Footer from "./Footer"
 
 const signalements = [
   {
@@ -63,72 +62,77 @@ const SignalementsTable = () => {
   return (
     <div>
       <Header />
-      <Breadcrumb />
-      <div className="px-page flex justify-evenly text-body ">
-        <LeftMenu
-          title="Signalements"
-          links={[
-            { title: "Récemment Consultés", link: "/" },
-            {
-              title: "Liste des signalements",
-              link: "/",
-              links: [
-                { link: "Tous", text: "Tous" },
-                { link: "Non-Consultés", text: "Non-Consultés" },
-                { link: "Consultés", text: "Consultés" },
-              ],
-            },
-            {
-              title: "Status",
-              link: "/",
-            },
-            {
-              title: "Supprimés",
-              link: "/",
-            },
-          ]}
-        />
-        <div className="px-9 w-auto">
-          <Title>Liste des signalements</Title>
-          <p className="text-sm font-extralight mb-6 italic">
-            Dernière modification le 28/11/2024
-          </p>
-          <div className="overflow-x-auto">
-            <table className="min-w-full">
-              <tbody>
-                {signalements.map((signalement, index) => {
-                  const isPreviousUrgent =
-                    index > 0 && signalements[index - 1].type === "urgent"
-                  const isCurrentRecurrent = signalement.type === "recurrent"
-                  const extraMargin =
-                    isPreviousUrgent && isCurrentRecurrent
-                      ? "border-t-[32px]"
-                      : ""
+      <div className="mx-auto max-w-5xl">
+        <Breadcrumb />
+        <div className="flex">
+          <LeftMenu
+            title="Signalements"
+            links={[
+              {
+                title: "Récemment Consultés",
+                link: "?filter=consulted_recently",
+              },
+              {
+                title: "Liste des signalements",
+                link: "dashboard_agent",
+                links: [
+                  { link: "?filter=Tous", text: "Tous" },
+                  { link: "?filter=Non-Consultés", text: "Non-Consultés" },
+                  { link: "?filter=Consultés", text: "Consultés" },
+                ],
+              },
+              {
+                title: "Status",
+                link: "?filter=status",
+              },
+              {
+                title: "Supprimés",
+                link: "?filter=deleted",
+              },
+            ]}
+          />
 
-                  return (
-                    <tr
-                      key={index}
-                      className={`border-t-[16px] border-transparent flex flex-wrap md:flex-nowrap justify-between gap-4 ${extraMargin}`}
-                    >
-                      <td
-                        className={`flex-1 px-4 py-2 font-semibold text-white text-center ${signalement.color}`}
+          <div className="w-auto">
+            <Title>Liste des signalements</Title>
+            <p className="text-xs font-extralight mb-6 italic">
+              Dernière modification le 28/11/2024
+            </p>
+            <div className="overflow-x-auto">
+              <table className="min-w-full">
+                <tbody>
+                  {signalements.map((signalement, index) => {
+                    const isPreviousUrgent =
+                      index > 0 && signalements[index - 1].type === "urgent"
+                    const isCurrentRecurrent = signalement.type === "recurrent"
+                    const extraMargin =
+                      isPreviousUrgent && isCurrentRecurrent
+                        ? "border-t-[32px]"
+                        : ""
+                    return (
+                      <tr
+                        key={index}
+                        className={`border-t-[16px] border-transparent flex flex-wrap md:flex-nowrap justify-between gap-4 ${extraMargin}`}
                       >
-                        {signalement.type || "•"}
-                      </td>
-                      <td className="flex-1 px-4 py-2 text-white bg-[#747474]">
-                        {signalement.description}
-                      </td>
-                      <td className="flex-1 px-4 py-2 bg-[#F2F2F2] text-gray-800">
-                        {signalement.adresse}
-                      </td>
-                      <td className="flex-1 px-4 py-2 bg-[#F2F2F2] text-pink-600">
-                        {signalement.auteur}
-                      </td>
-                    </tr>
-                  )
-                })}
-              </tbody>
-            </table>
+                        <td
+                          className={`flex-1 px-4 py-2 font-semibold text-white text-center ${signalement.color}`}
+                        >
+                          {signalement.type || "•"}
+                        </td>
+                        <td className="flex-1 px-4 py-2 text-white bg-[#747474]">
+                          {signalement.description}
+                        </td>
+                        <td className="flex-1 px-4 py-2 bg-[#F2F2F2] text-gray-800">
+                          {signalement.adresse}
+                        </td>
+                        <td className="flex-1 px-4 py-2 bg-[#F2F2F2] text-pink-600">
+                          {signalement.auteur}
+                        </td>
+                      </tr>
+                    )
+                  })}
+                </tbody>
+              </table>
+            </div>
           </div>
         </div>
       </div>

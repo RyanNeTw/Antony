@@ -1,6 +1,6 @@
+import Paragraph from "@/app/components/UI/Paragraph"
 import Link from "next/link"
 import Subtitle from "./typography/Subtitle"
-import Paragraph from "@/app/components/UI/Paragraph"
 
 type IProps = {
   title: string
@@ -16,7 +16,7 @@ type IProps = {
 
 const LeftMenu = ({ title, links }: IProps) => {
   return (
-    <div className="bg-[#E2E3E8] p-4 w-96 text-body h-fit">
+    <div className="bg-[#E2E3E8] p-4 w-64 text-xs font-normal h-fit mr-auto">
       <Subtitle>{title}</Subtitle>
       <ul className="space-y-2 p-4">
         {links.map((l, index) => (

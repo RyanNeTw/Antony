@@ -19,12 +19,12 @@ const Breadcrumb = () => {
   }
 
   const getCleanPath = (path: string): string => {
-    if (!path) return "Acceuil"
+    if (!path) return "Accueil"
     return path.replaceAll("-", " ").replaceAll("_", " ")
   }
 
   return (
-    <ul className="flex flex-row gap-1 px-page py-4">
+    <ul className="flex flex-row gap-1 py-4">
       {paths?.map((path, index) => (
         <li key={index}>
           <Link href={getLink(index)}>
