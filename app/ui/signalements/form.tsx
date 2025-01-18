@@ -1,138 +1,222 @@
+import InputFile from "@/app/components/UI/InputFile"
+import Inputs from "@/app/components/UI/Inputs"
+import Paragraph from "@/app/components/UI/Paragraph"
+import Radios from "@/app/components/UI/Radios"
+import SubmitButton from "@/app/components/UI/SubmitButton"
+import Title from "@/app/dashboard_agent/components/typography/Title"
 import React from "react"
+import { Controller, SubmitHandler, useForm } from "react-hook-form"
 
-function Form() {
+type Inputs = {
+  firstname: string
+  lastname: string
+  email: string
+  is_habitant: string
+  signalment: string
+  street_number: string
+  street_name: string
+  street_name_1: string
+  street_name_2: string
+  postcode: string
+  region: string
+  files: string
+}
+
+const Form = () => {
+  const { handleSubmit, control } = useForm<Inputs>({
+    defaultValues: {
+      firstname: "",
+      lastname: "",
+      email: "",
+      is_habitant: "",
+      signalment: "",
+      street_number: "",
+      street_name: "",
+      street_name_1: "",
+      street_name_2: "",
+      postcode: "",
+      region: "",
+      files: "",
+    },
+  })
+
+  const onSubmit: SubmitHandler<Inputs> = (data) => {
+    console.log(data)
+  }
+
   return (
-    <div className="w-full">
-      <div className="relative w-[604px] h-[900px]">
-        <h1 className="text-[34px] font-light text-[#252B4F] mb-4">
-          Formulaire de signalements
-        </h1>
-        <p className="text-xs font-extralight italic">
-          Dernière modification le 28/11/2024
-        </p>
-        <form action="" className="mt-4">
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-2">
-            <div>
-              <label className="text-[#9D397C] text-xs font-medium pl-[14px]">
-                Prénom
-              </label>
-              <input
-                className="w-[284px] h-[35px] py-[10px] px-[14px] text-xs bg-[#F2F2F2]"
-                type="text"
-                id="prenom"
+    <div className="w-auto">
+      <Title>Formulaire de signalements</Title>
+      <Paragraph
+        text="Dernière modification le 28/11/2024"
+        addStyle="font-extralight text-xs italic"
+      />
+      <form
+        onSubmit={handleSubmit(onSubmit)}
+        className="mt-4 flex flex-col gap-2"
+      >
+        <div className="flex flex-row justify-between">
+          <Controller
+            name="firstname"
+            control={control}
+            rules={{ required: "Le prénom est requis", maxLength: 100 }}
+            render={({ field }) => (
+              <Inputs
+                label="Prénom"
                 placeholder="Amélia"
+                addStyle="w-h"
+                {...field}
               />
-            </div>
-            <div>
-              <label
-                htmlFor="nom"
-                className="text-[#9D397C] text-xs font-medium pl-[14px]"
-              >
-                Nom
-              </label>
-              <input
-                className="w-[284px] h-[35px] py-[10px] px-[14px] text-xs bg-[#F2F2F2]"
-                type="text"
-                id="nom"
+            )}
+          />
+          <Controller
+            name="lastname"
+            control={control}
+            rules={{ required: "Le Nom est requis", maxLength: 100 }}
+            render={({ field }) => (
+              <Inputs
+                label="Nom"
                 placeholder="Dupont"
+                addStyle="w-h"
+                {...field}
               />
-            </div>
-          </div>
-          <div className="flex flex-col space-y-2">
-            <label className="text-[#9D397C] text-xs font-medium pl-[14px]">
-              Adress E-mail
-            </label>
-            <input
-              className="w-[284px] h-[35px] py-[10px] px-[14px] text-xs bg-[#F2F2F2]"
-              type="text"
-              id="prenom"
-              placeholder="amelia.dupont@yahoo.com"
+            )}
+          />
+        </div>
+        <Controller
+          name="email"
+          control={control}
+          rules={{
+            required: "Le email est requis",
+            pattern: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+          }}
+          render={({ field }) => (
+            <Inputs
+              label="Adresse E-mail"
+              placeholder="amélia.dupont@yahoo.fr"
+              addStyle="w-h"
+              {...field}
             />
+          )}
+        />
+        <Controller
+          name="is_habitant"
+          control={control}
+          rules={{
+            required: "Le is_habitant est requis",
+          }}
+          render={({ field }) => (
+            <Radios label="Habitant" iteration={2} {...field} />
+          )}
+        />
+        <Controller
+          name="signalment"
+          control={control}
+          rules={{
+            required: "Le signalment est requis",
+            maxLength: 300,
+            minLength: 20,
+          }}
+          render={({ field }) => (
+            <Inputs
+              label="Signalment"
+              placeholder="Ecrire votre signalement ici ..."
+              {...field}
+              addStyle="w-full"
+            />
+          )}
+        />
 
-            <label className="text-[#9D397C] text-xs font-medium pl-[14px]">
-              Habitant
-            </label>
-            <div className="flex gap-2">
-              <input
-                className="flex items-center bg-[#F2F2F2] justify-center w-[35px] h-[35px]"
-                type="checkbox"
-              />
-              <input
-                className="flex items-center justify-center w-[35px] h-[35px]"
-                type="checkbox"
-              />
-            </div>
-            <label className="text-[#9D397C] text-xs font-medium pl-[14px]">
-              Signalement
-            </label>
-            <textarea
-              className="bg-[#F2F2F2] h-[105px] py-[10px] px-[14px]"
-              name="Signalement"
-              id="Signalement"
-            ></textarea>
+        <Controller
+          name="files"
+          control={control}
+          rules={{
+            required: "Le files est requis",
+            maxLength: 300,
+            minLength: 20,
+          }}
+          render={({ field }) => (
+            <InputFile
+              label="Pieces jointes"
+              placeholder="Selectionner"
+              addStyle="w-1/5"
+              {...field}
+            />
+          )}
+        />
 
-            <label className="text-[#9D397C] text-xs font-medium pl-[14px]">
-              Pièces Jointes
-            </label>
-            <button className="flex items-center border-none justify-center w-[103px] h-[35px] px-[14px] py-[10px] bg-[#252B4F]">
-              <span className="text-xs text-white">Sélèctionner</span>
-            </button>
-            <label className="text-[#9D397C] text-xs font-medium pl-[14px]">
+        <div>
+          <div className="w-h flex flex-col gap-2">
+            <label className="text-purple text-xs font-medium pl-2">
               Emplacement
             </label>
-            <div className="flex gap-2 w-full">
-              <div className="flex flex-col w-[284px] h-[170px] space-y-2">
-                <div className="flex justify-between">
-                  <input
-                    className="w-[43px] h-[35px] py-[10px] px-[14px] text-xs bg-[#F2F2F2]"
-                    type="text"
-                    id="prenom"
-                    placeholder="N°"
-                  />
-                  <input
-                    className="w-[231px] h-[35px] py-[10px] px-[14px] text-xs bg-[#F2F2F2]"
-                    type="text"
-                    id="prenom"
-                    placeholder="Rue"
-                  />
-                </div>
-                <input
-                  className="w-full h-[35px] py-[10px] px-[14px] text-xs bg-[#F2F2F2] italic"
-                  type="text"
-                  id="prenom"
-                  placeholder="Complément d'adresse 1"
-                />
-                <input
-                  className="w-full h-[35px] py-[10px] px-[14px] text-xs bg-[#F2F2F2] italic"
-                  type="text"
-                  id="prenom"
-                  placeholder="Complément d'adresse 2"
-                />
-                <div className="flex justify-between">
-                  <input
-                    className="w-[65px] h-[35px] py-[10px] px-[14px] text-xs bg-[#F2F2F2] italic"
-                    type="text"
-                    id="prenom"
+            <div className="flex flex-row gap-1">
+              <Controller
+                name="street_number"
+                control={control}
+                rules={{
+                  required: "Le street_number est requis",
+                }}
+                render={({ field }) => (
+                  <Inputs placeholder="N" addStyle="w-1/5" {...field} />
+                )}
+              />
+              <Controller
+                name="street_name"
+                control={control}
+                rules={{
+                  required: "Le street_name est requis",
+                }}
+                render={({ field }) => (
+                  <Inputs placeholder="Rue" addStyle="w-4/5" {...field} />
+                )}
+              />
+            </div>
+            <Controller
+              name="street_name_1"
+              control={control}
+              render={({ field }) => (
+                <Inputs placeholder={`Complement d'addresse 1`} {...field} />
+              )}
+            />
+            <Controller
+              name="street_name_2"
+              control={control}
+              render={({ field }) => (
+                <Inputs placeholder={`Complement d'addresse 2`} {...field} />
+              )}
+            />
+            <div className="flex flex-row gap-1">
+              <Controller
+                name="postcode"
+                control={control}
+                render={({ field }) => (
+                  <Inputs
                     placeholder="92160"
+                    addStyle="w-2/5"
+                    readonly={true}
+                    {...field}
                   />
-                  <input
-                    className="w-[209px] h-[35px] py-[10px] px-[14px] text-xs bg-[#F2F2F2] italic"
-                    type="text"
-                    id="prenom"
+                )}
+              />
+              <Controller
+                name="region"
+                control={control}
+                render={({ field }) => (
+                  <Inputs
                     placeholder="Antony"
+                    addStyle="w-3/5"
+                    readonly={true}
+                    {...field}
                   />
-                </div>
-              </div>
-              <div className="flex justify-center items-center w-[310px] h-[170px] text-blue font-extralight text-xs">
-                intégrer la map
-              </div>
+                )}
+              />
             </div>
           </div>
-        </form>
-        <button className="absolute bottom-0 right-0 flex items-center justify-center w-[113px] h-[45px] text-white bg-[#7CB462]">
-          Soumettre
-        </button>
-      </div>
+        </div>
+
+        <SubmitButton text="Soumettre" addStyle="mt-4" />
+      </form>
     </div>
   )
 }

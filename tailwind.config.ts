@@ -18,6 +18,10 @@ export default {
         warning: "#9D3048",
         backgroundInput: "#F2F2F2",
         darkGray: "#747474",
+        greenForm: "#7CB462",
+      },
+      width: {
+        h: "48%",
       },
       typography: {
         title: {
