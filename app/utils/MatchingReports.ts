@@ -1,5 +1,5 @@
-import dayjs from 'dayjs'
-import supabase from '../supabase'
+import dayjs from "dayjs"
+import supabase from "../supabase"
 
 type IProps = {
   street: string
@@ -11,11 +11,11 @@ const MatchingReports = async ({
   title,
 }: IProps): Promise<{ id: string; count: number } | null> => {
   const { data, error } = await supabase
-    .from('reports_ai')
-    .select('*, reports(*)')
-    .lte('reports.date', dayjs().add(3, 'month').format('YYYY-MM-DD'))
-    .gte('reports.date', dayjs().subtract(3, 'month').format('YYYY-MM-DD'))
-    .match({ 'reports.street': street, title })
+    .from("reports_ai")
+    .select("*, reports(*)")
+    .lte("reports.date", dayjs().add(3, "month").format("YYYY-MM-DD"))
+    .gte("reports.date", dayjs().subtract(3, "month").format("YYYY-MM-DD"))
+    .match({ "reports.street": street, title })
     .maybeSingle()
   console.log({ data, error })
   if (error) return null

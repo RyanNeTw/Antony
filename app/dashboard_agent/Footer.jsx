@@ -1,13 +1,13 @@
-import SousMenuFooter from './SousMenuFooter'
-import Image from 'next/image'
+import SousMenuFooter from "./SousMenuFooter"
+import Image from "next/image"
 
 const linksFooter = [
-  'Accessibilité',
-  'Mentions légales',
-  'Liens',
-  'Escape presse',
-  'Contact',
-  'Gestion des cookies',
+  "Accessibilité",
+  "Mentions légales",
+  "Liens",
+  "Escape presse",
+  "Contact",
+  "Gestion des cookies",
 ]
 
 export default function Footer() {
@@ -24,10 +24,10 @@ export default function Footer() {
               Place de l&apos;Hôtel de ville <br />
               <span className="text-lightblue">TEL: </span>01 40 96 71 00 <br />
               <span className="text-lightblue">CONTACT PAR EMAIL</span> <br />
-              Ouvert du lundi au vendredi de{' '}
+              Ouvert du lundi au vendredi de{" "}
               <span className="text-lightblue">8h30</span> à <br />
-              <span className="text-lightblue">12h00</span> et de{' '}
-              <span className="text-lightblue">13h30</span> à{' '}
+              <span className="text-lightblue">12h00</span> et de{" "}
+              <span className="text-lightblue">13h30</span> à{" "}
               <span className="text-lightblue">17h30</span>
               <br />
               <br />
@@ -48,76 +48,76 @@ export default function Footer() {
 
         <div className="grid grid-cols-3 md:grid-cols-2 gap-x-40 gap-y-10 p-4">
           <SousMenuFooter
-            title={'Découvrir Antony'}
+            title={"Découvrir Antony"}
             items={[
-              'Tout savoir sur Antony',
-              'Nouveaux arrivants',
-              'Jumelage',
-              'Informez-vous',
-              'Permanence et contacts utiles',
-              'Associations',
-              'Archives communales',
-              'Vie économique',
-              'Nouvelles technologies',
+              "Tout savoir sur Antony",
+              "Nouveaux arrivants",
+              "Jumelage",
+              "Informez-vous",
+              "Permanence et contacts utiles",
+              "Associations",
+              "Archives communales",
+              "Vie économique",
+              "Nouvelles technologies",
             ]}
           />
           <SousMenuFooter
-            title={'Ma mairie'}
+            title={"Ma mairie"}
             items={[
-              'Démarche et services',
-              'Démocratie locale',
-              'Budget',
-              'Budget participatif',
-              'Impôts et finances',
-              'Recrutement',
-              'Marchés publics',
-              'Rapport de la chambre régionale des comptes',
+              "Démarche et services",
+              "Démocratie locale",
+              "Budget",
+              "Budget participatif",
+              "Impôts et finances",
+              "Recrutement",
+              "Marchés publics",
+              "Rapport de la chambre régionale des comptes",
             ]}
           />
           <SousMenuFooter
-            title={'Cadre de vie'}
+            title={"Cadre de vie"}
             items={[
-              'Environnements et espaces verts',
-              'Développement durable',
-              'Travaux',
-              'Grands projets',
-              'Urbanisme',
-              'Circulation & transports',
-              'Sécurité & prévention',
+              "Environnements et espaces verts",
+              "Développement durable",
+              "Travaux",
+              "Grands projets",
+              "Urbanisme",
+              "Circulation & transports",
+              "Sécurité & prévention",
             ]}
           />
           <SousMenuFooter
-            title={'Solidarité et santé'}
+            title={"Solidarité et santé"}
             items={[
-              'Logement',
-              'Action sociale',
-              'Santé',
-              'Séniors',
-              'Emploi',
-              'Associations',
+              "Logement",
+              "Action sociale",
+              "Santé",
+              "Séniors",
+              "Emploi",
+              "Associations",
             ]}
           />
           <SousMenuFooter
-            title={'Culture, sports & loisirs'}
+            title={"Culture, sports & loisirs"}
             items={[
-              'Culture',
-              'Sports',
-              'Animations',
-              'Espace Vasarely',
-              'Centre Culturel Ousmane Sy',
-              'Enfants',
-              'Seniors',
-              'Associations',
+              "Culture",
+              "Sports",
+              "Animations",
+              "Espace Vasarely",
+              "Centre Culturel Ousmane Sy",
+              "Enfants",
+              "Seniors",
+              "Associations",
             ]}
           />
           <SousMenuFooter
-            title={'Famille'}
+            title={"Famille"}
             items={[
-              'Petite enfance',
-              'Enfance & éducation',
-              'Jeunesse',
-              'Séniors',
-              'Pratique',
+              "Petite enfance",
+              "Enfance & éducation",
+              "Jeunesse",
+              "Séniors",
+              "Pratique",
             ]}
           />
         </div>

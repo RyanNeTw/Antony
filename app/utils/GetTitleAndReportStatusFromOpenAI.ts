@@ -1,10 +1,10 @@
-import { zodResponseFormat } from 'openai/helpers/zod.mjs'
-import { OpenAiType, OpenAiTypeZod } from '../types'
-import OpenAI from 'openai'
-import SanitizeString from './SanitizeString'
+import { zodResponseFormat } from "openai/helpers/zod.mjs"
+import { OpenAiType, OpenAiTypeZod } from "../types"
+import OpenAI from "openai"
+import SanitizeString from "./SanitizeString"
 
 const openai = new OpenAI({
-  apiKey: process.env['NEXT_PUBLIC_OPEN_AI_KEY'],
+  apiKey: process.env["NEXT_PUBLIC_OPEN_AI_KEY"],
 })
 
 const GetTitleAndReportStatusFromOpenAI = async (
@@ -12,19 +12,19 @@ const GetTitleAndReportStatusFromOpenAI = async (
 ): Promise<OpenAiType | null> => {
   try {
     const x = await openai.beta.chat.completions.parse({
-      model: 'gpt-4o-2024-08-06',
+      model: "gpt-4o-2024-08-06",
       messages: [
         {
-          role: 'system',
+          role: "system",
           content:
-            'Vous etes un assistant specialise dans l analyse des rapports d infrastructure. Analysez le rapport et creez un titre concis et professionnel et en francais.',
+            "Vous etes un assistant specialise dans l analyse des rapports d infrastructure. Analysez le rapport et creez un titre concis et professionnel et en francais.",
         },
         {
-          role: 'user',
+          role: "user",
           content: SanitizeString(report),
         },
       ],
-      response_format: zodResponseFormat(OpenAiTypeZod, 'report'),
+      response_format: zodResponseFormat(OpenAiTypeZod, "report"),
     })
     return x.choices[0].message.parsed
   } catch (e) {

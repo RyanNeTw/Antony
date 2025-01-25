@@ -7,9 +7,9 @@ export default function SousMenuFooter({ title, items }) {
       </div>
       <ul
         className="list-disc px-4"
-        style={{ listStyleType: 'disc', color: 'blue' }}
+        style={{ listStyleType: "disc", color: "blue" }}
       >
-        {' '}
+        {" "}
         {items && Array.isArray(items) ? (
           items.map((item, index) => (
             <li className="text-[#7A7E94] custom-marker" key={index}>

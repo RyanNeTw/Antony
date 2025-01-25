@@ -1,11 +1,11 @@
-import supabase from '../supabase'
-import { UserType } from '../types'
+import supabase from "../supabase"
+import { UserType } from "../types"
 
 const CreateUser = async (data: UserType): Promise<string | null> => {
   const { error, data: user } = await supabase
-    .from('users')
+    .from("users")
     .insert(data)
-    .select('*')
+    .select("*")
     .maybeSingle()
 
   if (error) {

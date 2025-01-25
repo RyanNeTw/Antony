@@ -1,5 +1,5 @@
-import supabase from '@/app/supabase'
-import { NextRequest, NextResponse } from 'next/server'
+import supabase from "@/app/supabase"
+import { NextRequest, NextResponse } from "next/server"
 
 export async function GET(
   request: NextRequest,
@@ -8,9 +8,9 @@ export async function GET(
   const id = (await params).id
 
   const { data, error } = await supabase
-    .from('reports_ai')
-    .select('*')
-    .eq('id', id)
+    .from("reports_ai")
+    .select("*")
+    .eq("id", id)
 
   if (error)
     return NextResponse.json({

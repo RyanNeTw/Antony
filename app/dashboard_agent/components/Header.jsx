@@ -1,47 +1,47 @@
-import Image from 'next/image'
+import Image from "next/image"
 
 const links = [
-  'LES + DEMANDES',
-  'Budget participatif',
-  'Démarches et services',
-  'Signalements',
-  'Petites annonces',
-  'Agenda',
+  "LES + DEMANDES",
+  "Budget participatif",
+  "Démarches et services",
+  "Signalements",
+  "Petites annonces",
+  "Agenda",
   "Offres d'emploi",
 ]
 
 const headerLinks = [
   {
-    color: 'hover:bg-lightblue border-lightblue',
-    text: 'Découvrir Antony',
+    color: "hover:bg-lightblue border-lightblue",
+    text: "Découvrir Antony",
   },
   {
-    color: 'hover:bg-burgundy border-burgundy',
-    text: 'Signalement',
+    color: "hover:bg-burgundy border-burgundy",
+    text: "Signalement",
   },
   {
-    color: 'hover:bg-green border-green',
-    text: 'Cadre de vie',
+    color: "hover:bg-green border-green",
+    text: "Cadre de vie",
   },
   {
-    color: 'hover:bg-burgundy border-burgundy',
-    text: 'Solidarité et Santé',
+    color: "hover:bg-burgundy border-burgundy",
+    text: "Solidarité et Santé",
   },
   {
-    color: 'hover:bg-primary border-primary',
-    text: 'Culture, sport et loisir',
+    color: "hover:bg-primary border-primary",
+    text: "Culture, sport et loisir",
   },
   {
-    color: 'hover:bg-warning border-warning',
-    text: 'Famille',
+    color: "hover:bg-warning border-warning",
+    text: "Famille",
   },
   {
-    color: 'hover:bg-burgundy border-burgundy',
-    text: 'Agenda',
+    color: "hover:bg-burgundy border-burgundy",
+    text: "Agenda",
   },
   {
-    color: 'hover:bg-green border-green',
-    text: 'Suivez-nous',
+    color: "hover:bg-green border-green",
+    text: "Suivez-nous",
   },
 ]
 

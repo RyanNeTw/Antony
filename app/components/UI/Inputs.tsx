@@ -15,7 +15,7 @@ const Inputs = ({
   onBlur,
   onChange,
   name,
-  value = '',
+  value = "",
   addStyle,
   readonly = false,
 }: IProps) => {

@@ -1,12 +1,12 @@
-import { ReportType } from '@/app/types'
-import CheckReportBody from '@/app/utils/CheckReportBody'
-import CreateReport from '@/app/utils/CreateReport'
-import CreateReportAi from '@/app/utils/CreateReportAi'
-import CreateUser from '@/app/utils/CreateUser'
-import GetTitleAndReportStatusFromOpenAI from '@/app/utils/GetTitleAndReportStatusFromOpenAI'
-import IncrementReportAi from '@/app/utils/IncrementReportAi'
-import MatchingReports from '@/app/utils/MatchingReports'
-import { NextRequest, NextResponse } from 'next/server'
+import { ReportType } from "@/app/types"
+import CheckReportBody from "@/app/utils/CheckReportBody"
+import CreateReport from "@/app/utils/CreateReport"
+import CreateReportAi from "@/app/utils/CreateReportAi"
+import CreateUser from "@/app/utils/CreateUser"
+import GetTitleAndReportStatusFromOpenAI from "@/app/utils/GetTitleAndReportStatusFromOpenAI"
+import IncrementReportAi from "@/app/utils/IncrementReportAi"
+import MatchingReports from "@/app/utils/MatchingReports"
+import { NextRequest, NextResponse } from "next/server"
 
 export async function POST(req: NextRequest) {
   const data = (await req.json()) as ReportType
@@ -38,7 +38,7 @@ export async function POST(req: NextRequest) {
   if (!openAiRes) {
     return NextResponse.json(
       {
-        message: 'Error while fetching AI',
+        message: "Error while fetching AI",
       },
       { status: 500 }
     )
@@ -58,7 +58,7 @@ export async function POST(req: NextRequest) {
   if (!user_id || !report_ai_id) {
     return NextResponse.json(
       {
-        message: 'Error',
+        message: "Error",
       },
       { status: 500 }
     )
@@ -76,7 +76,7 @@ export async function POST(req: NextRequest) {
 
   return NextResponse.json(
     {
-      message: isReportCreated ? 'Report created' : 'Error',
+      message: isReportCreated ? "Report created" : "Error",
     },
     { status: isReportCreated ? 201 : 500 }
   )

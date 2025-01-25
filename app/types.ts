@@ -1,4 +1,4 @@
-import { z } from 'zod'
+import { z } from "zod"
 
 export type ReportType = UserType & {
   street: string
@@ -22,9 +22,9 @@ export type UserType = {
 }
 
 export enum ReportStatus {
-  HIGH = 'HIGH',
-  MID = 'MID',
-  LOW = 'LOW',
+  HIGH = "HIGH",
+  MID = "MID",
+  LOW = "LOW",
 }
 
 export const OpenAiTypeZod = z.object({
