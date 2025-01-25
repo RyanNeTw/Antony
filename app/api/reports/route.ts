@@ -35,11 +35,10 @@ export async function POST(req: NextRequest) {
 
   const openAiRes = await GetTitleAndReportStatusFromOpenAI(report)
 
-  if (!openAiRes || !Boolean(openAiRes?.title && openAiRes?.status)) {
+  if (!openAiRes) {
     return NextResponse.json(
       {
         message: "Error while fetching AI",
-        content: openAiRes,
       },
       { status: 500 }
     )
