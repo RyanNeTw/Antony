@@ -30,7 +30,7 @@ const Radios = ({
               type="radio"
               id={name}
               name={name}
-              value={index % 2 == 0 ? "true" : "false"}
+              value={index % 2 == 0 ? 'true' : 'false'}
               onChange={onChange}
               onBlur={onBlur}
             />

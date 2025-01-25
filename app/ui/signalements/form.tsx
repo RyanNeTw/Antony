@@ -1,13 +1,13 @@
-"use client"
+'use client'
 
-import InputFile from "@/app/components/UI/InputFile"
-import Inputs from "@/app/components/UI/Inputs"
-import Paragraph from "@/app/components/UI/Paragraph"
-import Radios from "@/app/components/UI/Radios"
-import SubmitButton from "@/app/components/UI/SubmitButton"
-import Title from "@/app/dashboard_agent/components/typography/Title"
-import React from "react"
-import { Controller, SubmitHandler, useForm } from "react-hook-form"
+import InputFile from '@/app/components/UI/InputFile'
+import Inputs from '@/app/components/UI/Inputs'
+import Paragraph from '@/app/components/UI/Paragraph'
+import Radios from '@/app/components/UI/Radios'
+import SubmitButton from '@/app/components/UI/SubmitButton'
+import Title from '@/app/dashboard_agent/components/typography/Title'
+import React from 'react'
+import { Controller, SubmitHandler, useForm } from 'react-hook-form'
 
 type Inputs = {
   firstname: string
@@ -27,18 +27,18 @@ type Inputs = {
 const Form = () => {
   const { handleSubmit, control } = useForm<Inputs>({
     defaultValues: {
-      firstname: "",
-      lastname: "",
-      email: "",
-      is_habitant: "",
-      signalment: "",
-      street_number: "",
-      street_name: "",
-      street_name_1: "",
-      street_name_2: "",
-      postcode: "",
-      region: "",
-      files: "",
+      firstname: '',
+      lastname: '',
+      email: '',
+      is_habitant: '',
+      signalment: '',
+      street_number: '',
+      street_name: '',
+      street_name_1: '',
+      street_name_2: '',
+      postcode: '',
+      region: '',
+      files: '',
     },
   })
 
@@ -61,7 +61,7 @@ const Form = () => {
           <Controller
             name="firstname"
             control={control}
-            rules={{ required: "Le prénom est requis", maxLength: 100 }}
+            rules={{ required: 'Le prénom est requis', maxLength: 100 }}
             render={({ field }) => (
               <Inputs
                 label="Prénom"
@@ -74,7 +74,7 @@ const Form = () => {
           <Controller
             name="lastname"
             control={control}
-            rules={{ required: "Le Nom est requis", maxLength: 100 }}
+            rules={{ required: 'Le Nom est requis', maxLength: 100 }}
             render={({ field }) => (
               <Inputs
                 label="Nom"
@@ -89,7 +89,7 @@ const Form = () => {
           name="email"
           control={control}
           rules={{
-            required: "Le email est requis",
+            required: 'Le email est requis',
             pattern: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
           }}
           render={({ field }) => (
@@ -105,7 +105,7 @@ const Form = () => {
           name="is_habitant"
           control={control}
           rules={{
-            required: "Le is_habitant est requis",
+            required: 'Le is_habitant est requis',
           }}
           render={({ field }) => (
             <Radios label="Habitant" iteration={2} {...field} />
@@ -115,7 +115,7 @@ const Form = () => {
           name="signalment"
           control={control}
           rules={{
-            required: "Le signalment est requis",
+            required: 'Le signalment est requis',
             maxLength: 300,
             minLength: 20,
           }}
@@ -133,7 +133,7 @@ const Form = () => {
           name="files"
           control={control}
           rules={{
-            required: "Le files est requis",
+            required: 'Le files est requis',
             maxLength: 300,
             minLength: 20,
           }}
@@ -157,7 +157,7 @@ const Form = () => {
                 name="street_number"
                 control={control}
                 rules={{
-                  required: "Le street_number est requis",
+                  required: 'Le street_number est requis',
                 }}
                 render={({ field }) => (
                   <Inputs placeholder="N" addStyle="w-1/5" {...field} />
@@ -167,7 +167,7 @@ const Form = () => {
                 name="street_name"
                 control={control}
                 rules={{
-                  required: "Le street_name est requis",
+                  required: 'Le street_name est requis',
                 }}
                 render={({ field }) => (
                   <Inputs placeholder="Rue" addStyle="w-4/5" {...field} />

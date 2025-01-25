@@ -1,11 +1,11 @@
-import supabase from "../supabase"
-import { OpenAiType } from "../types"
+import supabase from '../supabase'
+import { OpenAiType } from '../types'
 
 const CreateReportAi = async (data: OpenAiType): Promise<string | null> => {
   const { error, data: reportAi } = await supabase
-    .from("reports_ai")
+    .from('reports_ai')
     .insert(data)
-    .select("*")
+    .select('*')
     .maybeSingle()
 
   if (error) {

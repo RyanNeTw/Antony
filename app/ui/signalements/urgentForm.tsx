@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react"
-import { useForm, Controller } from "react-hook-form"
+import React, { useState, useEffect } from 'react'
+import { useForm, Controller } from 'react-hook-form'
 
 type FormValues = {
   status: boolean
@@ -8,19 +8,19 @@ type FormValues = {
 }
 
 function UrgentForm() {
-  const [priority, setPriority] = useState<string>("Urgent")
-  const [name, setName] = useState<string>("Josette Morrin")
+  const [priority, setPriority] = useState<string>('Urgent')
+  const [name, setName] = useState<string>('Josette Morrin')
   const [issueName, setIssueName] = useState<string>(
-    "Troue au milieu de la route"
+    'Troue au milieu de la route'
   )
   const [location, setLocation] = useState<string>(
-    "5 Boulevard Benjamin le Grand, 92160 Antony"
+    '5 Boulevard Benjamin le Grand, 92160 Antony'
   )
   const { control, watch } = useForm<FormValues>({
     defaultValues: {
       status: false,
-      issueDetails: "",
-      additionalInfo: "",
+      issueDetails: '',
+      additionalInfo: '',
     },
   })
 
@@ -31,7 +31,7 @@ function UrgentForm() {
     setLocation(location)
   }, [name, priority, issueName, location])
 
-  const status = watch("status")
+  const status = watch('status')
 
   return (
     <form className="flex items-center justify-center">
@@ -84,10 +84,10 @@ function UrgentForm() {
           <div className="absolute bottom-0 w-full flex justify-between">
             <button
               className={`px-[14px] py-[10px] gap-[10px] w-[87px] h-[36px] text-white text-xs font-normal ${
-                status ? "bg-burgundy" : "bg-green"
+                status ? 'bg-burgundy' : 'bg-green'
               }`}
             >
-              {status ? "Supprimer" : "Récupérer"}
+              {status ? 'Supprimer' : 'Récupérer'}
             </button>
 
             {status && (

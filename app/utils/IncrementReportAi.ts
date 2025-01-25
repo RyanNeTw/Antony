@@ -1,4 +1,4 @@
-import supabase from "../supabase"
+import supabase from '../supabase'
 
 type IProps = {
   id: string
@@ -10,10 +10,10 @@ const IncrementReportAi = async ({
   count,
 }: IProps): Promise<string | null> => {
   const { error, data } = await supabase
-    .from("reports_ai")
+    .from('reports_ai')
     .update({ count: count + 1 })
-    .eq("id", id)
-    .select("*")
+    .eq('id', id)
+    .select('*')
     .maybeSingle()
 
   if (error) return null

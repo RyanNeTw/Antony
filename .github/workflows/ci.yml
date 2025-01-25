@@ -10,7 +10,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v1
         with:
-          node-version: "22.x"
+          node-version: '22.x'
       - name: Install dependencies
         run: npm install
       - name: Check code formatting
@@ -24,7 +24,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v1
         with:
-          node-version: "22.x"
+          node-version: '22.x'
       - name: Install dependencies
         run: npm install
       - name: Verify lint
@@ -41,7 +41,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v1
         with:
-          node-version: "22.x"
+          node-version: '22.x'
       - name: Install dependencies
         run: npm install
       - name: Try to build

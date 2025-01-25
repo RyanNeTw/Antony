@@ -1,4 +1,4 @@
-import supabase from "../supabase"
+import supabase from '../supabase'
 
 type IProps = {
   street: string
@@ -11,7 +11,7 @@ type IProps = {
 }
 
 const CreateReport = async (data: IProps): Promise<boolean> => {
-  const { error } = await supabase.from("reports").insert(data)
+  const { error } = await supabase.from('reports').insert(data)
 
   if (error) {
     throw new Error(`Could'nt create new report`, error)

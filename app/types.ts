@@ -1,3 +1,5 @@
+import { z } from 'zod'
+
 export type ReportType = UserType & {
   street: string
   street_number: number
@@ -20,15 +22,16 @@ export type UserType = {
 }
 
 export enum ReportStatus {
-  HIGH = "HIGH",
-  MID = "MID",
-  LOW = "LOW",
+  HIGH = 'HIGH',
+  MID = 'MID',
+  LOW = 'LOW',
 }
 
-export type OpenAiType = {
-  title: string
-  status: ReportStatus
-}
+export const OpenAiTypeZod = z.object({
+  title: z.string(),
+  status: z.nativeEnum(ReportStatus),
+})
+export type OpenAiType = z.infer<typeof OpenAiTypeZod>
 
 export type ValidationResult = {
   isValid: boolean

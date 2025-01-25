@@ -1,60 +1,60 @@
-"use client"
+'use client'
 
-import Breadcrumb from "../components/Breadcrumb"
-import Signalements from "../components/Signalements"
-import Header from "./components/Header"
-import Title from "./components/typography/Title"
-import Footer from "./Footer"
+import Breadcrumb from '../components/Breadcrumb'
+import Signalements from '../components/Signalements'
+import Header from './components/Header'
+import Title from './components/typography/Title'
+import Footer from './Footer'
 
 const signalements = [
   {
-    type: "Urgent",
-    description: "Troue au milieu de la route",
-    adresse: "5 Boulevard Benjamin le Grand",
-    auteur: "Josette Martin",
-    color: "bg-[#9D2F48]",
+    type: 'Urgent',
+    description: 'Troue au milieu de la route',
+    adresse: '5 Boulevard Benjamin le Grand',
+    auteur: 'Josette Martin',
+    color: 'bg-[#9D2F48]',
   },
   {
-    type: "Urgent",
-    description: "Feu en panne",
-    adresse: "2 Rue du Martyr",
-    auteur: "",
-    color: "bg-[#9D2F48]",
+    type: 'Urgent',
+    description: 'Feu en panne',
+    adresse: '2 Rue du Martyr',
+    auteur: '',
+    color: 'bg-[#9D2F48]',
   },
   {
-    type: "Récurrent",
-    description: "...",
-    adresse: "...",
-    auteur: "...",
-    color: "bg-[#9D3A7C]",
+    type: 'Récurrent',
+    description: '...',
+    adresse: '...',
+    auteur: '...',
+    color: 'bg-[#9D3A7C]',
   },
   {
-    type: "Récurrent",
-    description: "...",
-    adresse: "...",
-    auteur: "...",
-    color: "bg-[#9D3A7C]",
+    type: 'Récurrent',
+    description: '...',
+    adresse: '...',
+    auteur: '...',
+    color: 'bg-[#9D3A7C]',
   },
   {
-    type: "",
-    description: "Lampadaire en panne",
-    adresse: "...",
-    auteur: "Josette Martin",
-    color: "bg-[#7CB462]",
+    type: '',
+    description: 'Lampadaire en panne',
+    adresse: '...',
+    auteur: 'Josette Martin',
+    color: 'bg-[#7CB462]',
   },
   {
-    type: "",
-    description: "...",
-    adresse: "...",
-    auteur: "Martin L. Bernard",
-    color: "bg-[#7CB462]",
+    type: '',
+    description: '...',
+    adresse: '...',
+    auteur: 'Martin L. Bernard',
+    color: 'bg-[#7CB462]',
   },
   {
-    type: "",
-    description: "...",
-    adresse: "...",
-    auteur: "Martin L. Bernard",
-    color: "bg-[#7CB462]",
+    type: '',
+    description: '...',
+    adresse: '...',
+    auteur: 'Martin L. Bernard',
+    color: 'bg-[#7CB462]',
   },
 ]
 
@@ -77,12 +77,12 @@ const SignalementsTable = () => {
                 <tbody>
                   {signalements.map((signalement, index) => {
                     const isPreviousUrgent =
-                      index > 0 && signalements[index - 1].type === "urgent"
-                    const isCurrentRecurrent = signalement.type === "recurrent"
+                      index > 0 && signalements[index - 1].type === 'urgent'
+                    const isCurrentRecurrent = signalement.type === 'recurrent'
                     const extraMargin =
                       isPreviousUrgent && isCurrentRecurrent
-                        ? "border-t-[32px]"
-                        : ""
+                        ? 'border-t-[32px]'
+                        : ''
                     return (
                       <tr
                         key={index}
@@ -91,7 +91,7 @@ const SignalementsTable = () => {
                         <td
                           className={`flex-1 px-4 py-2 font-semibold text-white text-center ${signalement.color}`}
                         >
-                          {signalement.type || "•"}
+                          {signalement.type || '•'}
                         </td>
                         <td className="flex-1 px-4 py-2 text-white bg-[#747474]">
                           {signalement.description}
