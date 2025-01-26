@@ -1,10 +1,16 @@
 import supabase from "../supabase"
 import { UserType } from "../types"
 
-const CreateUser = async (data: UserType): Promise<string | null> => {
+const CreateUser = async (
+  data: UserType,
+  report_ai_id: string
+): Promise<string | null> => {
   const { error, data: user } = await supabase
     .from("users")
-    .insert(data)
+    .insert({
+      data,
+      report_ai_id,
+    })
     .select("*")
     .maybeSingle()
 

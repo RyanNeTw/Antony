@@ -1,6 +1,7 @@
 import Paragraph from "@/app/components/UI/Paragraph"
 import Link from "next/link"
 import Subtitle from "./typography/Subtitle"
+import { useSearchParams } from "next/navigation"
 
 type IProps = {
   title: string
@@ -15,6 +16,9 @@ type IProps = {
 }
 
 const LeftMenu = ({ title, links }: IProps) => {
+  const searchParams = useSearchParams()
+  const filter = searchParams.get("filter")
+
   return (
     <div className="bg-[#E2E3E8] p-4 text-xs font-normal h-fit mr-auto">
       <Subtitle>{title}</Subtitle>
@@ -26,11 +30,11 @@ const LeftMenu = ({ title, links }: IProps) => {
               href={l.link}
             >
               <div
-                className={`${l.title ? "bg-lightblue" : "bg-black"} w-2 h-2 rounded-full`}
+                className={`${`${l.title === filter ? "text-lightblue" : "text-black"}`} w-2 h-2 rounded-full`}
               ></div>
               <Paragraph
                 text={l.title}
-                addStyle={`${l.title && "text-lightblue"}`}
+                addStyle={`${l.title === filter ? "text-lightblue" : "text-black"}`}
               />
             </Link>
             {l?.links?.map((link, index) => (
@@ -39,12 +43,14 @@ const LeftMenu = ({ title, links }: IProps) => {
                 href={link.link}
                 key={index}
               >
-                <p className={`${l.title ? "text-lightblue" : "text-black"}`}>
+                <p
+                  className={`${link.text === filter ? "text-lightblue" : "text-black"}`}
+                >
                   {">"}
                 </p>
                 <Paragraph
                   text={link.text}
-                  addStyle={`${l.title && "text-lightblue"}`}
+                  addStyle={`${link.text === filter ? "text-lightblue" : "text-black"}`}
                 />
               </Link>
             ))}

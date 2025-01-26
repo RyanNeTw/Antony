@@ -19,6 +19,7 @@ export default {
         backgroundInput: "#F2F2F2",
         darkGray: "#747474",
         greenForm: "#7CB462",
+        high: "#9D2F48",
       },
       width: {
         h: "48%",

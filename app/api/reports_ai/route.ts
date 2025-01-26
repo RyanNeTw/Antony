@@ -25,12 +25,12 @@ export async function GET(request: NextRequest) {
 
   let query = supabase
     .from("reports_ai")
-    .select("*")
+    .select("*, reports(*), users(*)")
     .range(offset, offset + limit - 1)
 
   if (status) query = query.eq("status", status)
-  if (!is_deleted) query = query.eq("is_deleted", is_deleted)
-  if (!is_read) query = query.eq("is_read", is_read)
+  if (is_read) query = query.eq("is_read", is_read)
+  query = query.eq("is_deleted", is_deleted)
 
   const { data, error } = await query
 
@@ -42,6 +42,7 @@ export async function GET(request: NextRequest) {
     pagination: {
       currentPage: page,
       itemsPerPage: limit,
+      totalItems: data.length,
     },
   })
 }

@@ -9,7 +9,7 @@ export async function GET(
 
   const { data, error } = await supabase
     .from("reports_ai")
-    .select("*")
+    .select("*, reports(*), users(*)")
     .eq("id", id)
 
   if (error)

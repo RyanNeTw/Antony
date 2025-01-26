@@ -17,7 +17,7 @@ const GetTitleAndReportStatusFromOpenAI = async (
         {
           role: "system",
           content:
-            "Vous etes un assistant specialise dans l analyse des rapports d infrastructure. Analysez le rapport et creez un titre concis et professionnel et en francais.",
+            "Vous etes un assistant specialise dans l analyse des rapports d infrastructure. Analysez le rapport et creez un titre concis et professionnel et en francais. Le titre doit faire 4 mots.",
         },
         {
           role: "user",
@@ -25,8 +25,10 @@ const GetTitleAndReportStatusFromOpenAI = async (
         },
       ],
       response_format: zodResponseFormat(OpenAiTypeZod, "report"),
+      max_tokens: 200,
+      temperature: 1,
     })
-    return x.choices[0].message.parsed
+    return x?.choices[0]?.message?.parsed ?? null
   } catch (e) {
     console.warn({ e })
     return null
