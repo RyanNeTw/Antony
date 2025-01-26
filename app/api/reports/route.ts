@@ -49,13 +49,31 @@ export async function POST(req: NextRequest) {
     street,
   })
 
-  const user_id = await CreateUser({ firstname, lastname, email, is_habitant })
+  const report_ai_id =
+    isReportExists?.id && isReportExists?.count
+      ? await IncrementReportAi(isReportExists)
+      : await CreateReportAi(openAiRes)
 
-  const report_ai_id = isReportExists
-    ? await IncrementReportAi(isReportExists)
-    : await CreateReportAi(openAiRes)
+  if (!report_ai_id) {
+    return NextResponse.json(
+      {
+        message: "Error",
+      },
+      { status: 500 }
+    )
+  }
 
-  if (!user_id || !report_ai_id) {
+  const user_id = await CreateUser(
+    {
+      firstname,
+      lastname,
+      email,
+      is_habitant,
+    },
+    report_ai_id
+  )
+
+  if (!user_id) {
     return NextResponse.json(
       {
         message: "Error",
