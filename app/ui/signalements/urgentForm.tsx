@@ -12,8 +12,12 @@ type FormValues = {
 const UrgentForm = () => {
   const [priority, setPriority] = useState<string>("Urgent")
   const [name, setName] = useState<string>("Josette Morrin")
-  const [issueName, setIssueName] = useState<string>("Trou au milieu de la route")
-  const [location, setLocation] = useState<string>("5 Boulevard Benjamin le Grand, 92160 Antony")
+  const [issueName, setIssueName] = useState<string>(
+    "Trou au milieu de la route"
+  )
+  const [location, setLocation] = useState<string>(
+    "5 Boulevard Benjamin le Grand, 92160 Antony"
+  )
 
   const { control, watch, handleSubmit } = useForm<FormValues>({
     defaultValues: {
@@ -37,7 +41,10 @@ const UrgentForm = () => {
   }
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="flex items-center justify-center">
+    <form
+      onSubmit={handleSubmit(onSubmit)}
+      className="flex items-center justify-center"
+    >
       <div className="flex flex-col space-y-4">
         <h1 className="h-[41px] w-[623px] text-[34px] font-light text-burgundy">
           Signalement Urgent de {name}
@@ -65,11 +72,20 @@ const UrgentForm = () => {
           <Controller
             name="issueDetails"
             control={control}
-            rules={{ required: "Les détails du problème sont requis", minLength: 20, maxLength: 300 }}
+            rules={{
+              required: "Les détails du problème sont requis",
+              minLength: 20,
+              maxLength: 300,
+            }}
             render={({ field, fieldState: { error } }) => (
               <>
-                <textarea {...field} className="bg-backgroundInput h-[139px] p-2 text-blue text-xs"></textarea>
-                {error && <p className="text-red-500 text-xs">{error.message}</p>}
+                <textarea
+                  {...field}
+                  className="bg-backgroundInput h-[139px] p-2 text-blue text-xs"
+                ></textarea>
+                {error && (
+                  <p className="text-red-500 text-xs">{error.message}</p>
+                )}
               </>
             )}
           />
@@ -77,11 +93,20 @@ const UrgentForm = () => {
           <Controller
             name="additionalInfo"
             control={control}
-            rules={{ required: "Informations supplémentaires requises", minLength: 10, maxLength: 300 }}
+            rules={{
+              required: "Informations supplémentaires requises",
+              minLength: 10,
+              maxLength: 300,
+            }}
             render={({ field, fieldState: { error } }) => (
               <>
-                <textarea {...field} className="bg-darkGray h-[139px] p-2 text-blue text-xs text-white"></textarea>
-                {error && <p className="text-red-500 text-xs">{error.message}</p>}
+                <textarea
+                  {...field}
+                  className="bg-darkGray h-[139px] p-2 text-blue text-xs text-white"
+                ></textarea>
+                {error && (
+                  <p className="text-red-500 text-xs">{error.message}</p>
+                )}
               </>
             )}
           />
