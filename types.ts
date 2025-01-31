@@ -6,6 +6,24 @@ const BasicZod = z.object({
   updated_at: z.string().nullable(),
 })
 
+export const ReportSchema = z.object({
+  firstname: z.string().min(1, "Le champ prénom est requis"),
+  lastname: z.string().min(1, "Le champ nom est requis"),
+  email: z.string().email("Le champ email doit être valide"),
+  is_habitant: z.preprocess(
+    (val) => (val === "true" ? true : val === "false" ? false : val),
+    z.boolean()
+  ),
+  street_number: z.preprocess(
+    (val) => (typeof val === "string" ? Number(val.trim()) : val),
+    z.number().positive("Le champ street_number doit être un nombre valide")
+  ),
+  street: z.string().min(1, "Le champ street est requis"),
+  street_1: z.string().optional(),
+  street_2: z.string().optional(),
+  report: z.string().min(1, "Le champ report est requis"),
+})
+
 export type ReportType = UserType & {
   street: string
   street_number: number

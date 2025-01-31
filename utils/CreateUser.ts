@@ -8,13 +8,14 @@ const CreateUser = async (
   const { error, data: user } = await supabase
     .from("users")
     .insert({
-      data,
+      ...data,
       report_ai_id,
     })
     .select("*")
     .maybeSingle()
 
   if (error) {
+    console.log("error", error)
     throw new Error(`Could'nt create new user`, error)
   }
 
