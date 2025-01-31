@@ -1,11 +1,15 @@
+"use client"
+
 import UrgentForm from "@/app/ui/signalements/form"
-import React from "react"
+import React, { Suspense } from "react"
 
 function MainPage() {
   return (
-    <div>
-      <UrgentForm />
-    </div>
+    <Suspense fallback={<div>Chargement...</div>}>
+      <div>
+        <UrgentForm />
+      </div>
+    </Suspense>
   )
 }
 
