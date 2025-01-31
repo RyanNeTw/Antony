@@ -13,7 +13,6 @@
   "dependencies": {
     "@reduxjs/toolkit": "^2.5.1",
     "@supabase/supabase-js": "^2.46.2",
-    "axios": "^1.7.9",
     "dayjs": "^1.11.13",
     "lint": "^0.8.19",
     "next": "15.0.3",
