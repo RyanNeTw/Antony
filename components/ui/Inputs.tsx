@@ -7,6 +7,8 @@ type IProps = {
   value?: string | number
   addStyle?: string
   readonly?: boolean
+  inputType?: string
+  isError?: boolean
 }
 
 const Inputs = ({
@@ -18,6 +20,8 @@ const Inputs = ({
   value = "",
   addStyle,
   readonly = false,
+  inputType = "text",
+  isError = false,
 }: IProps) => {
   return (
     <>
@@ -31,8 +35,8 @@ const Inputs = ({
           </label>
         )}
         <input
-          className="py-2 px-4 text-xs bg-backgroundInput"
-          type="text"
+          className={`py-2 px-4 text-xs bg-backgroundInput ${isError && "border-2 border-warning"}`}
+          type={inputType}
           id={name}
           name={name}
           placeholder={placeholder}

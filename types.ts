@@ -54,6 +54,7 @@ export enum ReportStatus {
 export enum TypeComponent {
   WARNING = "bg-warning",
   OK = "bg-greenForm",
+  BASIC = "bg-blue",
 }
 
 export enum SignalmentsFilter {

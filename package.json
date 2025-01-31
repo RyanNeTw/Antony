@@ -14,6 +14,7 @@
     "@reduxjs/toolkit": "^2.5.1",
     "@supabase/supabase-js": "^2.46.2",
     "dayjs": "^1.11.13",
+    "jose": "^5.9.6",
     "lint": "^0.8.19",
     "next": "15.0.3",
     "openai": "^4.80.1",

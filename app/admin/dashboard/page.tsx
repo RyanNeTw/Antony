@@ -20,10 +20,10 @@ const SignalementsTable = () => {
             <Signalements />
 
             <div className="w-auto">
-              <Title>
-                Liste des signalements
+              <div>
+                <Title text="Liste des signalements" />
                 <FilterSpan />
-              </Title>
+              </div>
               <Paragraph
                 text="Dernière modification le 28/11/2024"
                 addStyle="text-xs font-extralight mb-6 italic"
