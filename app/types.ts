@@ -33,6 +33,17 @@ export enum ReportStatus {
   LOW = "LOW",
 }
 
+export enum TypeComponent {
+  WARNING = "bg-warning",
+  OK = "bg-greenForm",
+}
+
+export enum SignalmentsFilter {
+  DELETED = "Supprimés",
+  NOT_CONSULTED = "Non-Consultés",
+  CONSULTED = "Consultés",
+}
+
 export const OpenAiTypeZod = z.object({
   title: z.string(),
   status: z.nativeEnum(ReportStatus),
@@ -65,15 +76,17 @@ export type Report = z.infer<typeof ReportZod>
 export const ReportsZod = z.array(ReportZod)
 export type Reports = z.infer<typeof ReportsZod>
 
-export const ReportAiZod = z.object({
-  title: z.string(),
-  status: z.nativeEnum(ReportStatus),
-  is_deleted: z.boolean().default(false),
-  is_read: z.boolean().default(false),
-  count: z.number(),
-  reports: ReportsZod,
-  users: z.array(UserZod),
-})
+export const ReportAiZod = BasicZod.merge(
+  z.object({
+    title: z.string(),
+    status: z.nativeEnum(ReportStatus),
+    is_deleted: z.boolean().default(false),
+    is_read: z.boolean().default(false),
+    count: z.number(),
+    reports: ReportsZod,
+    users: z.array(UserZod),
+  })
+)
 export type ReportAi = z.infer<typeof ReportAiZod>
 
 export const ReportAisZod = z.array(ReportAiZod)

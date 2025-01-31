@@ -8,8 +8,12 @@ import Title from "./components/typography/Title"
 import Footer from "./Footer"
 import SignalementTable from "../components/SignalmentTable"
 import { Suspense } from "react"
+import { useSearchParams } from "next/navigation"
 
 const SignalementsTable = () => {
+  const searchParams = useSearchParams()
+  const filter = searchParams.get("filter")
+
   return (
     <Suspense fallback={<div>Chargement...</div>}>
       <div>
@@ -20,7 +24,10 @@ const SignalementsTable = () => {
             <Signalements />
 
             <div className="w-auto">
-              <Title>Liste des signalements</Title>
+              <Title>
+                Liste des signalements
+                <span className="font-semibold"> {filter}</span>
+              </Title>
               <Paragraph
                 text="Dernière modification le 28/11/2024"
                 addStyle="text-xs font-extralight mb-6 italic"
