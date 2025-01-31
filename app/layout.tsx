@@ -1,9 +1,13 @@
+// pages/_app.tsx
+import React from "react"
+import { Provider } from "react-redux"
+import store from "../redux/store"
 import type { Metadata } from "next"
 import "./globals.css"
 
 export const metadata: Metadata = {
-  title: "Projet révolutionnaire, sky is the limit", //J'ai pas d'idée mettez ce que vous voulez en vrai
-  description: "Sky is the limit", // aucune idée mais team building
+  title: "Projet révolutionnaire, sky is the limit",
+  description: "Sky is the limit",
 }
 
 export default function RootLayout({
@@ -13,7 +17,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <Provider store={store}>{children}</Provider>
+      </body>
     </html>
   )
 }
