@@ -1,17 +1,8 @@
-<<<<<<<< HEAD:SousMenuFooter.tsx
-interface SousMenuFooterProps {
-  title: string
-  items: string[]
-}
-
-export default function SousMenuFooter({ title, items }: SousMenuFooterProps) {
-========
 type IProps = {
   title: string
   items: string[]
 }
 export default function SousMenuFooter({ title, items }: IProps) {
->>>>>>>> 2837d97 (Refactor project structure and add new components for signalements and admin dashboard):components/SousMenuFooter.tsx
   return (
     <div className="max-w-[300px]">
       <div>
