@@ -58,7 +58,7 @@ const SignalementTable = () => {
                   {signalement.title}
                 </td>
                 <td className="flex-1 px-4 py-2 bg-[#F2F2F2] text-gray-800">
-                  {signalement.reports[0].street}
+                  {signalement.reports[0]?.street}
                 </td>
                 <td className="flex-1 px-4 py-2 bg-[#F2F2F2] text-pink-600">
                   {signalement.users[0]?.firstname +
