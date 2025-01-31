@@ -1,10 +1,10 @@
 "use client"
 
-import Inputs from "@/app/components/UI/Inputs"
-import SubmitButton from "@/app/components/UI/SubmitButton"
-import Header from "@/app/dashboard_agent/components/Header"
-import Title from "@/app/dashboard_agent/components/typography/Title"
-import { TypeComponent } from "@/app/types"
+import Header from "@/components/Header"
+import Inputs from "@/components/ui/Inputs"
+import SubmitButton from "@/components/ui/SubmitButton"
+import Title from "@/components/ui/Title"
+import { TypeComponent } from "@/types"
 import { Suspense } from "react"
 import { Controller, SubmitHandler, useForm } from "react-hook-form"
 
