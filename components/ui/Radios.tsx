@@ -3,7 +3,7 @@ type IProps = {
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void
   onBlur?: () => void
   name?: string
-  value?: string
+  value?: string | boolean
   addStyle?: string
   iteration?: number
 }
