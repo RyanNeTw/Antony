@@ -11,9 +11,6 @@ import { Suspense } from "react"
 import { useSearchParams } from "next/navigation"
 
 const SignalementsTable = () => {
-  const searchParams = useSearchParams()
-  const filter = searchParams.get("filter")
-
   return (
     <Suspense fallback={<div>Chargement...</div>}>
       <div>
@@ -26,7 +23,7 @@ const SignalementsTable = () => {
             <div className="w-auto">
               <Title>
                 Liste des signalements
-                <span className="font-semibold"> {filter}</span>
+                <FilterSpan />
               </Title>
               <Paragraph
                 text="Dernière modification le 28/11/2024"
@@ -42,6 +39,12 @@ const SignalementsTable = () => {
       </div>
     </Suspense>
   )
+}
+
+const FilterSpan = () => {
+  const searchParams = useSearchParams()
+  const filter = searchParams.get("filter")
+  return <span className="font-semibold"> {filter}</span>
 }
 
 export default SignalementsTable
