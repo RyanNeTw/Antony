@@ -4,8 +4,8 @@ import Footer from "@/components/Footer"
 import Header from "@/components/Header"
 import SignalementTable from "@/components/SignalmentTable"
 import Paragraph from "@/components/typography/Paragraph"
-import Title from "@/components/typography/Title"
 import Signalements from "@/components/ui/signalements/Signalements"
+import Title from "@/components/ui/Title"
 import { useSearchParams } from "next/navigation"
 import { Suspense } from "react"
 
@@ -20,10 +20,10 @@ const SignalementsTable = () => {
             <Signalements />
 
             <div className="w-auto">
-              <Title>
-                Liste des signalements
+              <div>
+                <Title text="Liste des signalements" />
                 <FilterSpan />
-              </Title>
+              </div>
               <Paragraph
                 text="Dernière modification le 28/11/2024"
                 addStyle="text-xs font-extralight mb-6 italic"

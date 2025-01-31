@@ -1,9 +1,13 @@
 import { configureStore } from "@reduxjs/toolkit"
+import { setupListeners } from "@reduxjs/toolkit/query"
+import { reportsAi } from "./reportsAi"
 
 export const store = configureStore({
-  reducer: {},
+  reducer: {
+    [reportsAi.reducerPath]: reportsAi.reducer,
+  },
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware().concat(reportsAi.middleware),
 })
 
-// Types pour Redux
-export type RootState = ReturnType<typeof store.getState>
-export type AppDispatch = typeof store.dispatch
+setupListeners(store.dispatch)
