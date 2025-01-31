@@ -23,3 +23,27 @@ export async function GET(
     data,
   })
 }
+
+export async function PUT(
+  req: NextRequest,
+  { params }: { params: Promise<{ id: string }> }
+) {
+  const id = (await params).id
+  const { is_deleted } = (await req.json()) as { is_deleted: boolean }
+
+  const { data, error } = await supabase
+    .from("reports_ai")
+    .update({ is_deleted })
+    .eq("id", id)
+
+  if (error)
+    return NextResponse.json({
+      status: 500,
+      error,
+    })
+
+  return NextResponse.json({
+    status: 201,
+    data,
+  })
+}

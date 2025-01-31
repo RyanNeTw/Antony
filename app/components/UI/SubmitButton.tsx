@@ -1,14 +1,17 @@
+import { TypeComponent } from "@/app/types"
+
 type IProps = {
   text: string
   addStyle?: string
+  type?: TypeComponent
 }
 
-const SubmitButton = ({ text, addStyle }: IProps) => {
+const SubmitButton = ({ text, addStyle, type = TypeComponent.OK }: IProps) => {
   return (
     <>
       <button
         type="submit"
-        className={`text-white bg-greenForm py-4 px-6 self-end ${addStyle}`}
+        className={`text-white ${type} py-4 px-6 self-end ${addStyle}`}
       >
         {text}
       </button>

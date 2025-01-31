@@ -7,8 +7,14 @@ export async function GET(request: NextRequest) {
   const page = Number(searchParams.get("page") ?? 1)
   const nbr = Number(searchParams.get("nbr") ?? 100)
   const status = searchParams.get("status")
-  const is_deleted = searchParams.get("is_deleted") === "true"
-  const is_read = searchParams.get("is_read") === "true"
+  const is_deleted: { isExists: boolean; value: boolean } = {
+    isExists: !!searchParams.get("is_deleted"),
+    value: searchParams.get("is_deleted") === "true",
+  }
+  const is_read: { isExists: boolean; value: boolean } = {
+    isExists: !!searchParams.get("is_read"),
+    value: searchParams.get("is_read") === "true",
+  }
 
   if (page < 1)
     return NextResponse.json({ error: "Invalid page number" }, { status: 400 })
@@ -29,8 +35,8 @@ export async function GET(request: NextRequest) {
     .range(offset, offset + limit - 1)
 
   if (status) query = query.eq("status", status)
-  if (is_read) query = query.eq("is_read", is_read)
-  query = query.eq("is_deleted", is_deleted)
+  if (is_deleted.isExists) query = query.eq("is_deleted", is_deleted.value)
+  if (is_read.isExists) query = query.eq("is_read", is_read.value)
 
   const { data, error } = await query
 
