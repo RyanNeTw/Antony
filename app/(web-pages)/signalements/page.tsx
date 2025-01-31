@@ -9,21 +9,19 @@ import Signalements from "@/app/components/Signalements"
 
 const SignalementPage = () => {
   return (
-    <>
-      <Suspense fallback={<div>Chargement...</div>}>
-        <div>
-          <Header />
-          <div className="mx-auto max-w-5xl">
-            <Breadcrumb />
-            <div className="flex">
-              <Signalements />
-              <Form />
-            </div>
+    <Suspense fallback={<div>Chargement...</div>}>
+      <div>
+        <Header />
+        <div className="mx-auto max-w-5xl">
+          <Breadcrumb />
+          <div className="flex">
+            <Signalements />
+            <Form />
           </div>
-          <Footer />
         </div>
-      </Suspense>
-    </>
+        <Footer />
+      </div>
+    </Suspense>
   )
 }
 

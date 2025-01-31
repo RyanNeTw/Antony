@@ -45,7 +45,7 @@ const headerLinks = [
   },
 ]
 
-const getLinkClasses = (color) => {
+const getLinkClasses = (color: string) => {
   return `relative flex items-center justify-center px-4 py-2 text-gray-700 
   hover:text-white transition-colors duration-200 
   font-bold border-b-4 ${color}`

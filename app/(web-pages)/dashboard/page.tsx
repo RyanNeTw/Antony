@@ -1,7 +1,13 @@
-import React from "react"
+"use client"
+
+import React, { Suspense } from "react"
 
 function page() {
-  return <div>page</div>
+  return (
+    <Suspense fallback={<div>Chargement...</div>}>
+      <div>page</div>
+    </Suspense>
+  )
 }
 
 export default page

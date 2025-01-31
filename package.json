@@ -11,6 +11,7 @@
     "prettier:check": "npx prettier . --check"
   },
   "dependencies": {
+    "@reduxjs/toolkit": "^2.5.1",
     "@supabase/supabase-js": "^2.46.2",
     "dayjs": "^1.11.13",
     "lint": "^0.8.19",
@@ -19,19 +20,21 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.54.2",
+    "react-redux": "^9.2.0",
     "swr": "^2.3.0",
     "zod": "^3.24.1"
   },
   "devDependencies": {
-    "@types/node": "^20",
-    "@types/react": "^18",
+    "@types/node": "^20.17.16",
+    "@types/react": "^18.3.18",
     "@types/react-dom": "^18",
+    "@types/react-redux": "^7.1.34",
     "autoprefixer": "^10.4.20",
     "eslint": "^8",
     "eslint-config-next": "15.0.3",
     "postcss": "^8.4.49",
     "prettier": "3.4.1",
     "tailwindcss": "^3.4.15",
-    "typescript": "^5"
+    "typescript": "^5.7.3"
   }
 }
