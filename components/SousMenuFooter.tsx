@@ -1,9 +1,8 @@
-interface SousMenuFooterProps {
+type IProps = {
   title: string
   items: string[]
 }
-
-export default function SousMenuFooter({ title, items }: SousMenuFooterProps) {
+export default function SousMenuFooter({ title, items }: IProps) {
   return (
     <div className="max-w-[300px]">
       <div>

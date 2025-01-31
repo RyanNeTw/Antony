@@ -1,6 +1,6 @@
-import ReduxProvider from "./ReduxProvider"
+import "@/globals.css"
 import type { Metadata } from "next"
-import "./globals.css"
+import ReduxProvider from "./ReduxProvider"
 
 export const metadata: Metadata = {
   title: "Projet révolutionnaire, sky is the limit",

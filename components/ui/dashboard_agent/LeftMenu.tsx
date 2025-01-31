@@ -1,7 +1,7 @@
-import Paragraph from "@/app/components/UI/Paragraph"
+import Paragraph from "@/components/typography/Paragraph"
 import Link from "next/link"
-import Subtitle from "./typography/Subtitle"
 import { useSearchParams } from "next/navigation"
+import Subtitle from "../../typography/Subtitle"
 
 type IProps = {
   title: string

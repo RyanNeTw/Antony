@@ -1,4 +1,4 @@
-import SousMenuFooter from "./SousMenuFooter"
+import SousMenuFooter from "@/components/SousMenuFooter"
 import Image from "next/image"
 
 const linksFooter = [
