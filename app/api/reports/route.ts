@@ -1,11 +1,10 @@
-import { ReportType } from "@/app/types"
-import { ReportSchema } from "@/app/types"
-import CreateReport from "@/app/utils/CreateReport"
-import CreateReportAi from "@/app/utils/CreateReportAi"
-import CreateUser from "@/app/utils/CreateUser"
-import GetTitleAndReportStatusFromOpenAI from "@/app/utils/GetTitleAndReportStatusFromOpenAI"
-import IncrementReportAi from "@/app/utils/IncrementReportAi"
-import MatchingReports from "@/app/utils/MatchingReports"
+import { ReportSchema, ReportType } from "@/types"
+import CreateReport from "@/utils/CreateReport"
+import CreateReportAi from "@/utils/CreateReportAi"
+import CreateUser from "@/utils/CreateUser"
+import GetTitleAndReportStatusFromOpenAI from "@/utils/GetTitleAndReportStatusFromOpenAI"
+import IncrementReportAi from "@/utils/IncrementReportAi"
+import MatchingReports from "@/utils/MatchingReports"
 import { NextRequest, NextResponse } from "next/server"
 
 export async function POST(req: NextRequest) {
