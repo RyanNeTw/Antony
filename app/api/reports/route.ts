@@ -1,12 +1,12 @@
-import { ReportType } from "@/app/types"
-import CheckReportBody from "@/app/utils/CheckReportBody"
-import CreateReport from "@/app/utils/CreateReport"
-import CreateReportAi from "@/app/utils/CreateReportAi"
-import CreateUser from "@/app/utils/CreateUser"
-import GetTitleAndReportStatusFromOpenAI from "@/app/utils/GetTitleAndReportStatusFromOpenAI"
-import IncrementReportAi from "@/app/utils/IncrementReportAi"
-import MatchingReports from "@/app/utils/MatchingReports"
 import { NextRequest, NextResponse } from "next/server"
+import { ReportType } from "../../../types"
+import CheckReportBody from "../../../utils/CheckReportBody"
+import CreateReport from "../../../utils/CreateReport"
+import CreateReportAi from "../../../utils/CreateReportAi"
+import CreateUser from "../../../utils/CreateUser"
+import GetTitleAndReportStatusFromOpenAI from "../../../utils/GetTitleAndReportStatusFromOpenAI"
+import IncrementReportAi from "../../../utils/IncrementReportAi"
+import MatchingReports from "../../../utils/MatchingReports"
 
 export async function POST(req: NextRequest) {
   const data = (await req.json()) as ReportType

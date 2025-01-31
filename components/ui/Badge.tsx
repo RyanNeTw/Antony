@@ -1,4 +1,4 @@
-import { ReportStatus } from "@/app/types"
+import { ReportStatus } from "@/types"
 import Paragraph from "./Paragraph"
 
 type IProps = {

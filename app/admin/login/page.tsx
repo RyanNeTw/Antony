@@ -1,6 +1,6 @@
 "use client"
 
-import Header from "@/app/dashboard_agent/components/Header"
+import Header from "@/components/Header"
 import { Suspense } from "react"
 
 const Page = () => {

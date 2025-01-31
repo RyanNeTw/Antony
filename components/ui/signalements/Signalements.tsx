@@ -1,4 +1,4 @@
-import LeftMenu from "../dashboard_agent/components/LeftMenu"
+import LeftMenu from "@/components/ui/dashboard_agent/LeftMenu"
 
 const Signalements = () => {
   return (

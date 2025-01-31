@@ -1,12 +1,11 @@
 "use client"
 
-import InputFile from "@/app/components/UI/InputFile"
-import Inputs from "@/app/components/UI/Inputs"
-import Paragraph from "@/app/components/UI/Paragraph"
-import Radios from "@/app/components/UI/Radios"
-import SubmitButton from "@/app/components/UI/SubmitButton"
-import Title from "@/app/dashboard_agent/components/typography/Title"
-import React from "react"
+import Title from "@/components/typography/Title"
+import InputFile from "@/components/ui/InputFile"
+import Inputs from "@/components/ui/Inputs"
+import Paragraph from "@/components/UI/Paragraph"
+import Radios from "@/components/ui/Radios"
+import SubmitButton from "@/components/ui/SubmitButton"
 import { Controller, SubmitHandler, useForm } from "react-hook-form"
 
 type Inputs = {

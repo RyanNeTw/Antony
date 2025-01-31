@@ -1,14 +1,14 @@
 "use client"
-
-import Breadcrumb from "../components/Breadcrumb"
-import Signalements from "../components/Signalements"
-import Paragraph from "../components/UI/Paragraph"
-import Header from "./components/Header"
-import Title from "./components/typography/Title"
-import Footer from "./Footer"
-import SignalementTable from "../components/SignalmentTable"
-import { Suspense } from "react"
+import Breadcrumb from "@/components/Breadcrumb"
+import Footer from "@/components/Footer"
+import Header from "@/components/Header"
+import SignalementTable from "@/components/SignalmentTable"
+import Title from "@/components/typography/Title"
+import Paragraph from "@/components/UI/Paragraph"
+import Signalements from "@/components/ui/signalements/Signalements"
 import { useSearchParams } from "next/navigation"
+import { Suspense } from "react"
+
 
 const SignalementsTable = () => {
   return (

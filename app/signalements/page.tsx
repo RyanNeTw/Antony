@@ -1,12 +1,10 @@
 "use client"
-
-import React, { Suspense } from "react"
-import Form from "../../ui/signalements/form"
-import Header from "@/app/dashboard_agent/components/Header"
-import Breadcrumb from "@/app/components/Breadcrumb"
-import Footer from "@/app/dashboard_agent/Footer"
-import Signalements from "@/app/components/Signalements"
-
+import Breadcrumb from "@/components/Breadcrumb"
+import Footer from "@/components/Footer"
+import Header from "@/components/Header"
+import Form from "@/components/ui/signalements/form"
+import Signalements from "@/components/ui/signalements/Signalements"
+import { Suspense } from "react"
 const SignalementPage = () => {
   return (
     <Suspense fallback={<div>Chargement...</div>}>
@@ -24,5 +22,4 @@ const SignalementPage = () => {
     </Suspense>
   )
 }
-
 export default SignalementPage

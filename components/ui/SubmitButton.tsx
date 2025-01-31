@@ -1,4 +1,4 @@
-import { TypeComponent } from "@/app/types"
+import { TypeComponent } from "@/types"
 
 type IProps = {
   text: string
