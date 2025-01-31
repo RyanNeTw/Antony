@@ -22,7 +22,7 @@ export const ReportSchema = z.object({
   street_1: z.string().optional(),
   street_2: z.string().optional(),
   report: z.string().min(1, "Le champ report est requis"),
-});
+})
 
 export type ReportType = UserType & {
   street: string

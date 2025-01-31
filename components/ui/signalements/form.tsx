@@ -42,7 +42,7 @@ const Form = () => {
   })
 
   const onSubmit: SubmitHandler<Inputs> = async (data, event) => {
-    event?.preventDefault();
+    event?.preventDefault()
 
     try {
       const response = await fetch("/api/reports", {
@@ -51,27 +51,27 @@ const Form = () => {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(data),
-      });
+      })
 
       if (!response.ok) {
-        const errorText = await response.text();
-        console.error(`Erreur API ${response.status}: ${errorText}`);
-        throw new Error(`Erreur API ${response.status}: ${errorText}`);
+        const errorText = await response.text()
+        console.error(`Erreur API ${response.status}: ${errorText}`)
+        throw new Error(`Erreur API ${response.status}: ${errorText}`)
       }
 
-      const contentType = response.headers.get("content-type");
+      const contentType = response.headers.get("content-type")
       if (!contentType || !contentType.includes("application/json")) {
-        const rawResponse = await response.text();
-        console.error("Réponse non JSON reçue :", rawResponse);
-        throw new Error(`Réponse incorrecte: ${rawResponse}`);
+        const rawResponse = await response.text()
+        console.error("Réponse non JSON reçue :", rawResponse)
+        throw new Error(`Réponse incorrecte: ${rawResponse}`)
       }
 
-      const result = await response.json();
-      console.log("Réponse de l'API:", result);
+      const result = await response.json()
+      console.log("Réponse de l'API:", result)
     } catch (error) {
-      console.error("Erreur lors de l'envoi du formulaire:", error);
+      console.error("Erreur lors de l'envoi du formulaire:", error)
     }
-  };
+  }
 
   return (
     <div className="w-auto">
@@ -89,14 +89,24 @@ const Form = () => {
             name="firstname"
             control={control}
             render={({ field }) => (
-              <Inputs label="Prénom" placeholder="Amélia" addStyle="w-h" {...field} />
+              <Inputs
+                label="Prénom"
+                placeholder="Amélia"
+                addStyle="w-h"
+                {...field}
+              />
             )}
           />
           <Controller
             name="lastname"
             control={control}
             render={({ field }) => (
-              <Inputs label="Nom" placeholder="Dupont" addStyle="w-h" {...field} />
+              <Inputs
+                label="Nom"
+                placeholder="Dupont"
+                addStyle="w-h"
+                {...field}
+              />
             )}
           />
         </div>
@@ -104,7 +114,12 @@ const Form = () => {
           name="email"
           control={control}
           render={({ field }) => (
-            <Inputs label="Adresse E-mail" placeholder="amélia.dupont@yahoo.fr" addStyle="w-h" {...field} />
+            <Inputs
+              label="Adresse E-mail"
+              placeholder="amélia.dupont@yahoo.fr"
+              addStyle="w-h"
+              {...field}
+            />
           )}
         />
         <Controller
@@ -118,19 +133,31 @@ const Form = () => {
           name="report"
           control={control}
           render={({ field }) => (
-            <Inputs label="Signalement" placeholder="Écrire votre signalement ici ..." {...field} addStyle="w-full" />
+            <Inputs
+              label="Signalement"
+              placeholder="Écrire votre signalement ici ..."
+              {...field}
+              addStyle="w-full"
+            />
           )}
         />
         <Controller
           name="files"
           control={control}
           render={({ field }) => (
-            <InputFile label="Pièces jointes" placeholder="Sélectionner" addStyle="w-fit" {...field} />
+            <InputFile
+              label="Pièces jointes"
+              placeholder="Sélectionner"
+              addStyle="w-fit"
+              {...field}
+            />
           )}
         />
 
         <div>
-          <label className="text-purple text-xs font-medium pl-2">Emplacement</label>
+          <label className="text-purple text-xs font-medium pl-2">
+            Emplacement
+          </label>
           <div className="flex flex-row gap-1 w-h">
             <Controller
               name="street_number"
@@ -151,14 +178,22 @@ const Form = () => {
             name="street_1"
             control={control}
             render={({ field }) => (
-              <Inputs placeholder="Complément d'adresse 1" addStyle="w-h" {...field} />
+              <Inputs
+                placeholder="Complément d'adresse 1"
+                addStyle="w-h"
+                {...field}
+              />
             )}
           />
           <Controller
             name="street_2"
             control={control}
             render={({ field }) => (
-              <Inputs placeholder="Complément d'adresse 2" addStyle="w-h" {...field} />
+              <Inputs
+                placeholder="Complément d'adresse 2"
+                addStyle="w-h"
+                {...field}
+              />
             )}
           />
           <div className="flex flex-row gap-1 w-[50%]">
@@ -166,14 +201,24 @@ const Form = () => {
               name="postcode"
               control={control}
               render={({ field }) => (
-                <Inputs placeholder="92160" addStyle="w-2/5" readonly={true} {...field} />
+                <Inputs
+                  placeholder="92160"
+                  addStyle="w-2/5"
+                  readonly={true}
+                  {...field}
+                />
               )}
             />
             <Controller
               name="region"
               control={control}
               render={({ field }) => (
-                <Inputs placeholder="Antony" addStyle="w-3/5" readonly={true} {...field} />
+                <Inputs
+                  placeholder="Antony"
+                  addStyle="w-3/5"
+                  readonly={true}
+                  {...field}
+                />
               )}
             />
           </div>

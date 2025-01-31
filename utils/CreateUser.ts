@@ -15,7 +15,7 @@ const CreateUser = async (
     .maybeSingle()
 
   if (error) {
-    console.log('error',error)
+    console.log("error", error)
     throw new Error(`Could'nt create new user`, error)
   }
 
