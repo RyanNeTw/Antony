@@ -1,10 +1,11 @@
 import useSWR from "swr"
 import Fetcher, { ReponseType } from "../utils/Fetcher"
 import { ReportAis, SignalmentsFilter, TypeComponent } from "../types"
-import Badge from "./UI/Badge"
+
 import { useSearchParams } from "next/navigation"
-import SubmitButton from "./UI/SubmitButton"
-import Loading from "./UI/Loading"
+import Badge from "./ui/Badge"
+import SubmitButton from "./ui/SubmitButton"
+import Loading from "./ui/Loading"
 
 const AddQueryToUrl = (filter: string | null): string => {
   switch (filter) {

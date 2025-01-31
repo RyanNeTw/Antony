@@ -1,5 +1,5 @@
 import { ReportStatus } from "@/types"
-import Paragraph from "./Paragraph"
+import Paragraph from "../typography/Paragraph"
 
 type IProps = {
   status: string

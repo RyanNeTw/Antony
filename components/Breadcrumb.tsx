@@ -1,6 +1,6 @@
-import { usePathname } from "next/navigation"
-import Paragraph from "./UI/Paragraph"
 import Link from "next/link"
+import { usePathname } from "next/navigation"
+import Paragraph from "./typography/Paragraph"
 
 const Breadcrumb = () => {
   const pathname = usePathname()

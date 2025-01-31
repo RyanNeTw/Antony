@@ -3,12 +3,11 @@ import Breadcrumb from "@/components/Breadcrumb"
 import Footer from "@/components/Footer"
 import Header from "@/components/Header"
 import SignalementTable from "@/components/SignalmentTable"
+import Paragraph from "@/components/typography/Paragraph"
 import Title from "@/components/typography/Title"
-import Paragraph from "@/components/UI/Paragraph"
 import Signalements from "@/components/ui/signalements/Signalements"
 import { useSearchParams } from "next/navigation"
 import { Suspense } from "react"
-
 
 const SignalementsTable = () => {
   return (

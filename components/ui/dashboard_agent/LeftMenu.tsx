@@ -1,4 +1,4 @@
-import Paragraph from "@/components/UI/Paragraph"
+import Paragraph from "@/components/typography/Paragraph"
 import Link from "next/link"
 import { useSearchParams } from "next/navigation"
 import Subtitle from "../../typography/Subtitle"

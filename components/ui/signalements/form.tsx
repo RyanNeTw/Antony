@@ -1,9 +1,9 @@
 "use client"
 
+import Paragraph from "@/components/typography/Paragraph"
 import Title from "@/components/typography/Title"
 import InputFile from "@/components/ui/InputFile"
 import Inputs from "@/components/ui/Inputs"
-import Paragraph from "@/components/UI/Paragraph"
 import Radios from "@/components/ui/Radios"
 import SubmitButton from "@/components/ui/SubmitButton"
 import { Controller, SubmitHandler, useForm } from "react-hook-form"
