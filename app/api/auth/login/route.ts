@@ -1,4 +1,4 @@
-import supabase from "@/app/supabase"
+import supabase from "@/supabase"
 import { NextResponse } from "next/server"
 import { z } from "zod"
 

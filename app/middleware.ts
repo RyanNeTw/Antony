@@ -1,6 +1,6 @@
+import { verifyJwtToken } from "@/utils/VerifyToken"
 import { NextResponse } from "next/server"
 import type { NextRequest } from "next/server"
-import { verifyJwtToken } from "./utils/VerifyToken"
 
 export const middleware = async (request: NextRequest) => {
   const response = NextResponse.next()
