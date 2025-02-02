@@ -1,47 +1,36 @@
-import useSWR from "swr"
-import Fetcher, { ReponseType } from "../utils/Fetcher"
-import { ReportAis, SignalmentsFilter, TypeComponent } from "../types"
-
+import { SignalmentsFilter } from "../../../types"
 import { useSearchParams } from "next/navigation"
-import Badge from "./ui/Badge"
-import SubmitButton from "./ui/SubmitButton"
-import Loading from "./ui/Loading"
+import Badge from "../Badge"
+import Loading from "../Loading"
+import { useGetReportsAiQuery } from "@/redux/reportsAi"
+import Link from "next/link"
+import IsDeletedButton from "./IsDeletedButton"
 
-const AddQueryToUrl = (filter: string | null): string => {
+const AddQueryToUrl = (
+  filter: string | null
+): { is_deleted?: boolean; is_read?: boolean } => {
   switch (filter) {
     case SignalmentsFilter.NOT_CONSULTED:
-      return "&is_read=false&is_deleted=false"
+      return { is_deleted: false, is_read: false }
     case SignalmentsFilter.CONSULTED:
-      return "&is_read=true&is_deleted=false"
+      return { is_deleted: false, is_read: true }
     case SignalmentsFilter.DELETED:
-      return "&is_deleted=true"
+      return { is_deleted: true }
     default:
-      return ""
+      return { is_deleted: false }
   }
 }
 
 const SignalementTable = () => {
   const searchParams = useSearchParams()
   const filter = searchParams.get("filter")
-  const url = `/api/reports_ai?nbr=100&page=1${AddQueryToUrl(filter)}`
 
-  const { data, error, isLoading } = useSWR<ReponseType<ReportAis>>(
-    url,
-    Fetcher
+  const { data, isLoading, isError } = useGetReportsAiQuery(
+    AddQueryToUrl(filter)
   )
 
   if (isLoading) return <Loading />
-  if (error || !data) return <p>Erreur : {error.message}</p>
-
-  const isDeletedFilter = SignalmentsFilter.DELETED === filter
-  const RecoverReportAi = (id: string) => {
-    fetch(`/api/reports_ai/${id}`, {
-      method: "PUT",
-      body: JSON.stringify({ is_deleted: !isDeletedFilter }),
-    })
-  }
-
-  console.log({ data })
+  if (isError || !data) return <p>Erreur</p>
 
   return (
     <>
@@ -54,7 +43,9 @@ const SignalementTable = () => {
                 className={`flex flex-wrap md:flex-nowrap justify-between gap-4`}
               >
                 <td className="flex-1">
-                  <Badge status={signalement.status} />
+                  <Link href={`/admin/dashboard/${signalement.id}`}>
+                    <Badge status={signalement.status} />
+                  </Link>
                 </td>
                 <td className="flex-1 px-4 py-2 text-white bg-[#747474]">
                   {signalement.title}
@@ -67,16 +58,8 @@ const SignalementTable = () => {
                     " " +
                     signalement.users[0]?.lastname}
                 </td>
-                <td
-                  className="flex-1"
-                  onClick={() => RecoverReportAi(signalement.id)}
-                >
-                  <SubmitButton
-                    text={isDeletedFilter ? "Récupérer" : "Supprimer"}
-                    type={
-                      isDeletedFilter ? TypeComponent.WARNING : TypeComponent.OK
-                    }
-                  />
+                <td className="flex-1">
+                  <IsDeletedButton id={signalement.id} filter={filter} />
                 </td>
               </tr>
             )

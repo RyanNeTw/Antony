@@ -11,6 +11,7 @@ export async function GET(
     .from("reports_ai")
     .select("*, reports(*), users(*)")
     .eq("id", id)
+    .maybeSingle()
 
   if (error)
     return NextResponse.json({
@@ -29,11 +30,18 @@ export async function PUT(
   { params }: { params: Promise<{ id: string }> }
 ) {
   const id = (await params).id
-  const { is_deleted } = (await req.json()) as { is_deleted: boolean }
+  const { is_deleted, is_read } = (await req.json()) as {
+    is_deleted?: boolean
+    is_read?: boolean
+  }
+
+  const updateData: { is_deleted?: boolean; is_read?: boolean } = {}
+  if (typeof is_deleted === "boolean") updateData.is_deleted = is_deleted
+  if (typeof is_read === "boolean") updateData.is_read = is_read
 
   const { data, error } = await supabase
     .from("reports_ai")
-    .update({ is_deleted })
+    .update(updateData)
     .eq("id", id)
 
   if (error)

@@ -1,6 +1,7 @@
 import LeftMenu from "@/components/ui/dashboard_agent/LeftMenu"
 
 const Signalements = () => {
+  const url = "/admin/dashboard"
   return (
     <LeftMenu
       title="Signalements"
@@ -8,20 +9,20 @@ const Signalements = () => {
         { title: "Récemment Consultés", link: "?filter=Récemment-Consultés" },
         {
           title: "Liste des signalements",
-          link: "/dashboard_agent",
+          link: `${url}?filter=Tous`,
           links: [
-            { link: "?filter=Tous", text: "Tous" },
-            { link: "?filter=Non-Consultés", text: "Non-Consultés" },
-            { link: "?filter=Consultés", text: "Consultés" },
+            { link: `${url}?filter=Tous`, text: "Tous" },
+            { link: `${url}?filter=Non-Consultés`, text: "Non-Consultés" },
+            { link: `${url}?filter=Consultés`, text: "Consultés" },
           ],
         },
         {
           title: "Status",
-          link: "?filter=Status",
+          link: `${url}?filter=Status`,
         },
         {
           title: "Supprimés",
-          link: "?filter=Supprimés",
+          link: `${url}?filter=Supprimés`,
         },
       ]}
     />

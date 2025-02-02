@@ -5,7 +5,7 @@ type IProps = {
   status: string
 }
 
-const getBadgeUi = (status: string): { s: string; bgColor: string } => {
+export const getBadgeUi = (status: string): { s: string; bgColor: string } => {
   if (status === ReportStatus.HIGH) return { s: "Urgent", bgColor: "bg-high" }
 
   if (status === ReportStatus.MID)
