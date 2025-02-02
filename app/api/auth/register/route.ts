@@ -6,7 +6,7 @@ export async function POST(req: Request) {
 
   const { email, password } = body
 
-  const { error, data } = await supabase.auth.signUp({
+  const { error } = await supabase.auth.signUp({
     email,
     password,
   })
