@@ -1,7 +1,7 @@
 import { JWTPayload, jwtVerify } from "jose"
 
 export const verifyJwtToken = async (
-  token: string | null
+  token: string | null | undefined
 ): Promise<JWTPayload | null> => {
   if (!token) {
     console.warn("No access token provided")

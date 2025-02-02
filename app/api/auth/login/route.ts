@@ -6,11 +6,11 @@ const LoginZod = z.object({
   email: z.string(),
   password: z.string(),
 })
-type Login = z.infer<typeof LoginZod>
+export type Login = z.infer<typeof LoginZod>
 
 export async function POST(req: Request) {
   const body = (await req.json()) as Login
-  if (LoginZod.parse(body)) {
+  if (!LoginZod.parse(body)) {
     return NextResponse.json(
       {
         message: `Error while signing in user`,
@@ -40,19 +40,6 @@ export async function POST(req: Request) {
   const { expires_in, expires_at, refresh_token, token_type, access_token } =
     session
 
-  const { data: user, error: userError } = await supabase
-    .from("users")
-    .select("*")
-    .match({ id: session?.user?.id })
-    .maybeSingle()
-
-  if (userError) {
-    return NextResponse.json(
-      { message: `Error while crawling user data` },
-      { status: 500 }
-    )
-  }
-
   return NextResponse.json(
     {
       message: `Connected`,
@@ -63,7 +50,6 @@ export async function POST(req: Request) {
         expires_at,
         expires_in,
       },
-      user,
     },
     { status: 200 }
   )

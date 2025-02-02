@@ -1,10 +1,12 @@
 "use client"
 
+import { useAuth } from "@/app/AuthContext"
 import Header from "@/components/Header"
 import Inputs from "@/components/ui/Inputs"
 import SubmitButton from "@/components/ui/SubmitButton"
 import Title from "@/components/ui/Title"
 import { TypeComponent } from "@/types"
+import { useRouter } from "next/navigation"
 import { Suspense } from "react"
 import { Controller, SubmitHandler, useForm } from "react-hook-form"
 
@@ -14,6 +16,8 @@ type Inputs = {
 }
 
 const Page = () => {
+  const { login } = useAuth()
+  const router = useRouter()
   const {
     handleSubmit,
     control,
@@ -25,8 +29,11 @@ const Page = () => {
     },
   })
 
-  const onSubmit: SubmitHandler<Inputs> = (data) => {
-    console.log(data)
+  const onSubmit: SubmitHandler<Inputs> = async (data) => {
+    const isLoged = await login(data.email, data.password)
+    if (isLoged) {
+      router.push("/admin/dashboard")
+    }
   }
   return (
     <>
@@ -65,10 +72,6 @@ const Page = () => {
               rules={{
                 required: "Le password est requis",
                 maxLength: 100,
-                pattern: {
-                  value: /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/,
-                  message: "Regex",
-                },
               }}
               render={({ field }) => (
                 <Inputs

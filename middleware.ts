@@ -1,13 +1,18 @@
 import { verifyJwtToken } from "@/utils/VerifyToken"
+import Cookies from "js-cookie"
 import { NextResponse } from "next/server"
 import type { NextRequest } from "next/server"
 
 export const middleware = async (request: NextRequest) => {
   const response = NextResponse.next()
-  if (request.nextUrl.pathname.includes("auth")) return response
-  if (request.nextUrl.pathname.includes("connexion")) return response
+  if (request.nextUrl.pathname.includes("login")) return response
 
-  const token = request.headers.get("authorization")
+  let token = request.nextUrl.pathname.includes("api")
+    ? request.headers.get("authorization")
+    : request.nextUrl.pathname.includes("admin")
+      ? request.cookies.get("token")?.value
+      : null
+
   const verifyToken = await verifyJwtToken(token)
   if (!verifyToken)
     return NextResponse.json(
@@ -21,5 +26,5 @@ export const middleware = async (request: NextRequest) => {
 }
 
 export const config = {
-  matcher: ["/api/admib/:path*"],
+  matcher: ["/admin/:path*", "/api/:path*"],
 }
