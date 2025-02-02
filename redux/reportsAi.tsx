@@ -8,7 +8,6 @@ const headers = {
   authorization: Cookies.get("token"),
 }
 
-console.log({ headers })
 export const reportsAi = createApi({
   reducerPath: "reports",
   tagTypes: ["GetReportsAi"],

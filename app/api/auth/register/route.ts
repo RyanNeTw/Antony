@@ -10,7 +10,7 @@ export async function POST(req: Request) {
     email,
     password,
   })
-  console.log({ data, error })
+
   if (error)
     return NextResponse.json(
       {
