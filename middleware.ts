@@ -1,11 +1,14 @@
 import { verifyJwtToken } from "@/utils/VerifyToken"
-import Cookies from "js-cookie"
 import { NextResponse } from "next/server"
 import type { NextRequest } from "next/server"
 
 export const middleware = async (request: NextRequest) => {
   const response = NextResponse.next()
-  if (request.nextUrl.pathname.includes("login")) return response
+  if (
+    request.nextUrl.pathname.includes("login") ||
+    request.nextUrl.pathname.includes("reports")
+  )
+    return response
 
   let token = request.nextUrl.pathname.includes("api")
     ? request.headers.get("authorization")

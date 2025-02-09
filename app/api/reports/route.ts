@@ -46,7 +46,7 @@ export async function POST(req: NextRequest) {
 
     const isReportExists = await MatchingReports({
       title: openAiRes.title,
-      street: street,
+      street,
     })
 
     const report_ai_id =

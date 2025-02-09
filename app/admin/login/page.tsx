@@ -1,6 +1,7 @@
 "use client"
 
 import { useAuth } from "@/app/AuthContext"
+import Footer from "@/components/Footer"
 import Header from "@/components/Header"
 import Inputs from "@/components/ui/Inputs"
 import SubmitButton from "@/components/ui/SubmitButton"
@@ -94,6 +95,7 @@ const Page = () => {
             />
           </form>
         </div>
+        <Footer />
       </Suspense>
     </>
   )

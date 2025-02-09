@@ -16,7 +16,7 @@ export default function SousMenuFooter({ title, items }: IProps) {
         {" "}
         {items && Array.isArray(items) ? (
           items.map((item, index) => (
-            <li className="text-[#7A7E94] custom-marker" key={index}>
+            <li className="text-[#7A7E94]" key={index}>
               {item}
             </li>
           ))

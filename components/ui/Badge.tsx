@@ -19,7 +19,7 @@ const Badge = ({ status }: IProps) => {
 
   return (
     <>
-      <div className={`px-2 py-2 text-center ${bgColor}`}>
+      <div className={`h-full px-2 py-2 text-center ${bgColor}`}>
         <Paragraph text={s} addStyle="font-semibold text-white" />
       </div>
     </>

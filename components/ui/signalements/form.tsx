@@ -154,16 +154,21 @@ const Form = () => {
           )}
         />
 
-        <div>
+        <div className="w-full flex flex-col gap-1">
           <label className="text-purple text-xs font-medium pl-2">
             Emplacement
           </label>
-          <div className="flex flex-row gap-1 w-h">
+          <div className="flex flex-row gap-2 w-full">
             <Controller
               name="street_number"
               control={control}
               render={({ field }) => (
-                <Inputs placeholder="N°" addStyle="w-1/5" {...field} />
+                <Inputs
+                  placeholder="N°"
+                  addStyle="w-1/5"
+                  inputType="number"
+                  {...field}
+                />
               )}
             />
             <Controller
@@ -180,7 +185,7 @@ const Form = () => {
             render={({ field }) => (
               <Inputs
                 placeholder="Complément d'adresse 1"
-                addStyle="w-h"
+                addStyle="w-full"
                 {...field}
               />
             )}
@@ -191,19 +196,19 @@ const Form = () => {
             render={({ field }) => (
               <Inputs
                 placeholder="Complément d'adresse 2"
-                addStyle="w-h"
+                addStyle="w-full"
                 {...field}
               />
             )}
           />
-          <div className="flex flex-row gap-1 w-[50%]">
+          <div className="flex flex-row gap-1">
             <Controller
               name="postcode"
               control={control}
               render={({ field }) => (
                 <Inputs
                   placeholder="92160"
-                  addStyle="w-2/5"
+                  addStyle="w-1/5"
                   readonly={true}
                   {...field}
                 />
@@ -215,7 +220,7 @@ const Form = () => {
               render={({ field }) => (
                 <Inputs
                   placeholder="Antony"
-                  addStyle="w-3/5"
+                  addStyle="w-4/5"
                   readonly={true}
                   {...field}
                 />

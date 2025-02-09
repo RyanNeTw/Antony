@@ -35,6 +35,7 @@ export const reportsAi = createApi({
         url: `reports_ai/${id}`,
         headers,
       }),
+      providesTags: ["GetReportsAi"],
     }),
     deleteReportAi: builder.mutation<
       void,

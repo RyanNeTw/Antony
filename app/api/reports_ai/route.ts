@@ -33,6 +33,9 @@ export async function GET(request: NextRequest) {
     .from("reports_ai")
     .select("*, reports(*), users(*)")
     .range(offset, offset + limit - 1)
+    .order("updated_at", { ascending: false })
+    .order("count", { ascending: false })
+    .order("created_at", { ascending: false })
 
   if (status) query = query.eq("status", status)
   if (is_deleted.isExists) query = query.eq("is_deleted", is_deleted.value)
