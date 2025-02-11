@@ -1,5 +1,14 @@
 import { z } from "zod"
 
+export type ReponseType<T> = {
+  status: number
+  data: T
+  pagination?: {
+    currentPage: number
+    itemsPerPage: number
+  }
+}
+
 const BasicZod = z.object({
   id: z.string(),
   created_at: z.string(),
@@ -61,6 +70,13 @@ export enum SignalmentsFilter {
   DELETED = "Supprimés",
   NOT_CONSULTED = "Non-Consultés",
   CONSULTED = "Consultés",
+  CONSULTED_RECENTLY = "Récemment-Consultés",
+}
+
+export enum ToastType {
+  SUCCESS = "success",
+  WARNING = "warning",
+  NORMAL = "normal",
 }
 
 export const OpenAiTypeZod = z.object({
@@ -79,6 +95,8 @@ export const UserZod = BasicZod.merge(
   })
 )
 export type User = z.infer<typeof UserZod>
+export const UsersZod = z.array(UserZod)
+export type Users = z.infer<typeof UsersZod>
 
 export const ReportZod = z.object({
   date: z.string(),

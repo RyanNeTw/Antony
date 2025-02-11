@@ -1,13 +1,15 @@
 "use client"
 
 import { useAuth } from "@/app/AuthContext"
+import Footer from "@/components/Footer"
 import Header from "@/components/Header"
+import Toast from "@/components/Toast"
 import Inputs from "@/components/ui/Inputs"
 import SubmitButton from "@/components/ui/SubmitButton"
 import Title from "@/components/ui/Title"
-import { TypeComponent } from "@/types"
+import { ToastType, TypeComponent } from "@/types"
 import { useRouter } from "next/navigation"
-import { Suspense } from "react"
+import { Suspense, useState } from "react"
 import { Controller, SubmitHandler, useForm } from "react-hook-form"
 
 type Inputs = {
@@ -17,6 +19,7 @@ type Inputs = {
 
 const Page = () => {
   const { login } = useAuth()
+  const [showToast, setShowToast] = useState(false)
   const router = useRouter()
   const {
     handleSubmit,
@@ -32,12 +35,20 @@ const Page = () => {
   const onSubmit: SubmitHandler<Inputs> = async (data) => {
     const isLoged = await login(data.email, data.password)
     if (isLoged) {
+      setShowToast(true)
       router.push("/admin/dashboard")
     }
   }
   return (
     <>
       <Suspense fallback={<div>Chargement...</div>}>
+        {showToast && (
+          <Toast
+            message="tt"
+            type={ToastType.SUCCESS}
+            onClose={() => setShowToast(false)}
+          />
+        )}
         <Header />
         <div className="mx-auto max-w-5xl">
           <Title text={"Connectez-vous"} addStyle="flex justify-center my-16" />
@@ -94,6 +105,7 @@ const Page = () => {
             />
           </form>
         </div>
+        <Footer />
       </Suspense>
     </>
   )

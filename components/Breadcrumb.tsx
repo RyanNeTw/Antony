@@ -1,8 +1,13 @@
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import Paragraph from "./typography/Paragraph"
+import { ReactElement } from "react"
 
-const Breadcrumb = () => {
+type IProps = {
+  replaceLastElement?: ReactElement
+}
+
+const Breadcrumb = ({ replaceLastElement }: IProps) => {
   const pathname = usePathname()
   const paths = pathname?.split("/")
 
@@ -24,14 +29,20 @@ const Breadcrumb = () => {
   }
 
   return (
-    <ul className="flex flex-row gap-1 py-4">
-      {paths?.map((path, index) => (
+    <ul className="flex flex-row items-center gap-1 py-4">
+      {paths?.map((path: string, index) => (
         <li key={index}>
           <Link href={getLink(index)}>
-            <Paragraph
-              text={"> " + getCleanPath(path)}
-              addStyle={`${index === paths?.length - 1 && "font-bold"} capitalize hover:underline`}
-            />
+            {replaceLastElement && index === paths?.length - 1 ? (
+              <div className="flex flex-row items-center hover:underline">
+                {replaceLastElement}
+              </div>
+            ) : (
+              <Paragraph
+                text={"> " + getCleanPath(path)}
+                addStyle={`${index === paths?.length - 1 && "font-bold"} capitalize hover:underline`}
+              />
+            )}
           </Link>
         </li>
       ))}

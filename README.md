@@ -4,8 +4,6 @@
 
 Supabase : `https://supabase.com/`
 
-Resend : `https://resend.com/docs/introduction`
-
 ## Getting Started
 
 1 : Clone the repository and cd into it

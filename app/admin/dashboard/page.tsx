@@ -16,10 +16,10 @@ const SignalementsTable = () => {
         <Header />
         <div className="mx-auto max-w-5xl">
           <Breadcrumb />
-          <div className="flex">
+          <div className="flex flex-wrap">
             <Signalements />
 
-            <div className="w-auto">
+            <div className="w-9/12">
               <div>
                 <Title text="Liste des signalements" />
                 <FilterSpan />

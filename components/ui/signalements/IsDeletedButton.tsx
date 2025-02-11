@@ -15,7 +15,7 @@ const IsDeletedButton = ({ id, filter }: IProps) => {
     await deleteReport({ id, is_deleted: !isDeletedFilter }).unwrap()
   }
   return (
-    <div className="w-full" onClick={() => RecoverReportAi(id)}>
+    <div className="w-full h-full" onClick={() => RecoverReportAi(id)}>
       <SubmitButton
         text={isDeletedFilter ? "Récupérer" : "Supprimer"}
         type={isDeletedFilter ? TypeComponent.OK : TypeComponent.WARNING}

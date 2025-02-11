@@ -1,5 +1,4 @@
-import { ReportAi, ReportAis } from "@/types"
-import { ReponseType } from "@/utils/Fetcher"
+import { ReponseType, ReportAi, ReportAis } from "@/types"
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react"
 import Cookies from "js-cookie"
 
@@ -35,6 +34,7 @@ export const reportsAi = createApi({
         url: `reports_ai/${id}`,
         headers,
       }),
+      providesTags: ["GetReportsAi"],
     }),
     deleteReportAi: builder.mutation<
       void,

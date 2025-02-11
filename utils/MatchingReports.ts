@@ -17,7 +17,7 @@ const MatchingReports = async ({
     .gte("reports.date", dayjs().subtract(3, "month").format("YYYY-MM-DD"))
     .match({ "reports.street": street, title })
     .maybeSingle()
-  console.log({ data, error })
+
   if (error) return null
   return data?.reports?.length > 0 ? { id: data.id, count: data.count } : null
 }
