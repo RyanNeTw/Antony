@@ -1,6 +1,4 @@
 import { Login } from "@/app/api/auth/login/route"
-import { ReportAi, ReportAis } from "@/types"
-import { ReponseType } from "@/utils/Fetcher"
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react"
 
 export type LoginTypeResponse = {

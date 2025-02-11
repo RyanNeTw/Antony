@@ -1,5 +1,14 @@
 import { z } from "zod"
 
+export type ReponseType<T> = {
+  status: number
+  data: T
+  pagination?: {
+    currentPage: number
+    itemsPerPage: number
+  }
+}
+
 const BasicZod = z.object({
   id: z.string(),
   created_at: z.string(),
@@ -62,6 +71,12 @@ export enum SignalmentsFilter {
   NOT_CONSULTED = "Non-Consultés",
   CONSULTED = "Consultés",
   CONSULTED_RECENTLY = "Récemment-Consultés",
+}
+
+export enum ToastType {
+  SUCCESS = "success",
+  WARNING = "warning",
+  NORMAL = "normal",
 }
 
 export const OpenAiTypeZod = z.object({
