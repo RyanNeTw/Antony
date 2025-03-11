@@ -2,11 +2,14 @@
 import Breadcrumb from "@/components/Breadcrumb"
 import Footer from "@/components/Footer"
 import Header from "@/components/Header"
-import Form from "@/components/ui/signalements/form"
-import Signalements from "@/components/ui/signalements/Signalements"
+import SignalementsTable from "@/components/ui/signalements/SignalmentTable"
+import SignalementsPanel from "@/components/ui/signalements/Signalements"
+import { useAuth } from "@/app/AuthContext"
 import { Suspense } from "react"
-// import MainPage from "./(web-pages)/main/page"
+
 const Page = () => {
+  const { isAuthenticated } = useAuth()
+
   return (
     <>
       <Suspense fallback={<div>Chargement...</div>}>
@@ -15,8 +18,8 @@ const Page = () => {
           <div className="mx-auto max-w-5xl">
             <Breadcrumb />
             <div className="flex">
-              <Signalements />
-              <Form />
+              {isAuthenticated && <SignalementsPanel />}
+              <SignalementsTable />
             </div>
           </div>
           <Footer />
