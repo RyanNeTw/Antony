@@ -1,53 +1,63 @@
 import Image from "next/image"
+import Link from "next/link"
 
 const links = [
-  "LES + DEMANDES",
-  "Budget participatif",
-  "Démarches et services",
-  "Signalements",
-  "Petites annonces",
-  "Agenda",
-  "Offres d'emploi",
+  { text: "Connexion", href: "/admin/login" },
+  { text: "LES + DEMANDES", href: "#" },
+  { text: "Budget participatif", href: "#" },
+  { text: "Démarches et services", href: "#" },
+  { text: "Signalements", href: "signalements" },
+  { text: "Petites annonces", href: "#" },
+  { text: "Agenda", href: "#" },
+  { text: "Offres d'emploi", href: "#" },
 ]
 
 const headerLinks = [
   {
     color: "hover:bg-lightblue border-lightblue",
     text: "Découvrir Antony",
+    href: "#",
   },
   {
     color: "hover:bg-burgundy border-burgundy",
     text: "Signalement",
+    href: "/signalements",
   },
   {
     color: "hover:bg-green border-green",
     text: "Cadre de vie",
+    href: "#",
   },
   {
     color: "hover:bg-burgundy border-burgundy",
     text: "Solidarité et Santé",
+    href: "#",
   },
   {
     color: "hover:bg-primary border-primary",
     text: "Culture, sport et loisir",
+    href: "#",
   },
   {
     color: "hover:bg-warning border-warning",
     text: "Famille",
+    href: "#",
   },
   {
     color: "hover:bg-burgundy border-burgundy",
     text: "Agenda",
+    href: "#",
   },
   {
     color: "hover:bg-green border-green",
     text: "Suivez-nous",
+    href: "#",
   },
 ]
 
 const getLinkClasses = (color: string) => {
-  return `relative flex items-center justify-center px-4 py-2 text-gray-700 
-  hover:text-white transition-colors duration-200 
+  return `relative flex items-center justify-center px-4 py-2 text-gray-700
+  hover:text-white transition-colors duration-200
   font-bold border-b-4 ${color}`
 }
 
@@ -55,7 +65,7 @@ const Header = () => {
   return (
     <header className="bg-white shadow">
       <div className="flex items-center justify-between py-2">
-        <div className="absolute left-1/4 top-0 z-50">
+        <div className="absolute left-[22%] top-0 z-50">
           <Image
             src="/logo-banner.png"
             alt="Logo Ville Antony"
@@ -68,16 +78,16 @@ const Header = () => {
           <nav>
             <div className="flex items-center space-x-4 text-blue-900">
               {links.map((link, index) => (
-                <a
-                  href="#"
+                <Link
+                  href={link.href}
                   className="relative hover:text-sky-500 text-xs font-normal px-4 py-2"
                   key={index}
                 >
-                  {link}
-                  {index != 0 && (
+                  {link.text}
+                  {index !== 0 && (
                     <div className="absolute top-1/2 left-0 -translate-x-1/2 -translate-y-1/2 bg-gray-300 w-0.5 h-1/2 rounded-md"></div>
                   )}
-                </a>
+                </Link>
               ))}
             </div>
           </nav>
@@ -96,8 +106,8 @@ const Header = () => {
         <div className="max-w-5xl mx-auto">
           <div className="flex items-center align-middle">
             <nav className="flex justify-center h-20 align-bottom font-extrabold">
-              <a
-                href="#"
+              <Link
+                href="/"
                 className="flex items-center justify-center px-4 py-2 text-gray-700 hover:text-white bg-white font-medium border-t-4 border-[#242B52]"
               >
                 <div className="flex items-center justify-center z-20">
@@ -110,11 +120,11 @@ const Header = () => {
                     className="h-auto"
                   />
                 </div>
-              </a>
+              </Link>
               {headerLinks.map((i, index) => (
                 <a
                   key={index}
-                  href="#"
+                  href={i.href}
                   className={`${getLinkClasses(i.color)} text-xs font-bold`}
                 >
                   {i.text}

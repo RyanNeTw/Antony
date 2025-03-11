@@ -36,7 +36,7 @@ const SignalementTable = () => {
 
   return (
     <>
-      <table className="min-w-full">
+      <table className="min-w-full mx-2">
         <tbody className="flex flex-col gap-2">
           {signalments.map((signalement, index) => {
             return (
