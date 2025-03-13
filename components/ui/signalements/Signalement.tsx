@@ -34,7 +34,6 @@ const Signalement = ({ isError, isLoading, signalment, id }: IProps) => {
   const report = signalment.reports[0]
   const address = `${report?.street_number} ${report?.street}, 92160 Antony`
 
-
   return (
     <div className="w-full m-2">
       <Title
@@ -63,10 +62,12 @@ const Signalement = ({ isError, isLoading, signalment, id }: IProps) => {
         </div>
         <Inputs readonly placeholder={address} addStyle="w-full" />
         <TextAreas readonly placeholder={report?.report} addStyle="w-full" />
-        {isAuthenticated && <IsDeletedButton
-          id={id}
-          filter={signalment.is_deleted ? SignalmentsFilter.DELETED : null}
-        />}
+        {isAuthenticated && (
+          <IsDeletedButton
+            id={id}
+            filter={signalment.is_deleted ? SignalmentsFilter.DELETED : null}
+          />
+        )}
       </div>
     </div>
   )
