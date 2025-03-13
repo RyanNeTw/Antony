@@ -22,7 +22,11 @@ const AddQueryToUrl = (
   }
 }
 
-const SignalementTable = ({ isAuthenticated = false }: { isAuthenticated?: boolean }) => {
+const SignalementTable = ({
+  isAuthenticated = false,
+}: {
+  isAuthenticated?: boolean
+}) => {
   const searchParams = useSearchParams()
   const filter = searchParams.get("filter")
   const { data, isLoading, isError } = useGetReportsAiQuery(
