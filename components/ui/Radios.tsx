@@ -24,16 +24,20 @@ const Radios = ({
         </label>
         <div className="flex flex-row gap-2">
           {Array.from({ length: iteration }, (_, index) => (
-            <input
-              key={index}
-              className="flex items-center bg-backgroundInput justify-center w-8 h-8"
-              type="radio"
-              id={name}
-              name={name}
-              value={index % 2 == 0 ? "true" : "false"}
-              onChange={onChange}
-              onBlur={onBlur}
-            />
+            <div key={index} className="flex items-center gap-1">
+              <input
+                className="flex items-center bg-backgroundInput justify-center w-4 h-4"
+                type="radio"
+                id={`${name}-${index}`}
+                name={name}
+                value={index % 2 == 0 ? "true" : "false"}
+                onChange={onChange}
+                onBlur={onBlur}
+              />
+              <label htmlFor={`${name}-${index}`} className="text-xs">
+                {index % 2 == 0 ? "Oui" : "Non"}
+              </label>
+            </div>
           ))}
         </div>
       </div>
