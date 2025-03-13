@@ -35,7 +35,7 @@ const Signalement = ({ isError, isLoading, signalment, id }: IProps) => {
   console.log({ signalment })
 
   return (
-    <div>
+    <div className="w-full m-2">
       <Title
         text={`Signalement ${getBadgeUi(signalment.status).s} de ${signalment.users[0]?.firstname} ${signalment.users[0]?.lastname}`}
       />
