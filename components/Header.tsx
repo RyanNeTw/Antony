@@ -1,8 +1,8 @@
 import Image from "next/image"
 import Link from "next/link"
+import { useAuth } from "@/app/AuthContext"
 
 const links = [
-  { text: "Connexion", href: "/admin/login" },
   { text: "LES + DEMANDES", href: "#" },
   { text: "Budget participatif", href: "#" },
   { text: "Démarches et services", href: "#" },
@@ -62,6 +62,8 @@ const getLinkClasses = (color: string) => {
 }
 
 const Header = () => {
+  const { isAuthenticated, logout } = useAuth()
+
   return (
     <header className="bg-white shadow">
       <div className="flex items-center justify-between py-2">
@@ -77,6 +79,21 @@ const Header = () => {
         <div className="flex justify-end w-full text-[#252B4F]">
           <nav>
             <div className="flex items-center space-x-4 text-blue-900">
+              {isAuthenticated ? (
+                <button
+                  onClick={logout}
+                  className="relative bg-[#9D2F48] text-white text-xs font-normal px-4 py-2"
+                >
+                  Déconnexion
+                </button>
+              ) : (
+                <Link
+                  href="/admin/login"
+                  className="relative hover:text-sky-500 text-xs font-normal px-4 py-2"
+                >
+                  Connexion
+                </Link>
+              )}
               {links.map((link, index) => (
                 <Link
                   href={link.href}
