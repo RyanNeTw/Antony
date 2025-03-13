@@ -22,7 +22,11 @@ const AddQueryToUrl = (
   }
 }
 
-const SignalementTable = () => {
+const SignalementTable = ({
+  isAuthenticated = false,
+}: {
+  isAuthenticated?: boolean
+}) => {
   const searchParams = useSearchParams()
   const filter = searchParams.get("filter")
   const { data, isLoading, isError } = useGetReportsAiQuery(
@@ -39,13 +43,17 @@ const SignalementTable = () => {
       <table className="min-w-full mx-2">
         <tbody className="flex flex-col gap-2">
           {signalments.map((signalement, index) => {
+            const reportLink = isAuthenticated
+              ? `/admin/dashboard/${signalement.id}`
+              : `/dashboard/${signalement.id}`
+
             return (
               <tr
                 key={index}
                 className={`flex flex-wrap md:flex-nowrap justify-between gap-4`}
               >
                 <td className="flex-1">
-                  <Link href={`/admin/dashboard/${signalement.id}`}>
+                  <Link href={reportLink}>
                     <Badge status={signalement.status} />
                   </Link>
                 </td>
@@ -60,9 +68,11 @@ const SignalementTable = () => {
                     " " +
                     signalement.users[0]?.lastname}
                 </td>
-                <td className="flex-1">
-                  <IsDeletedButton id={signalement.id} filter={filter} />
-                </td>
+                {isAuthenticated && (
+                  <td className="flex-1">
+                    <IsDeletedButton id={signalement.id} filter={filter} />
+                  </td>
+                )}
               </tr>
             )
           })}
@@ -71,4 +81,5 @@ const SignalementTable = () => {
     </>
   )
 }
+
 export default SignalementTable
