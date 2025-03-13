@@ -9,6 +9,7 @@ import { useEffect } from "react"
 import Paragraph from "@/components/typography/Paragraph"
 import dayjs from "dayjs"
 import TextAreas from "../TextAreas"
+import { useAuth } from "@/app/AuthContext"
 
 type IProps = {
   id: string
@@ -19,6 +20,7 @@ type IProps = {
 
 const Signalement = ({ isError, isLoading, signalment, id }: IProps) => {
   const [deleteReportAi] = useDeleteReportAiMutation()
+  const { isAuthenticated } = useAuth()
 
   useEffect(() => {
     if (!isLoading && !isError && signalment) {
@@ -32,7 +34,6 @@ const Signalement = ({ isError, isLoading, signalment, id }: IProps) => {
   const report = signalment.reports[0]
   const address = `${report?.street_number} ${report?.street}, 92160 Antony`
 
-  console.log({ signalment })
 
   return (
     <div className="w-full m-2">
@@ -62,10 +63,10 @@ const Signalement = ({ isError, isLoading, signalment, id }: IProps) => {
         </div>
         <Inputs readonly placeholder={address} addStyle="w-full" />
         <TextAreas readonly placeholder={report?.report} addStyle="w-full" />
-        <IsDeletedButton
+        {isAuthenticated && <IsDeletedButton
           id={id}
           filter={signalment.is_deleted ? SignalmentsFilter.DELETED : null}
-        />
+        />}
       </div>
     </div>
   )
