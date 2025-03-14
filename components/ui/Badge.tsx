@@ -8,8 +8,7 @@ type IProps = {
 export const getBadgeUi = (status: string): { s: string; bgColor: string } => {
   if (status === ReportStatus.HIGH) return { s: "Urgent", bgColor: "bg-high" }
 
-  if (status === ReportStatus.MID)
-    return { s: "Récurrent", bgColor: "bg-purple" }
+  if (status === ReportStatus.MID) return { s: "Moyen", bgColor: "bg-purple" }
 
   return { s: "Faible", bgColor: "bg-greenForm" }
 }

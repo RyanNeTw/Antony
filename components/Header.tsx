@@ -82,14 +82,14 @@ const Header = () => {
               {isAuthenticated ? (
                 <button
                   onClick={logout}
-                  className="relative bg-[#9D2F48] text-white text-xs font-normal px-4 py-2"
+                  className="relative bg-[#9D2F48] text-white text-xs font-normal px-4 py-2 hover:opacity-80"
                 >
                   Déconnexion
                 </button>
               ) : (
                 <Link
                   href="/admin/login"
-                  className="relative bg-green text-white hover:text-sky-500 text-xs font-normal px-4 py-2"
+                  className="relative bg-green text-white hover:opacity-80 text-xs font-normal px-4 py-2"
                 >
                   Connexion
                 </Link>

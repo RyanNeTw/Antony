@@ -36,7 +36,7 @@ const SignalementsTable = () => {
   const { id } = useParams<{ id: string }>()
   const { data, isLoading, isError } = useGetReportAiQuery({ id })
   const signalement = data?.data
-  console.log({ signalement })
+
   return (
     <Suspense fallback={<div>Chargement...</div>}>
       <div>
