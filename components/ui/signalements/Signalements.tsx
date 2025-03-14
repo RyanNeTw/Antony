@@ -1,7 +1,6 @@
 import LeftMenu from "@/components/ui/dashboard_agent/LeftMenu"
 
-const Signalements = () => {
-  const url = "/admin/dashboard"
+const Signalements = ({ url }: { url: string }) => {
   return (
     <LeftMenu
       title="Signalements"

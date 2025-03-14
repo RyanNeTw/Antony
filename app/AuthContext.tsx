@@ -9,6 +9,7 @@ import {
   useState,
   ReactNode,
 } from "react"
+import { usePathname, useRouter } from "next/navigation"
 
 type AuthContextType = {
   isAuthenticated: boolean
@@ -25,6 +26,8 @@ type IProps = {
 export const AuthProvider = (props: IProps): JSX.Element => {
   const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false)
   const [loginMutation] = useLoginMutation()
+  const router = useRouter()
+  const pathname = usePathname()
 
   const login = async (email: string, password: string): Promise<boolean> => {
     try {
@@ -44,14 +47,15 @@ export const AuthProvider = (props: IProps): JSX.Element => {
   const logout = () => {
     setIsAuthenticated(false)
     Cookies.remove("token")
+    router.push("/")
   }
 
   useEffect(() => {
     const token = Cookies.get("token")
-    if (token) {
-      setIsAuthenticated(true)
-    }
-  }, [])
+    setIsAuthenticated(Boolean(token))
+
+    if (token && pathname.includes("login")) router.push("/admin/dashboard")
+  }, [router])
 
   return (
     <AuthContext.Provider

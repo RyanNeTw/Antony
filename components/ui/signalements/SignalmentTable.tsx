@@ -5,6 +5,7 @@ import Link from "next/link"
 import IsDeletedButton from "./IsDeletedButton"
 import { useSearchParams } from "next/navigation"
 import { useGetReportsAiQuery } from "@/redux/reportsAi"
+import { useAuth } from "@/app/AuthContext"
 
 const AddQueryToUrl = (
   filter: string | null
@@ -22,11 +23,8 @@ const AddQueryToUrl = (
   }
 }
 
-const SignalementTable = ({
-  isAuthenticated = false,
-}: {
-  isAuthenticated?: boolean
-}) => {
+const SignalementTable = () => {
+  const { isAuthenticated } = useAuth()
   const searchParams = useSearchParams()
   const filter = searchParams.get("filter")
   const { data, isLoading, isError } = useGetReportsAiQuery(
@@ -40,7 +38,7 @@ const SignalementTable = ({
 
   return (
     <>
-      <table className="min-w-full mx-2">
+      <table className="w-full mx-2">
         <tbody className="flex flex-col gap-2">
           {signalments.map((signalement, index) => {
             const reportLink = isAuthenticated
