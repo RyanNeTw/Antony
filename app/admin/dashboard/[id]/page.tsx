@@ -3,7 +3,6 @@ import Breadcrumb from "@/components/Breadcrumb"
 import Footer from "@/components/Footer"
 import Header from "@/components/Header"
 import Signalement from "@/components/ui/signalements/Signalement"
-import Signalements from "@/components/ui/signalements/Signalements"
 import { Suspense } from "react"
 import { useParams } from "next/navigation"
 import { useGetReportAiQuery } from "@/redux/reportsAi"
@@ -48,7 +47,6 @@ const SignalementsTable = () => {
             }
           />
           <div className="flex">
-            <Signalements url="/admin/dashboard" />
             <Signalement
               id={id}
               isError={isError}

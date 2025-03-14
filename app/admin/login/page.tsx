@@ -44,7 +44,7 @@ const Page = () => {
       <Suspense fallback={<div>Chargement...</div>}>
         {showToast && (
           <Toast
-            message="tt"
+            message="Connecter"
             type={ToastType.SUCCESS}
             onClose={() => setShowToast(false)}
           />

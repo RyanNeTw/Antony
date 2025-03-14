@@ -11,7 +11,7 @@ const SubmitButton = ({ text, addStyle, type = TypeComponent.OK }: IProps) => {
     <>
       <button
         type="submit"
-        className={`text-white ${type} py-4 px-6 self-end ${addStyle}`}
+        className={`text-white ${type} py-4 px-6 self-end hover:opacity-80 ${addStyle}`}
       >
         {text}
       </button>
