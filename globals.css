@@ -22,7 +22,7 @@ body {
 
 /* global.css */
 .title {
-  @apply text-4xl mb-10 tracking-wider font-extralight;
+  @apply text-4xl tracking-wider font-extralight;
 }
 
 .subtitle {

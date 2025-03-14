@@ -30,22 +30,24 @@ const Breadcrumb = ({ replaceLastElement }: IProps) => {
 
   return (
     <ul className="flex flex-row items-center gap-1 py-4">
-      {paths?.map((path: string, index) => (
-        <li key={index}>
-          <Link href={getLink(index)}>
-            {replaceLastElement && index === paths?.length - 1 ? (
-              <div className="flex flex-row items-center hover:underline">
-                {replaceLastElement}
-              </div>
-            ) : (
-              <Paragraph
-                text={"> " + getCleanPath(path)}
-                addStyle={`${index === paths?.length - 1 && "font-bold"} capitalize hover:underline`}
-              />
-            )}
-          </Link>
-        </li>
-      ))}
+      {paths?.map((path: string, index) => {
+        return (
+          <li key={index}>
+            <Link href={getLink(index)}>
+              {replaceLastElement && index === paths?.length - 1 ? (
+                <div className="flex flex-row items-center hover:underline">
+                  {replaceLastElement}
+                </div>
+              ) : (
+                <Paragraph
+                  text={"> " + getCleanPath(path)}
+                  addStyle={`${index === paths?.length - 1 && "font-bold"} capitalize hover:underline`}
+                />
+              )}
+            </Link>
+          </li>
+        )
+      })}
     </ul>
   )
 }

@@ -17,13 +17,15 @@ export const middleware = async (request: NextRequest) => {
       : null
 
   const verifyToken = await verifyJwtToken(token)
-  if (!verifyToken)
+
+  if (!verifyToken) {
     return NextResponse.json(
       {
         message: `You're not allowed, insert your token in Authorization headers`,
       },
       { status: 403 }
     )
+  }
 
   return response
 }
