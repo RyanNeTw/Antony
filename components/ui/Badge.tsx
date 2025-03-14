@@ -11,7 +11,7 @@ export const getBadgeUi = (status: string): { s: string; bgColor: string } => {
   if (status === ReportStatus.MID)
     return { s: "Récurrent", bgColor: "bg-purple" }
 
-  return { s: "•", bgColor: "bg-greenForm" }
+  return { s: "Faible", bgColor: "bg-greenForm" }
 }
 
 const Badge = ({ status }: IProps) => {

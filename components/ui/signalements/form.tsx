@@ -3,7 +3,6 @@
 import Toast from "@/components/Toast"
 import Paragraph from "@/components/typography/Paragraph"
 import Title from "@/components/typography/Title"
-import InputFile from "@/components/ui/InputFile"
 import Inputs from "@/components/ui/Inputs"
 import Radios from "@/components/ui/Radios"
 import SubmitButton from "@/components/ui/SubmitButton"
@@ -23,7 +22,6 @@ type Inputs = {
   street_2: string
   postcode: string
   region: string
-  files: string
 }
 
 const Form = () => {
@@ -44,7 +42,6 @@ const Form = () => {
     street_2: "",
     postcode: "92",
     region: "Antony",
-    files: "",
   }
 
   const { handleSubmit, control, reset } = useForm<Inputs>({
@@ -163,18 +160,6 @@ const Form = () => {
                 placeholder="Écrire votre signalement ici ..."
                 {...field}
                 addStyle="w-full"
-              />
-            )}
-          />
-          <Controller
-            name="files"
-            control={control}
-            render={({ field }) => (
-              <InputFile
-                label="Pièces jointes"
-                placeholder="Sélectionner"
-                addStyle="w-fit"
-                {...field}
               />
             )}
           />

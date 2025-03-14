@@ -17,7 +17,7 @@ const SignalementsTable = () => {
         <div className="mx-auto max-w-5xl">
           <Breadcrumb />
           <div className="flex flex-wrap">
-            <Signalements />
+            <Signalements url="" />
 
             <div className="w-9/12">
               <div>

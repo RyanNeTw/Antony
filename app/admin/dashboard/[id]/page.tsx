@@ -7,7 +7,6 @@ import Signalements from "@/components/ui/signalements/Signalements"
 import { Suspense } from "react"
 import { useParams } from "next/navigation"
 import { useGetReportAiQuery } from "@/redux/reportsAi"
-import ReportsTable from "@/components/ui/ReportsTable"
 import { ReportAi } from "@/types"
 import Paragraph from "@/components/typography/Paragraph"
 import { getBadgeUi } from "@/components/ui/Badge"
@@ -37,7 +36,7 @@ const SignalementsTable = () => {
   const { id } = useParams<{ id: string }>()
   const { data, isLoading, isError } = useGetReportAiQuery({ id })
   const signalement = data?.data
-
+  console.log({ signalement })
   return (
     <Suspense fallback={<div>Chargement...</div>}>
       <div>
@@ -49,7 +48,7 @@ const SignalementsTable = () => {
             }
           />
           <div className="flex">
-            <Signalements />
+            <Signalements url="/admin/dashboard" />
             <Signalement
               id={id}
               isError={isError}
@@ -57,12 +56,6 @@ const SignalementsTable = () => {
               signalment={signalement ?? null}
             />
           </div>
-          {signalement && (
-            <ReportsTable
-              reports={signalement.reports}
-              users={signalement.users}
-            />
-          )}
         </div>
         <Footer />
       </div>

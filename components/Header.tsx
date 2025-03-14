@@ -67,7 +67,7 @@ const Header = () => {
   return (
     <header className="bg-white shadow">
       <div className="flex items-center justify-between py-2">
-        <div className="absolute left-[22%] top-0 z-50">
+        <div className="absolute left-[18%] top-0 z-50">
           <Image
             src="/logo-banner.png"
             alt="Logo Ville Antony"
@@ -89,7 +89,7 @@ const Header = () => {
               ) : (
                 <Link
                   href="/admin/login"
-                  className="relative hover:text-sky-500 text-xs font-normal px-4 py-2"
+                  className="relative bg-green text-white hover:text-sky-500 text-xs font-normal px-4 py-2"
                 >
                   Connexion
                 </Link>
@@ -124,7 +124,7 @@ const Header = () => {
           <div className="flex items-center align-middle">
             <nav className="flex justify-center h-20 align-bottom font-extrabold">
               <Link
-                href="/"
+                href={`${isAuthenticated ? "/admin/dashboard" : "/"}`}
                 className="flex items-center justify-center px-4 py-2 text-gray-700 hover:text-white bg-white font-medium border-t-4 border-[#242B52]"
               >
                 <div className="flex items-center justify-center z-20">
