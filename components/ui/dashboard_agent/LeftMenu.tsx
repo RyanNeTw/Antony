@@ -26,7 +26,7 @@ const LeftMenu = ({ title, links }: IProps) => {
         {links.map((l, index) => (
           <li key={index}>
             <Link
-              className="flex flex-row gap-1 items-center cursor-pointer"
+              className="flex flex-row gap-1 items-center cursor-pointer hover:underline"
               href={l.link}
             >
               <div
@@ -39,7 +39,7 @@ const LeftMenu = ({ title, links }: IProps) => {
             </Link>
             {l?.links?.map((link, index) => (
               <Link
-                className="flex flex-row gap-1 items-center cursor-pointer pl-2"
+                className="flex flex-row gap-1 items-center cursor-pointer pl-2 hover:underline"
                 href={link.link}
                 key={index}
               >

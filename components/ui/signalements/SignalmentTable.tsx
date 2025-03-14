@@ -50,7 +50,7 @@ const SignalementTable = () => {
                 key={index}
                 className={`flex flex-wrap md:flex-nowrap justify-between gap-4`}
               >
-                <td className="flex-1">
+                <td className="flex-1 hover:opacity-80">
                   <Link href={reportLink}>
                     <Badge status={signalement.status} />
                   </Link>

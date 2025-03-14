@@ -16,10 +16,6 @@ const Signalements = ({ url }: { url: string }) => {
           ],
         },
         {
-          title: "Status",
-          link: `${url}?filter=Status`,
-        },
-        {
           title: "Supprimés",
           link: `${url}?filter=Supprimés`,
         },
