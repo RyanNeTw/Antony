@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.5.1",
+    "@sentry/nextjs": "^10.39.0",
     "@supabase/supabase-js": "^2.46.2",
     "@types/js-cookie": "^3.0.6",
     "dayjs": "^1.11.13",

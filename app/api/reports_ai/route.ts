@@ -43,6 +43,8 @@ export async function GET(request: NextRequest) {
 
   const { data, error } = await query
 
+  console.log("data", data)
+
   if (error) return NextResponse.json({ status: 500, error })
 
   return NextResponse.json({
