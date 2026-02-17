@@ -60,10 +60,18 @@ export async function GET(request: NextRequest) {
     return NextResponse.json({ error: "Invalid page number" }, { status: 400 })
 
   if (nbr <= 0 || nbr > 100)
-    return NextResponse.json({ error: "Invalid number of items per page" }, { status: 400 })
+    return NextResponse.json(
+      { error: "Invalid number of items per page" },
+      { status: 400 }
+    )
 
-
-  const { data, error } = await getReportsAI({ page, nbr, status, is_deleted, is_read })
+  const { data, error } = await getReportsAI({
+    page,
+    nbr,
+    status,
+    is_deleted,
+    is_read,
+  })
 
   if (error) return NextResponse.json({ status: 500, error })
 
