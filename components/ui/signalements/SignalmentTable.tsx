@@ -1,3 +1,5 @@
+"use client"
+
 import { SignalmentsFilter } from "../../../types"
 import Badge from "../Badge"
 import Loading from "../Loading"
@@ -40,7 +42,7 @@ const SignalementTable = () => {
     <>
       <table className="w-full mx-2">
         <tbody className="flex flex-col gap-2">
-          {signalments.map((signalement, index) => {
+          {signalments?.map((signalement, index) => {
             const reportLink = isAuthenticated
               ? `/admin/dashboard/${signalement.id}`
               : `/dashboard/${signalement.id}`
@@ -59,12 +61,12 @@ const SignalementTable = () => {
                   {signalement.title}
                 </td>
                 <td className={`${tdStyle} bg-[#F2F2F2] text-gray-800`}>
-                  {signalement.reports[0]?.street}
+                  {signalement.reports?.street}
                 </td>
                 <td className={`${tdStyle} bg-[#F2F2F2] text-pink-600`}>
-                  {signalement.users[0]?.firstname +
+                  {signalement.users?.firstname +
                     " " +
-                    signalement.users[0]?.lastname}
+                    signalement.users?.lastname}
                 </td>
                 {isAuthenticated && (
                   <td className="flex-1">

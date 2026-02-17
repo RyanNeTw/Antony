@@ -33,13 +33,13 @@ const Signalement = ({ isError, isLoading, signalment, id }: IProps) => {
   if (isLoading) return <Loading />
   if (isError || !signalment) return <p>Erreur</p>
 
-  const report = signalment.reports[0]
+  const report = signalment.reports
   const address = `${report?.street_number} ${report?.street}, 92160 Antony`
 
   return (
     <div className="w-full m-2">
       <Title
-        text={`Signalement ${getBadgeUi(signalment.status).s} de ${signalment.users[0]?.firstname} ${signalment.users[0]?.lastname}`}
+        text={`Signalement ${getBadgeUi(signalment.status).s} de ${signalment.users?.firstname} ${signalment.users?.lastname}`}
       />
       <div className="flex flex-col gap-2">
         <Paragraph
@@ -57,7 +57,7 @@ const Signalement = ({ isError, isLoading, signalment, id }: IProps) => {
         <div className="flex flex-row gap-2">
           <Inputs
             readonly
-            placeholder={`${signalment.users[0]?.firstname} ${signalment.users[0]?.lastname}`}
+            placeholder={`${signalment.users?.firstname} ${signalment.users?.lastname}`}
             addStyle="w-2/5"
           />
           <Inputs readonly placeholder={signalment.title} addStyle="w-3/5" />

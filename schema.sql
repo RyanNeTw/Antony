@@ -30,8 +30,6 @@ create table reports (
     street_1 text,
     street_2 text,
     report text not null,
-    user_id uuid references users (id) on delete cascade not null,
-    report_ai_id uuid references reports_ai (id) on delete cascade not null,
     date date not null (now())
 )
 
@@ -45,7 +43,9 @@ create table reports_ai (
     status report_ai_status not null,
     is_deleted boolean default false not null,
     is_read boolean default false not null,
-    count numeric default 1 not null
+    count numeric default 1 not null,
+    user_id uuid references users (id) on delete cascade not null,
+    report_ai_id uuid references reports_ai (id) on delete cascade not null,
 )
 
 /* Create Agents Table */
