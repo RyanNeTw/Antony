@@ -120,8 +120,8 @@ export const ReportAiZod = BasicZod.merge(
     is_deleted: z.boolean().default(false),
     is_read: z.boolean().default(false),
     count: z.number(),
-    reports: ReportsZod,
-    users: z.array(UserZod),
+    reports: ReportZod,
+    users: UserZod,
   })
 )
 export type ReportAi = z.infer<typeof ReportAiZod>

@@ -24,7 +24,7 @@ const BreadcrumbLastElement = ({
       />
       <Paragraph text={`-${signalment?.title}-`} addStyle="font-bold" />
       <Paragraph
-        text={`${signalment?.users[0]?.firstname} ${signalment?.users[0]?.lastname}`}
+        text={`${signalment?.users?.firstname} ${signalment?.users?.lastname}`}
         addStyle="text-purple font-bold"
       />
     </div>
@@ -33,8 +33,7 @@ const BreadcrumbLastElement = ({
 
 const SignalementsTable = () => {
   const { id } = useParams<{ id: string }>()
-  const { data, isLoading, isError } = useGetReportAiQuery({ id })
-  const signalement = data?.data
+  const { data: signalement, isLoading, isError } = useGetReportAiQuery({ id })
 
   return (
     <Suspense fallback={<div>Chargement...</div>}>
@@ -43,7 +42,7 @@ const SignalementsTable = () => {
         <div className="mx-auto max-w-5xl">
           <Breadcrumb
             replaceLastElement={
-              <BreadcrumbLastElement signalment={signalement ?? null} />
+              <BreadcrumbLastElement signalment={signalement?.data ?? null} />
             }
           />
           <div className="flex">
@@ -51,7 +50,7 @@ const SignalementsTable = () => {
               id={id}
               isError={isError}
               isLoading={isLoading}
-              signalment={signalement ?? null}
+              signalment={signalement?.data ?? null}
             />
           </div>
         </div>
