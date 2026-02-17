@@ -24,7 +24,7 @@ const BreadcrumbLastElement = ({
       />
       <Paragraph text={`-${signalment?.title}-`} addStyle="font-bold" />
       <Paragraph
-        text={`${signalment?.users[0]?.firstname} ${signalment?.users[0]?.lastname}`}
+        text={`${signalment?.users?.firstname} ${signalment?.users?.lastname}`}
         addStyle="text-purple font-bold"
       />
     </div>
