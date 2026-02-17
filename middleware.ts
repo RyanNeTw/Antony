@@ -6,7 +6,8 @@ export const middleware = async (request: NextRequest) => {
   const response = NextResponse.next()
   if (
     request.nextUrl.pathname.includes("login") ||
-    request.nextUrl.pathname.includes("reports")
+    request.nextUrl.pathname.includes("reports") ||
+    request.nextUrl.pathname.includes("sentry")
   )
     return response
 
