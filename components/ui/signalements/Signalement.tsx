@@ -25,8 +25,10 @@ const Signalement = ({ isError, isLoading, signalment, id }: IProps) => {
   useEffect(() => {
     if (!isLoading && !isError && signalment) {
       const query: { id: string; is_read?: boolean } = { id }
-      if (isAuthenticated) query.is_read = true
-      deleteReportAi(query).unwrap()
+      if (isAuthenticated) {
+        query.is_read = true
+        deleteReportAi(query).unwrap()
+      }
     }
   }, [isLoading, isError, signalment, id, deleteReportAi])
 
