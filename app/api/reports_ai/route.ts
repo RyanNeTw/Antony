@@ -2,6 +2,8 @@ import supabase from "@/supabase"
 import { NextRequest, NextResponse } from "next/server"
 import { unstable_cache } from "next/cache"
 
+const timeCache = 60
+
 const getReportsAI = unstable_cache(
   async ({
     page,
@@ -36,8 +38,7 @@ const getReportsAI = unstable_cache(
   },
   ["reports-ai"],
   {
-    revalidate: 60,
-    tags: ["reports-ai"],
+    revalidate: timeCache,
   }
 )
 
@@ -76,14 +77,22 @@ export async function GET(request: NextRequest) {
   if (error) return NextResponse.json({ status: 500, error })
 
   const limit = Math.min(nbr, 100)
-
-  return NextResponse.json({
-    status: 200,
-    data,
-    pagination: {
-      currentPage: page,
-      itemsPerPage: limit,
-      totalItems: data?.length ?? 0,
+  return NextResponse.json(
+    {
+      status: 200,
+      data,
+      pagination: {
+        currentPage: page,
+        itemsPerPage: limit,
+        totalItems: data?.length ?? 0,
+      },
     },
-  })
+    {
+      headers: {
+        "Cache-Control": "max-age=10",
+        "CDN-Cache-Control": "max-age=60",
+        "Vercel-CDN-Cache-Control": `max-age=${timeCache}`,
+      },
+    }
+  )
 }
