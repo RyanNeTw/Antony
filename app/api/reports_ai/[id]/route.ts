@@ -74,7 +74,6 @@ const updateReportAI = unstable_cache(
   )
 }*/
 
-
 export async function GET(
   request: NextRequest,
   { params }: { params: Promise<{ id: string }> }
@@ -97,7 +96,7 @@ export async function GET(
     {
       headers: {
         "Cache-Control": "private, no-cache, no-store, must-revalidate",
-        "Pragma": "no-cache",
+        Pragma: "no-cache",
         "X-Cache-Status": "MISS", // Toujours MISS pour données privées
       },
     }
