@@ -45,7 +45,7 @@ const updateReportAI = unstable_cache(
   ["update-report-ai"]
 )
 
-export async function GET(
+/*export async function GET(
   request: NextRequest,
   { params }: { params: Promise<{ id: string }> }
 ) {
@@ -69,6 +69,35 @@ export async function GET(
         "Cache-Control": "max-age=10",
         "CDN-Cache-Control": "max-age=60",
         "Vercel-CDN-Cache-Control": `max-age=${timeCache}`,
+      },
+    }
+  )
+}*/
+
+export async function GET(
+  request: NextRequest,
+  { params }: { params: Promise<{ id: string }> }
+) {
+  const id = (await params).id
+
+  const { data, error } = await getReportAI({ id })
+
+  if (error)
+    return NextResponse.json({
+      status: 500,
+      error,
+    })
+
+  return NextResponse.json(
+    {
+      status: 200,
+      data,
+    },
+    {
+      headers: {
+        "Cache-Control": "private, no-cache, no-store, must-revalidate",
+        Pragma: "no-cache",
+        "X-Cache-Status": "MISS", // Toujours MISS pour données privées
       },
     }
   )

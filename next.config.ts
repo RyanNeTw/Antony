@@ -7,11 +7,21 @@ const nextConfig: NextConfig = {
   experimental: {
     scrollRestoration: true,
   },
+  webpack: (config, { isServer }) => {
+    if (isServer) {
+      config.externals = config.externals || []
+      config.externals.push({
+        "@datadog/pprof": "commonjs @datadog/pprof",
+        "@pyroscope/nodejs": "commonjs @pyroscope/nodejs",
+      })
+    }
+    return config
+  },
 }
 
 module.exports = nextConfig
 
-export default withSentryConfig(undefined, {
+export default withSentryConfig(nextConfig, {
   // For all available options, see:
   // https://www.npmjs.com/package/@sentry/webpack-plugin#options
 
