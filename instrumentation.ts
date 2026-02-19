@@ -12,6 +12,10 @@ export async function register() {
       tags: {
         env: process.env.NODE_ENV || "production",
       },
+      wall:{
+        collectCpuTime:true,
+      },
+      flushIntervalMs: 10000, 
     })
     start()
   }
