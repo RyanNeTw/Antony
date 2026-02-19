@@ -8,7 +8,9 @@ export async function register() {
     init({
       serverAddress: process.env.PYROSCOPE_SERVER_ADDRESS || "",
       appName: "antony-nextjs",
-      authToken: process.env.PYROSCOPE_AUTH_TOKEN,
+      basicAuthUser: process.env.PYROSCOPE_BASIC_AUTH_USER,
+      basicAuthPassword: process.env.PYROSCOPE_BASIC_AUTH_PASSWORD,
+
       tags: {
         env: process.env.NODE_ENV || "production",
       },
