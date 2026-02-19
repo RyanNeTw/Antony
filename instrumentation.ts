@@ -17,7 +17,7 @@ export async function register() {
       wall: {
         collectCpuTime: true,
       },
-      flushIntervalMs: 10000,
+      flushIntervalMs: 200,
     })
     start()
   }
