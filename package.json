@@ -11,6 +11,7 @@
     "prettier:check": "npx prettier . --check"
   },
   "dependencies": {
+    "@pyroscope/nodejs": "^0.4.10",
     "@reduxjs/toolkit": "^2.5.1",
     "@sentry/nextjs": "^10.39.0",
     "@supabase/supabase-js": "^2.46.2",
@@ -26,8 +27,8 @@
     "zod": "^3.24.1"
   },
   "devDependencies": {
-    "@types/node": "^20.17.16",
     "@types/js-cookie": "^3.0.6",
+    "@types/node": "^20.17.16",
     "@types/react": "^18.3.18",
     "@types/react-dom": "^18",
     "@types/react-redux": "^7.1.34",
