@@ -21,9 +21,12 @@ const getReportsAI = unstable_cache(
     const limit = Math.min(nbr, 100)
     const offset = (page - 1) * limit
 
+    // Sélection ciblée : évite de charger report (texte long), réduit CPU + payload
     let query = supabase
       .from("reports_ai")
-      .select("*, reports(*), users(*)")
+      .select(
+        "id, title, status, is_deleted, is_read, count, created_at, updated_at, reports(street), users(firstname, lastname)"
+      )
       .range(offset, offset + limit - 1)
       .order("updated_at", { ascending: false })
       .order("count", { ascending: false })
@@ -39,6 +42,7 @@ const getReportsAI = unstable_cache(
   ["reports-ai"],
   {
     revalidate: timeCache,
+    tags: ["reports-ai"],
   }
 )
 
