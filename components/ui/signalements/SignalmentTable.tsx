@@ -61,7 +61,9 @@ const SignalementTable = () => {
                   {signalement.title}
                 </td>
                 <td className={`${tdStyle} bg-[#F2F2F2] text-gray-800`}>
-                  {signalement.reports?.street}
+                  {Array.isArray(signalement.reports)
+                    ? signalement.reports?.[0]?.street
+                    : signalement.reports?.street}
                 </td>
                 <td className={`${tdStyle} bg-[#F2F2F2] text-pink-600`}>
                   {signalement.users?.firstname +
